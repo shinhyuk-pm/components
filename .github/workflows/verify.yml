@@ -1,0 +1,34 @@
+name: verify
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+
+      - name: 의존성 설치
+        run: npm install --no-audit --no-fund
+
+      - name: 검사 규칙 자체 테스트
+        run: npm run guard:selftest
+
+      - name: 하드코딩된 디자인 값 차단
+        run: npm run guard
+
+      - name: 코드 스타일
+        run: npm run lint
+
+      - name: 타입 검사
+        run: npm run typecheck
+
+      - name: 빌드
+        run: npm run build
