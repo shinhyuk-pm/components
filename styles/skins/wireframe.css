@@ -1,0 +1,30 @@
+/*
+ * 스킨 — 와이어프레임
+ *
+ * 스킨은 값의 집합이다. 선택자 하나와 변수 선언만 있고 구조 지식은 없다.
+ * 의도적으로 못생기게 만든다. 80% 완성된 디자인처럼 보이면
+ * 검토 회의에서 구조 대신 색 이야기가 나온다.
+ *
+ * Phase 1에서 이 파일은 스킨 표(JSON)로부터 생성된다. Phase 0에서는 손으로 적는다.
+ */
+
+[data-skin="wireframe"] {
+  --t2-surface: var(--gray-100);
+  --t2-raised: var(--gray-0);
+  --t2-border: var(--gray-400);
+  --t2-text: var(--gray-900);
+  --t2-muted: var(--gray-500);
+  --t2-brand: var(--gray-600);
+  --t2-brand-fg: var(--gray-0);
+  --t2-tint: var(--gray-200);
+
+  --t3-scale: 1;
+  --t3-border-width: 1.5px;
+  --t3-border-style: dashed;
+  --t3-button-radius: 2px;
+  --t3-card-radius: 2px;
+  --t3-input-radius: 2px;
+  --t3-badge-radius: 2px;
+  --t3-card-shadow: none;
+  --t3-button-shadow: none;
+}
