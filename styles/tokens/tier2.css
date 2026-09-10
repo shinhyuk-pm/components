@@ -1,0 +1,19 @@
+/*
+ * Tier 2 — 의미 토큰
+ *
+ * 컴포넌트가 읽는 계층. 이름은 역할이지 색이 아니다.
+ * 스킨은 이 계층의 값을 바꿔치기한다.
+ *
+ * Phase 0 범위: 최소 역할 집합. 역할 색(성공/경고/오류)과 밀도 축은 Phase 1.
+ */
+
+:root {
+  --t2-surface: var(--gray-50);
+  --t2-raised: var(--gray-0);
+  --t2-border: var(--gray-200);
+  --t2-text: var(--gray-900);
+  --t2-muted: var(--gray-600);
+  --t2-brand: var(--gray-700);
+  --t2-brand-fg: var(--gray-0);
+  --t2-tint: var(--gray-100);
+}
