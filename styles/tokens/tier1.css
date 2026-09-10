@@ -1,0 +1,24 @@
+/*
+ * Tier 1 — 원시 토큰
+ *
+ * 리터럴 값이 존재하는 유일한 계층. 여기 외에는 hex나 oklch가 등장하지 않는다.
+ * 컴포넌트는 이 계층을 직접 읽지 않는다. Tier 2를 경유한다.
+ *
+ * Phase 0 범위: 회색 램프와 간격 단위만. 브랜드 색조 램프와 생성 함수는 Phase 1.
+ */
+
+:root {
+  --gray-0: oklch(1 0 0);
+  --gray-50: oklch(0.98 0 0);
+  --gray-100: oklch(0.95 0 0);
+  --gray-200: oklch(0.89 0 0);
+  --gray-300: oklch(0.81 0 0);
+  --gray-400: oklch(0.7 0 0);
+  --gray-500: oklch(0.58 0 0);
+  --gray-600: oklch(0.48 0 0);
+  --gray-700: oklch(0.38 0 0);
+  --gray-800: oklch(0.28 0 0);
+  --gray-900: oklch(0.18 0 0);
+
+  --space-unit: 4px;
+}

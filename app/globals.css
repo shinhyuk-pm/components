@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@import "../styles/tokens/tier1.css";
+@import "../styles/tokens/tier2.css";
+@import "../styles/tokens/tier3.css";
+@import "../styles/skins/wireframe.css";
+
+body {
+  background: var(--t2-surface);
+  color: var(--t2-text);
+}
