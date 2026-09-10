@@ -1,0 +1,36 @@
+{
+  "name": "components",
+  "version": "0.0.0",
+  "private": true,
+  "description": "기획 에이전트용 UI 컴포넌트 라이브러리 — 하나의 구조에 여러 스킨을 입힌다",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "guard": "node scripts/token-guard.mjs",
+    "guard:selftest": "node scripts/token-guard.mjs --selftest",
+    "lint": "biome check .",
+    "format": "biome check --write .",
+    "typecheck": "tsc --noEmit",
+    "verify": "npm run guard:selftest && npm run guard && npm run lint && npm run typecheck && npm run build"
+  },
+  "dependencies": {
+    "@base-ui-components/react": "^1.0.0-rc.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^1.43.0",
+    "next": "^16.3.4",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "tailwind-merge": "^3.6.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.5.12",
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^22.20.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^7.0.2"
+  }
+}
