@@ -1,0 +1,69 @@
+/*
+ * 레이아웃 프리셋 — 통계 카드
+ *
+ * 계약은 고정이다. 라벨 1개, 값 1개, 증감 1개, 아이콘 1개.
+ * 배치만 갈아끼운다. 컴포넌트 코드에는 배치 지식이 없다.
+ *
+ * 새 배치가 필요하면 여기에 선택자를 하나 추가한다.
+ * 컴포넌트를 고치지 않으므로 기존 화면에 영향이 없다.
+ */
+
+/* 기본 — 아이콘, 라벨, 값, 증감이 세로로 쌓인다 */
+[data-slot="stat-card"][data-layout="stacked"] {
+  display: flex;
+  flex-direction: column;
+  gap: var(--t3-pad-1);
+}
+
+/* 아이콘 왼쪽 — 아이콘이 왼쪽 열을 차지하고 나머지가 오른쪽에 쌓인다 */
+[data-slot="stat-card"][data-layout="icon-left"] {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas:
+    "icon label"
+    "icon value"
+    "icon delta";
+  column-gap: var(--t3-pad-3);
+  align-items: center;
+}
+
+[data-slot="stat-card"][data-layout="icon-left"] [data-slot="stat-card-icon"] {
+  grid-area: icon;
+}
+
+[data-slot="stat-card"][data-layout="icon-left"] [data-slot="stat-card-label"] {
+  grid-area: label;
+}
+
+[data-slot="stat-card"][data-layout="icon-left"] [data-slot="stat-card-value"] {
+  grid-area: value;
+}
+
+[data-slot="stat-card"][data-layout="icon-left"] [data-slot="stat-card-delta"] {
+  grid-area: delta;
+}
+
+/* 가로 배치 — 라벨과 값이 양 끝으로 갈라진다 */
+[data-slot="stat-card"][data-layout="horizontal"] {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--t3-pad-3);
+}
+
+[data-slot="stat-card"][data-layout="horizontal"] [data-slot="stat-card-label"] {
+  order: 2;
+  flex: 1;
+}
+
+[data-slot="stat-card"][data-layout="horizontal"] [data-slot="stat-card-icon"] {
+  order: 1;
+}
+
+[data-slot="stat-card"][data-layout="horizontal"] [data-slot="stat-card-value"] {
+  order: 3;
+}
+
+[data-slot="stat-card"][data-layout="horizontal"] [data-slot="stat-card-delta"] {
+  order: 4;
+}
