@@ -29,15 +29,47 @@ export type HeaderSpec = {
   actions?: ActionSpec[];
 };
 
+export type StatSpec = { label: string; value: string; delta?: string };
+
+export type TableSpec = {
+  columns: string[];
+  /** 직접 적은 내용. 없으면 sampleRows 만큼 가짜 데이터가 생성된다. */
+  rows?: string[][];
+  /** 생성할 줄 수. 명세를 짧게 유지하려고 쓴다. */
+  sampleRows?: number;
+};
+
 export type ListPageSpec = {
   archetype: "list";
   header: HeaderSpec;
-  stats?: { label: string; value: string; delta?: string }[];
+  stats?: StatSpec[];
   filters?: FieldSpec[];
-  table: {
-    columns: string[];
-    rows: string[][];
-  };
+  table: TableSpec;
+};
+
+export type DashboardPageSpec = {
+  archetype: "dashboard";
+  header: HeaderSpec;
+  stats: StatSpec[];
+  panels?: { title: string; description?: string; items?: { label: string; value: string }[] }[];
+  table?: TableSpec;
+};
+
+export type SettingsPageSpec = {
+  archetype: "settings";
+  header: HeaderSpec;
+  groups: {
+    title: string;
+    description?: string;
+    options: { label: string; description?: string; enabled?: boolean }[];
+  }[];
+};
+
+export type WizardPageSpec = {
+  archetype: "wizard";
+  header: HeaderSpec;
+  steps: { title: string; description?: string; fields: FieldSpec[] }[];
+  submit: ActionSpec;
 };
 
 export type DetailPageSpec = {
@@ -56,9 +88,37 @@ export type FormPageSpec = {
   cancel?: ActionSpec;
 };
 
-export type ScreenSpec = ListPageSpec | DetailPageSpec | FormPageSpec;
+/**
+ * 원형에 맞지 않는 화면.
+ *
+ * AI가 억지로 맞추는 대신 이 형태로 답한다. 잘못 맞춘 화면은 빈 화면보다 나쁘다.
+ * 사람이 이 화면을 만들고 나면 새 원형이나 새 프리젠테이션으로 등록한다.
+ */
+export type HandoffSpec = {
+  archetype: "handoff";
+  header: HeaderSpec;
+  reason: string;
+  suggestion?: string;
+};
 
-export const ARCHETYPES = ["list", "detail", "form"] as const;
+export type ScreenSpec =
+  | ListPageSpec
+  | DetailPageSpec
+  | FormPageSpec
+  | DashboardPageSpec
+  | SettingsPageSpec
+  | WizardPageSpec
+  | HandoffSpec;
+
+export const ARCHETYPES = [
+  "list",
+  "detail",
+  "form",
+  "dashboard",
+  "settings",
+  "wizard",
+  "handoff",
+] as const;
 export const FIELD_KINDS = ["text", "select", "textarea"] as const;
 
 function isRecord(value: unknown): value is Record<string, unknown> {
@@ -111,6 +171,37 @@ function checkFields(value: unknown, path: string, errors: string[]) {
   });
 }
 
+function checkTable(value: unknown, path: string, errors: string[]) {
+  if (!isRecord(value)) {
+    errors.push(`${path} 이 객체가 아닙니다.`);
+    return;
+  }
+  const columns = value.columns;
+  if (!Array.isArray(columns) || columns.length === 0) {
+    errors.push(`${path}.columns 는 최소 1개가 필요합니다.`);
+    return;
+  }
+  if (value.rows === undefined) {
+    if (value.sampleRows !== undefined && typeof value.sampleRows !== "number") {
+      errors.push(`${path}.sampleRows 는 숫자여야 합니다.`);
+    }
+    return;
+  }
+  if (!Array.isArray(value.rows)) {
+    errors.push(`${path}.rows 는 배열이어야 합니다.`);
+    return;
+  }
+  value.rows.forEach((row, i) => {
+    if (!Array.isArray(row)) {
+      errors.push(`${path}.rows[${i}] 가 배열이 아닙니다.`);
+    } else if (row.length !== columns.length) {
+      errors.push(
+        `${path}.rows[${i}] 의 칸 수(${row.length})가 columns 개수(${columns.length})와 다릅니다.`,
+      );
+    }
+  });
+}
+
 /**
  * 명세가 구조적으로 올바른지 검사한다.
  *
@@ -142,28 +233,51 @@ export function validateScreenSpec(input: unknown): {
   checkHeader(input.header, errors);
 
   if (archetype === "list") {
-    const table = input.table;
-    if (!isRecord(table)) {
-      errors.push("list 유형에는 table 이 필요합니다.");
-    } else {
-      if (!Array.isArray(table.columns) || table.columns.length === 0) {
-        errors.push("table.columns 는 최소 1개가 필요합니다.");
-      }
-      if (!Array.isArray(table.rows)) {
-        errors.push("table.rows 는 배열이어야 합니다.");
-      } else if (Array.isArray(table.columns)) {
-        table.rows.forEach((row, i) => {
-          if (!Array.isArray(row)) {
-            errors.push(`table.rows[${i}] 가 배열이 아닙니다.`);
-          } else if (row.length !== (table.columns as unknown[]).length) {
-            errors.push(
-              `table.rows[${i}] 의 칸 수(${row.length})가 columns 개수(${(table.columns as unknown[]).length})와 다릅니다.`,
-            );
-          }
-        });
-      }
-    }
+    if (input.table === undefined) errors.push("list 유형에는 table 이 필요합니다.");
+    else checkTable(input.table, "table", errors);
     if (input.filters !== undefined) checkFields(input.filters, "filters", errors);
+  }
+
+  if (archetype === "dashboard") {
+    if (!Array.isArray(input.stats) || input.stats.length === 0) {
+      errors.push("dashboard 유형에는 stats 가 최소 1개 필요합니다.");
+    }
+    if (input.table !== undefined) checkTable(input.table, "table", errors);
+  }
+
+  if (archetype === "settings") {
+    if (!Array.isArray(input.groups) || input.groups.length === 0) {
+      errors.push("settings 유형에는 groups 가 최소 1개 필요합니다.");
+    } else {
+      input.groups.forEach((g, i) => {
+        if (!isRecord(g)) {
+          errors.push(`groups[${i}] 가 객체가 아닙니다.`);
+          return;
+        }
+        if (typeof g.title !== "string") errors.push(`groups[${i}].title 이 없습니다.`);
+        if (!Array.isArray(g.options) || g.options.length === 0) {
+          errors.push(`groups[${i}].options 는 최소 1개가 필요합니다.`);
+        }
+      });
+    }
+  }
+
+  if (archetype === "wizard") {
+    if (!Array.isArray(input.steps) || input.steps.length === 0) {
+      errors.push("wizard 유형에는 steps 가 최소 1개 필요합니다.");
+    } else {
+      input.steps.forEach((s, i) => {
+        if (!isRecord(s)) {
+          errors.push(`steps[${i}] 가 객체가 아닙니다.`);
+          return;
+        }
+        if (typeof s.title !== "string") errors.push(`steps[${i}].title 이 없습니다.`);
+        checkFields(s.fields, `steps[${i}].fields`, errors);
+      });
+    }
+    if (!isRecord(input.submit) || typeof input.submit.label !== "string") {
+      errors.push("wizard 유형에는 submit.label 이 필요합니다.");
+    }
   }
 
   if (archetype === "form") {
@@ -181,6 +295,12 @@ export function validateScreenSpec(input: unknown): {
     }
     if (!isRecord(input.submit) || typeof input.submit.label !== "string") {
       errors.push("form 유형에는 submit.label 이 필요합니다.");
+    }
+  }
+
+  if (archetype === "handoff") {
+    if (typeof input.reason !== "string" || input.reason.trim() === "") {
+      errors.push("handoff 유형에는 reason 이 필요합니다. 왜 원형에 맞지 않는지 적어야 합니다.");
     }
   }
 

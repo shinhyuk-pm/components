@@ -42,8 +42,8 @@ archetype 은 다음 중 하나여야 한다: ${ARCHETYPES.join(" | ")}
 list 는 table 이 필수다:
 { "stats"?: [{"label","value","delta"?}],
   "filters"?: [{"label","kind","options"?,"placeholder"?}],
-  "table": { "columns": string[], "rows": string[][] } }
-rows 의 각 줄은 columns 와 칸 수가 정확히 같아야 한다.
+  "table": { "columns": string[], "rows"?: string[][], "sampleRows"?: number } }
+rows 를 직접 적으면 각 줄이 columns 와 칸 수가 정확히 같아야 한다.
 
 detail 은 summary, sections, faq 중 최소 하나가 필요하다:
 { "summary"?: [{"label","value"}],
@@ -54,6 +54,20 @@ form 은 groups 와 submit 이 필수다:
 { "groups": [{"title","description"?,"fields":[{"label","kind","required"?,"options"?,"placeholder"?}]}],
   "submit": {"label"}, "cancel"?: {"label"} }
 kind 가 select 이면 options 가 최소 1개 있어야 한다.
+
+dashboard 는 stats 가 필수다:
+{ "stats": [{"label","value","delta"?}],
+  "panels"?: [{"title","description"?,"items"?:[{"label","value"}]}],
+  "table"?: { "columns": string[], "sampleRows"?: number } }
+
+settings 는 groups 가 필수다:
+{ "groups": [{"title","description"?,"options":[{"label","description"?,"enabled"?}]}] }
+
+wizard 는 steps 와 submit 이 필수다:
+{ "steps": [{"title","description"?,"fields":[...]}], "submit": {"label"} }
+
+표 내용은 직접 적지 않아도 된다. rows 대신 sampleRows 에 줄 수만 적으면
+열 이름에 맞는 값이 자동 생성된다. 이름, 이메일, 날짜, 금액, 비율, 상태, 등급을 인식한다.
 
 ## 스킨 표
 
@@ -76,8 +90,13 @@ kind 가 select 이면 options 가 최소 1개 있어야 한다.
 
 ## 원형에 맞지 않을 때
 
-억지로 맞추지 말 것. 세 원형 중 어느 것도 적절하지 않으면
-그 사실을 명시하고 사람에게 넘긴다. 잘못 맞춘 화면은 빈 화면보다 나쁘다.
+억지로 맞추지 말 것. 어느 원형도 적절하지 않으면 handoff 로 답한다.
+잘못 맞춘 화면은 빈 화면보다 나쁘다.
+
+{ "archetype": "handoff",
+  "header": { "title": 화면 이름 },
+  "reason": 왜 기존 원형으로 표현할 수 없는지,
+  "suggestion"?: 사람이 어떻게 만들면 좋을지 }
 
 ## 컴포넌트
 
