@@ -1,5 +1,6 @@
 "use client";
 
+import { TrendingUp, Users, Wallet } from "lucide-react";
 import { useEffect, useState } from "react";
 import {
   Accordion,
@@ -26,6 +27,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { Field } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
@@ -35,11 +37,41 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import {
+  StatCard,
+  StatCardDelta,
+  StatCardIcon,
+  StatCardLabel,
+  StatCardValue,
+} from "@/components/ui/stat-card";
 
 const SKINS = [
   { id: "wireframe", label: "와이어프레임" },
   { id: "saas", label: "SaaS 브랜드" },
   { id: "bold", label: "극단 브랜드" },
+];
+
+const DENSITIES = [
+  { id: "compact", label: "촘촘하게" },
+  { id: "comfortable", label: "보통" },
+  { id: "airy", label: "넓게" },
+];
+
+const LAYOUTS = [
+  { id: "stacked", label: "세로 쌓기" },
+  { id: "icon-left", label: "아이콘 왼쪽" },
+  { id: "horizontal", label: "가로 배치" },
+] as const;
+
+const FIELD_LAYOUTS = [
+  { id: "stacked", label: "라벨 위" },
+  { id: "inline", label: "라벨 왼쪽" },
+] as const;
+
+const STATS = [
+  { icon: Users, label: "총 회원", value: "12,480", delta: "+4.2%" },
+  { icon: Wallet, label: "이번 달 매출", value: "₩4,280만", delta: "+12.4%" },
+  { icon: TrendingUp, label: "재방문율", value: "68.2%", delta: "+1.1%" },
 ];
 
 const GRADES = [
@@ -48,37 +80,87 @@ const GRADES = [
   { value: "regular", label: "일반" },
 ];
 
+function Switcher({
+  title,
+  options,
+  value,
+  onChange,
+}: {
+  title: string;
+  options: readonly { id: string; label: string }[];
+  value: string;
+  onChange: (id: string) => void;
+}) {
+  return (
+    <div className="flex flex-wrap items-center gap-(--t3-pad-2)">
+      <span className="w-20 shrink-0 text-(--t2-muted) text-xs">{title}</span>
+      {options.map((o) => (
+        <Button
+          key={o.id}
+          variant={value === o.id ? "primary" : "secondary"}
+          size="sm"
+          onClick={() => onChange(o.id)}
+        >
+          {o.label}
+        </Button>
+      ))}
+    </div>
+  );
+}
+
 export default function Home() {
   const [skin, setSkin] = useState("wireframe");
+  const [density, setDensity] = useState("comfortable");
+  const [statLayout, setStatLayout] = useState<(typeof LAYOUTS)[number]["id"]>("stacked");
+  const [fieldLayout, setFieldLayout] = useState<(typeof FIELD_LAYOUTS)[number]["id"]>("stacked");
   const [structure, setStructure] = useState(false);
 
   useEffect(() => {
     document.documentElement.dataset.skin = skin;
-  }, [skin]);
+    document.documentElement.dataset.density = density;
+  }, [skin, density]);
 
   return (
     <div className={structure ? "structure-view" : undefined}>
       <div className="mx-auto flex max-w-3xl flex-col gap-(--t3-pad-6) p-(--t3-pad-6)">
-        <header className="flex flex-wrap items-center gap-(--t3-pad-2)">
-          {SKINS.map((s) => (
-            <Button
-              key={s.id}
-              variant={skin === s.id ? "primary" : "secondary"}
-              size="sm"
-              onClick={() => setSkin(s.id)}
-            >
-              {s.label}
+        <section className="flex flex-col gap-(--t3-pad-2)">
+          <Switcher title="스킨" options={SKINS} value={skin} onChange={setSkin} />
+          <Switcher title="밀도" options={DENSITIES} value={density} onChange={setDensity} />
+          <Switcher
+            title="카드 배치"
+            options={LAYOUTS}
+            value={statLayout}
+            onChange={(id) => setStatLayout(id as typeof statLayout)}
+          />
+          <Switcher
+            title="필드 배치"
+            options={FIELD_LAYOUTS}
+            value={fieldLayout}
+            onChange={(id) => setFieldLayout(id as typeof fieldLayout)}
+          />
+          <div className="flex items-center gap-(--t3-pad-2)">
+            <span className="w-20 shrink-0 text-(--t2-muted) text-xs">확인</span>
+            <Button variant="ghost" size="sm" onClick={() => setStructure((v) => !v)}>
+              구조 보기 {structure ? "끄기" : "켜기"}
             </Button>
-          ))}
-          <Button
-            variant="ghost"
-            size="sm"
-            className="ml-auto"
-            onClick={() => setStructure((v) => !v)}
-          >
-            구조 보기 {structure ? "끄기" : "켜기"}
-          </Button>
-        </header>
+          </div>
+        </section>
+
+        <div className="grid gap-(--t3-pad-3) sm:grid-cols-3">
+          {STATS.map((s) => {
+            const Icon = s.icon;
+            return (
+              <StatCard key={s.label} layout={statLayout}>
+                <StatCardIcon>
+                  <Icon className="size-4" />
+                </StatCardIcon>
+                <StatCardLabel>{s.label}</StatCardLabel>
+                <StatCardValue>{s.value}</StatCardValue>
+                <StatCardDelta>{s.delta}</StatCardDelta>
+              </StatCard>
+            );
+          })}
+        </div>
 
         <Card>
           <CardHeader>
@@ -89,11 +171,11 @@ export default function Home() {
             <CardDescription>
               이메일과 등급으로 회원을 조회합니다. 결과는 최근 가입순으로 정렬됩니다.
             </CardDescription>
-            <div className="flex flex-col gap-(--t3-pad-2)">
+            <Field layout={fieldLayout}>
               <Label htmlFor="email">이메일</Label>
               <Input id="email" placeholder="name@company.com" />
-            </div>
-            <div className="flex flex-col gap-(--t3-pad-2)">
+            </Field>
+            <Field layout={fieldLayout}>
               <Label>등급</Label>
               <Select defaultValue="all" items={GRADES}>
                 <SelectTrigger>
@@ -107,7 +189,7 @@ export default function Home() {
                   ))}
                 </SelectContent>
               </Select>
-            </div>
+            </Field>
           </CardContent>
           <CardFooter>
             <Button>검색</Button>
@@ -146,13 +228,6 @@ export default function Home() {
             <AccordionContent>
               탈퇴 후 30일간 보관하며, 이후 개인정보는 완전 삭제되고 통계 데이터만 비식별 처리로
               남습니다.
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="q3">
-            <AccordionTrigger>등급별 혜택을 변경할 수 있나요</AccordionTrigger>
-            <AccordionContent>
-              설정에서 등급별 할인율과 적립률을 개별 지정할 수 있고, 변경 사항은 다음 산정 주기부터
-              적용됩니다.
             </AccordionContent>
           </AccordionItem>
         </Accordion>
