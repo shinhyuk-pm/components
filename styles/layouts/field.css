@@ -1,0 +1,19 @@
+/*
+ * 레이아웃 프리셋 — 입력 필드
+ *
+ * 계약은 고정이다. 라벨 1개, 입력 1개.
+ * 라벨이 위에 오든 왼쪽에 오든 화면 명세는 동일하다.
+ */
+
+[data-slot="field"][data-layout="stacked"] {
+  display: flex;
+  flex-direction: column;
+  gap: var(--t3-pad-2);
+}
+
+[data-slot="field"][data-layout="inline"] {
+  display: grid;
+  grid-template-columns: minmax(0, 8rem) 1fr;
+  align-items: center;
+  gap: var(--t3-pad-3);
+}
