@@ -1,0 +1,31 @@
+/*
+ * 스킨 — SaaS 브랜드
+ *
+ * 평범한 B2B 제품의 기본선. 색조 265(인디고), 낮은 채도, 작은 모서리, 옅은 그림자.
+ */
+
+[data-skin="saas"] {
+  --t2-surface: oklch(0.98 0.004 265);
+  --t2-raised: oklch(1 0 0);
+  --t2-overlay: oklch(0.22 0.03 265);
+  --t2-border: oklch(0.89 0.012 265);
+  --t2-text: oklch(0.24 0.025 265);
+  --t2-muted: oklch(0.53 0.02 265);
+  --t2-brand: oklch(0.52 0.18 265);
+  --t2-brand-hover: oklch(0.45 0.18 265);
+  --t2-brand-fg: oklch(0.99 0 0);
+  --t2-tint: oklch(0.94 0.035 265);
+  --t2-ring: oklch(0.62 0.16 265);
+
+  --t3-scale: 1;
+  --t3-border-width: 1px;
+  --t3-border-style: solid;
+  --t3-button-radius: 6px;
+  --t3-button-shadow: none;
+  --t3-card-radius: 10px;
+  --t3-card-shadow: 0 1px 2px oklch(0.3 0.05 265 / 0.08);
+  --t3-input-radius: 6px;
+  --t3-badge-radius: 5px;
+  --t3-dialog-radius: 12px;
+  --t3-dialog-shadow: 0 20px 50px -12px oklch(0.3 0.05 265 / 0.25);
+}

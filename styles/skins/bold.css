@@ -1,0 +1,37 @@
+/*
+ * 스킨 — 극단 브랜드
+ *
+ * 의도적으로 못되게 만든 검증용 스킨이다.
+ * 어두운 배경, 완전히 둥근 버튼, 1.7배 여백, 세리프 제목, 강한 그림자.
+ *
+ * 이 스킨에서 아무것도 깨지지 않으면 실무에서 나올 요구는 대부분 통과한다.
+ * 깨지는 지점이 곧 하드코딩이 남아 있거나 레이아웃 가정이 박혀 있는 지점이다.
+ */
+
+[data-skin="bold"] {
+  --t2-surface: oklch(0.2 0.022 40);
+  --t2-raised: oklch(0.25 0.028 40);
+  --t2-overlay: oklch(0.12 0.02 40);
+  --t2-border: oklch(0.4 0.045 45);
+  --t2-text: oklch(0.96 0.012 65);
+  --t2-muted: oklch(0.73 0.025 65);
+  --t2-brand: oklch(0.79 0.16 68);
+  --t2-brand-hover: oklch(0.86 0.15 68);
+  --t2-brand-fg: oklch(0.22 0.05 55);
+  --t2-tint: oklch(0.32 0.055 55);
+  --t2-ring: oklch(0.79 0.16 68);
+
+  --t3-scale: 1.7;
+  --t3-border-width: 1px;
+  --t3-border-style: solid;
+  --t3-body-font: ui-sans-serif, system-ui, sans-serif;
+  --t3-heading-font: Georgia, "Times New Roman", serif;
+  --t3-button-radius: 999px;
+  --t3-button-shadow: 0 6px 16px -6px oklch(0.79 0.16 68 / 0.5);
+  --t3-card-radius: 20px;
+  --t3-card-shadow: 0 12px 32px -10px oklch(0 0 0 / 0.55);
+  --t3-input-radius: 14px;
+  --t3-badge-radius: 999px;
+  --t3-dialog-radius: 24px;
+  --t3-dialog-shadow: 0 30px 60px -12px oklch(0 0 0 / 0.7);
+}

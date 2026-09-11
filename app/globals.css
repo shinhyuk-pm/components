@@ -4,8 +4,33 @@
 @import "../styles/tokens/tier2.css";
 @import "../styles/tokens/tier3.css";
 @import "../styles/skins/wireframe.css";
+@import "../styles/skins/saas.css";
+@import "../styles/skins/bold.css";
+
+/*
+ * 컴포넌트가 반복해서 쓰는 토큰 묶음.
+ * 테두리는 두께·모양·색이 항상 함께 움직이므로 하나로 둔다.
+ */
+@layer components {
+  .token-border {
+    border-width: var(--t3-border-width);
+    border-style: var(--t3-border-style);
+    border-color: var(--t2-border);
+  }
+
+  .heading-font {
+    font-family: var(--t3-heading-font);
+  }
+}
 
 body {
   background: var(--t2-surface);
   color: var(--t2-text);
+  font-family: var(--t3-body-font);
+}
+
+/* 구조 보기 — 스킨이 달라져도 골격이 동일한지 눈으로 확인하는 용도 */
+.structure-view [data-slot] {
+  outline: 1px dashed var(--t2-muted);
+  outline-offset: 2px;
 }
