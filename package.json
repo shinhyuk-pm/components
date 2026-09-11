@@ -9,10 +9,11 @@
     "start": "next start",
     "guard": "node scripts/token-guard.mjs",
     "guard:selftest": "node scripts/token-guard.mjs --selftest",
+    "skin:check": "node --no-warnings --experimental-strip-types scripts/skin-check.mjs",
     "lint": "biome check .",
     "format": "biome check --write .",
     "typecheck": "tsc --noEmit",
-    "verify": "npm run guard:selftest && npm run guard && npm run lint && npm run typecheck && npm run build"
+    "verify": "npm run guard:selftest && npm run guard && npm run skin:check && npm run lint && npm run typecheck && npm run build"
   },
   "dependencies": {
     "@base-ui-components/react": "^1.0.0-rc.0",

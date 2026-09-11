@@ -1,151 +1,232 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { Screen } from "@/components/blocks/screen";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { SAMPLE_SPECS } from "@/lib/sample-specs";
 import { validateScreenSpec } from "@/lib/screen-spec";
+import { generateSkin } from "@/lib/skin-generator";
+import { SAMPLE_TABLES, validateSkinTable } from "@/lib/skin-table";
 
-const SKINS = [
-  { id: "wireframe", label: "와이어프레임" },
-  { id: "saas", label: "SaaS 브랜드" },
-  { id: "bold", label: "극단 브랜드" },
-];
+const WIREFRAME_TABLE = {
+  name: "와이어프레임",
+  brandHue: 0,
+  chroma: "zero" as const,
+  mood: "light" as const,
+  radius: "none" as const,
+  elevation: "flat" as const,
+  border: "dashed" as const,
+  headingFont: "sans" as const,
+  density: "comfortable" as const,
+};
 
-const DENSITIES = [
-  { id: "compact", label: "촘촘하게" },
-  { id: "comfortable", label: "보통" },
-  { id: "airy", label: "넓게" },
-];
+function useGenerator() {
+  const [busy, setBusy] = useState(false);
+  const [errors, setErrors] = useState<string[]>([]);
 
-const FIELD_LAYOUTS = [
-  { id: "stacked", label: "라벨 위" },
-  { id: "inline", label: "라벨 왼쪽" },
-];
+  const run = useCallback(async (kind: "spec" | "skin", prompt: string) => {
+    setBusy(true);
+    setErrors([]);
+    try {
+      const res = await fetch("/api/generate", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ kind, prompt }),
+      });
+      const json = await res.json();
+      if (!json.ok) {
+        setErrors(json.errors ?? ["알 수 없는 오류입니다."]);
+        return null;
+      }
+      return json.data;
+    } catch {
+      setErrors(["요청을 보내지 못했습니다."]);
+      return null;
+    } finally {
+      setBusy(false);
+    }
+  }, []);
 
-const STAT_LAYOUTS = [
-  { id: "stacked", label: "세로" },
-  { id: "icon-left", label: "아이콘 왼쪽" },
-  { id: "horizontal", label: "가로" },
-];
+  return { run, busy, errors };
+}
 
-function Switcher({
-  title,
-  options,
-  value,
-  onChange,
-}: {
-  title: string;
-  options: { id: string; label: string }[];
-  value: string;
-  onChange: (id: string) => void;
-}) {
+function Messages({ items, tone }: { items: string[]; tone: "ok" | "warn" }) {
+  if (items.length === 0) return null;
   return (
-    <div className="flex flex-wrap items-center gap-(--t3-pad-2)">
-      <span className="w-16 shrink-0 text-(--t2-muted) text-xs">{title}</span>
-      {options.map((o) => (
-        <Button
-          key={o.id}
-          variant={value === o.id ? "primary" : "secondary"}
-          size="sm"
-          onClick={() => onChange(o.id)}
+    <ul className="flex flex-col gap-(--t3-pad-1)">
+      {items.map((m) => (
+        <li
+          key={m}
+          className={tone === "ok" ? "text-(--t2-brand) text-xs" : "text-(--t2-muted) text-xs"}
         >
-          {o.label}
-        </Button>
+          {m}
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }
 
 export default function Home() {
-  const [skin, setSkin] = useState("wireframe");
-  const [density, setDensity] = useState("comfortable");
-  const [fieldLayout, setFieldLayout] = useState("stacked");
-  const [statLayout, setStatLayout] = useState("stacked");
-  const [source, setSource] = useState(() => JSON.stringify(SAMPLE_SPECS[0].spec, null, 2));
+  const [specSource, setSpecSource] = useState(() => JSON.stringify(SAMPLE_SPECS[0].spec, null, 2));
+  const [skinSource, setSkinSource] = useState(() => JSON.stringify(WIREFRAME_TABLE, null, 2));
+  const [iaPrompt, setIaPrompt] = useState("");
+  const [brandPrompt, setBrandPrompt] = useState("");
 
-  useEffect(() => {
-    document.documentElement.dataset.skin = skin;
-    document.documentElement.dataset.density = density;
-  }, [skin, density]);
+  const specGen = useGenerator();
+  const skinGen = useGenerator();
 
-  const result = useMemo(() => {
+  const specResult = useMemo(() => {
     try {
-      return validateScreenSpec(JSON.parse(source));
+      return validateScreenSpec(JSON.parse(specSource));
     } catch {
       return { ok: false as const, errors: ["JSON 형식이 올바르지 않습니다."], spec: undefined };
     }
-  }, [source]);
+  }, [specSource]);
+
+  const skinResult = useMemo(() => {
+    try {
+      return validateSkinTable(JSON.parse(skinSource));
+    } catch {
+      return { ok: false as const, errors: ["JSON 형식이 올바르지 않습니다."], table: undefined };
+    }
+  }, [skinSource]);
+
+  const generated = useMemo(
+    () => (skinResult.ok && skinResult.table ? generateSkin(skinResult.table) : null),
+    [skinResult],
+  );
+
+  useEffect(() => {
+    if (!generated) return;
+    const root = document.documentElement;
+    root.removeAttribute("data-skin");
+    root.removeAttribute("data-density");
+    for (const [key, value] of Object.entries(generated.variables)) {
+      root.style.setProperty(key, value);
+    }
+  }, [generated]);
 
   return (
     <div className="mx-auto flex max-w-6xl flex-col gap-(--t3-pad-5) p-(--t3-pad-5)">
-      <section className="flex flex-col gap-(--t3-pad-2)">
-        <div className="flex flex-wrap items-center gap-(--t3-pad-2)">
-          <span className="w-16 shrink-0 text-(--t2-muted) text-xs">예시</span>
-          {SAMPLE_SPECS.map((s) => (
-            <Button
-              key={s.id}
-              variant="secondary"
-              size="sm"
-              onClick={() => setSource(JSON.stringify(s.spec, null, 2))}
-            >
-              {s.label}
-            </Button>
-          ))}
-        </div>
-        <Switcher title="스킨" options={SKINS} value={skin} onChange={setSkin} />
-        <Switcher title="밀도" options={DENSITIES} value={density} onChange={setDensity} />
-        <Switcher
-          title="필드"
-          options={FIELD_LAYOUTS}
-          value={fieldLayout}
-          onChange={setFieldLayout}
-        />
-        <Switcher title="통계" options={STAT_LAYOUTS} value={statLayout} onChange={setStatLayout} />
-      </section>
-
-      <div className="grid gap-(--t3-pad-4) lg:grid-cols-[minmax(0,22rem)_1fr]">
-        <section className="flex flex-col gap-(--t3-pad-2)">
-          <p className="text-(--t2-muted) text-xs">화면 명세 — 고치면 오른쪽이 바뀝니다</p>
-          <Textarea
-            value={source}
-            onChange={(e) => setSource(e.target.value)}
-            rows={24}
-            spellCheck={false}
-            className="font-mono text-xs"
-          />
-          {result.ok ? (
-            <p data-slot="validation-ok" className="text-(--t2-brand) text-xs">
-              검증 통과
-            </p>
-          ) : (
-            <ul data-slot="validation-errors" className="flex flex-col gap-(--t3-pad-1)">
-              {result.errors.map((e) => (
-                <li key={e} className="text-(--t2-muted) text-xs">
-                  {e}
-                </li>
-              ))}
-            </ul>
-          )}
-        </section>
-
-        <section>
-          {result.ok && result.spec ? (
-            <Screen
-              spec={result.spec}
-              options={{
-                fieldLayout: fieldLayout as "stacked" | "inline",
-                statLayout: statLayout as "stacked" | "icon-left" | "horizontal",
-              }}
+      <div className="grid gap-(--t3-pad-4) lg:grid-cols-2">
+        <Card>
+          <CardHeader>
+            <CardTitle>서비스 성격에서 디자인 만들기</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <Input
+              value={brandPrompt}
+              onChange={(e) => setBrandPrompt(e.target.value)}
+              placeholder="예: B2B 금융 관리 도구, 신뢰감, 정보 밀도 높게"
             />
-          ) : (
-            <p className="text-(--t2-muted) text-sm">
-              명세에 문제가 있어 화면을 그리지 않았습니다. 왼쪽 목록을 확인해주세요.
-            </p>
-          )}
-        </section>
+            <div className="flex flex-wrap gap-(--t3-pad-2)">
+              <Button
+                size="sm"
+                disabled={skinGen.busy}
+                onClick={async () => {
+                  const data = await skinGen.run("skin", brandPrompt);
+                  if (data) setSkinSource(JSON.stringify(data, null, 2));
+                }}
+              >
+                {skinGen.busy ? "만드는 중" : "스킨 표 생성"}
+              </Button>
+              <Button
+                variant="secondary"
+                size="sm"
+                onClick={() => setSkinSource(JSON.stringify(WIREFRAME_TABLE, null, 2))}
+              >
+                와이어프레임
+              </Button>
+              {SAMPLE_TABLES.map((t) => (
+                <Button
+                  key={t.name}
+                  variant="secondary"
+                  size="sm"
+                  onClick={() => setSkinSource(JSON.stringify(t, null, 2))}
+                >
+                  {t.name}
+                </Button>
+              ))}
+            </div>
+            <Messages items={skinGen.errors} tone="warn" />
+            <Textarea
+              value={skinSource}
+              onChange={(e) => setSkinSource(e.target.value)}
+              rows={12}
+              spellCheck={false}
+              className="font-mono text-xs"
+            />
+            <Messages items={skinResult.errors} tone="warn" />
+            {generated ? (
+              <div className="flex flex-col gap-(--t3-pad-1)">
+                {generated.contrast.map((c) => (
+                  <p key={c.pair} className="text-(--t2-muted) text-xs">
+                    {c.pair} — 대비 {c.ratio} (기준 {c.minimum} 이상)
+                  </p>
+                ))}
+              </div>
+            ) : null}
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>기획 설명에서 화면 만들기</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <Textarea
+              value={iaPrompt}
+              onChange={(e) => setIaPrompt(e.target.value)}
+              rows={3}
+              placeholder="예: 쿠폰 관리 페이지. 쿠폰 이름, 할인율, 사용 기간, 발급 수량을 목록으로 보고 새 쿠폰을 만들 수 있어야 한다."
+            />
+            <div className="flex flex-wrap gap-(--t3-pad-2)">
+              <Button
+                size="sm"
+                disabled={specGen.busy}
+                onClick={async () => {
+                  const data = await specGen.run("spec", iaPrompt);
+                  if (data) setSpecSource(JSON.stringify(data, null, 2));
+                }}
+              >
+                {specGen.busy ? "만드는 중" : "화면 명세 생성"}
+              </Button>
+              {SAMPLE_SPECS.map((s) => (
+                <Button
+                  key={s.id}
+                  variant="secondary"
+                  size="sm"
+                  onClick={() => setSpecSource(JSON.stringify(s.spec, null, 2))}
+                >
+                  {s.label}
+                </Button>
+              ))}
+            </div>
+            <Messages items={specGen.errors} tone="warn" />
+            <Textarea
+              value={specSource}
+              onChange={(e) => setSpecSource(e.target.value)}
+              rows={12}
+              spellCheck={false}
+              className="font-mono text-xs"
+            />
+            <Messages items={specResult.errors} tone="warn" />
+          </CardContent>
+        </Card>
       </div>
+
+      <section>
+        {specResult.ok && specResult.spec ? (
+          <Screen spec={specResult.spec} />
+        ) : (
+          <p className="text-(--t2-muted) text-sm">
+            명세에 문제가 있어 화면을 그리지 않았습니다. 위 목록을 확인해주세요.
+          </p>
+        )}
+      </section>
     </div>
   );
 }
