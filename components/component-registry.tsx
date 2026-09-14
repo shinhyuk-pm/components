@@ -6,19 +6,19 @@ import { variants as accordionVariants } from "@/components/demos/accordion-vari
 import { variants as alertVariants } from "@/components/demos/alert-variants"
 import { variants as alertDialogVariants } from "@/components/demos/alert-dialog-variants"
 import { variants as aspectRatioVariants } from "@/components/demos/aspect-ratio-variants"
+import { variants as avatarVariants } from "@/components/demos/avatar-variants"
 import { variants as badgeVariants } from "@/components/demos/badge-variants"
+import { variants as breadcrumbVariants } from "@/components/demos/breadcrumb-variants"
+import { variants as buttonVariants } from "@/components/demos/button-variants"
 import { variants as cardVariants } from "@/components/demos/card-variants"
+import { variants as checkboxVariants } from "@/components/demos/checkbox-variants"
+import { variants as collapsibleVariants } from "@/components/demos/collapsible-variants"
 import AttachmentDemo from "@/components/demos/attachment-demo"
-import AvatarDemo from "@/components/demos/avatar-demo"
-import BreadcrumbDemo from "@/components/demos/breadcrumb-demo"
 import BubbleDemo from "@/components/demos/bubble-demo"
-import ButtonDemo from "@/components/demos/button-demo"
 import ButtonGroupDemo from "@/components/demos/button-group-demo"
 import CalendarDemo from "@/components/demos/calendar-demo"
 import CarouselDemo from "@/components/demos/carousel-demo"
 import ChartDemo from "@/components/demos/chart-demo"
-import CheckboxDemo from "@/components/demos/checkbox-demo"
-import CollapsibleDemo from "@/components/demos/collapsible-demo"
 import ComboboxDemo from "@/components/demos/combobox-demo"
 import CommandDemo from "@/components/demos/command-demo"
 import ContextMenuDemo from "@/components/demos/context-menu-demo"
@@ -81,7 +81,7 @@ export const components: ComponentEntry[] = [
     name: "Avatar",
     summary:
       "사용자 프로필 사진입니다. 사진이 없으면 이니셜로 대체되고, 여러 명을 겹쳐 묶을 수도 있습니다.",
-    Demo: AvatarDemo,
+    variants: avatarVariants,
   },
   {
     slug: "badge",
@@ -95,7 +95,7 @@ export const components: ComponentEntry[] = [
     name: "Breadcrumb",
     summary:
       "지금 보고 있는 페이지가 어느 경로에 있는지 보여주는 이동 경로입니다. 상위 단계로 바로 돌아갈 수 있습니다.",
-    Demo: BreadcrumbDemo,
+    variants: breadcrumbVariants,
   },
   {
     slug: "bubble",
@@ -109,7 +109,7 @@ export const components: ComponentEntry[] = [
     name: "Button",
     summary:
       "가장 기본이 되는 클릭 버튼입니다. 강조 정도와 크기를 옵션으로 바꿔 씁니다.",
-    Demo: ButtonDemo,
+    variants: buttonVariants,
   },
   {
     slug: "button-group",
@@ -151,14 +151,14 @@ export const components: ComponentEntry[] = [
     name: "Checkbox",
     summary:
       "켜고 끄는 체크 상자입니다. 약관 동의처럼 여러 개를 동시에 고를 때 씁니다.",
-    Demo: CheckboxDemo,
+    variants: checkboxVariants,
   },
   {
     slug: "collapsible",
     name: "Collapsible",
     summary:
       "내용을 접었다 펴는 가장 단순한 형태입니다. Accordion과 달리 항목이 하나일 때 씁니다.",
-    Demo: CollapsibleDemo,
+    variants: collapsibleVariants,
   },
   {
     slug: "combobox",
