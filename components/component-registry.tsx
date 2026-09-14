@@ -33,6 +33,7 @@ import { variants as hoverCardVariants } from "@/components/demos/hover-card-var
 import { variants as inputVariants } from "@/components/demos/input-variants"
 import { variants as inputGroupVariants } from "@/components/demos/input-group-variants"
 import { variants as inputOtpVariants } from "@/components/demos/input-otp-variants"
+import { variants as itemVariants } from "@/components/demos/item-variants"
 
 export type ComponentEntry = {
   /** 문서 페이지 안에서 쓰는 앵커 id */
@@ -268,5 +269,12 @@ export const components: ComponentEntry[] = [
     summary:
       "인증번호를 한 칸에 한 글자씩 입력하는 칸입니다. 문자·이메일로 받은 6자리 코드 확인 화면에 씁니다.",
     variants: inputOtpVariants,
+  },
+  {
+    slug: "item",
+    name: "Item",
+    summary:
+      "아이콘·제목·설명·버튼을 한 줄로 정돈한 목록 한 칸입니다. 설정 목록, 알림, 사람 목록의 기본 단위로 씁니다.",
+    variants: itemVariants,
   },
 ]
