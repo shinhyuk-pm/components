@@ -22,8 +22,8 @@ import { variants as collapsibleVariants } from "@/components/demos/collapsible-
 import { variants as comboboxVariants } from "@/components/demos/combobox-variants"
 import { variants as commandVariants } from "@/components/demos/command-variants"
 import { variants as contextMenuVariants } from "@/components/demos/context-menu-variants"
+import { variants as dataTableVariants } from "@/components/demos/data-table-variants"
 import { variants as datePickerVariants } from "@/components/demos/date-picker-variants"
-import DataTableDemo from "@/components/demos/data-table-demo"
 
 export type ComponentEntry = {
   /** 문서 페이지 안에서 쓰는 앵커 id */
@@ -187,7 +187,7 @@ export const components: ComponentEntry[] = [
     summary:
       "정렬·필터가 되는 데이터 표입니다. 목록 화면에서 많은 행을 다룰 때 씁니다.",
     note: "Data Table은 단독 컴포넌트가 아니라 Table과 TanStack Table을 조합해 만든 것입니다.",
-    Demo: DataTableDemo,
+    variants: dataTableVariants,
   },
   {
     slug: "date-picker",
