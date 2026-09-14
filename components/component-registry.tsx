@@ -1,5 +1,7 @@
 import type * as React from "react"
 
+import type { DemoVariant } from "@/components/demo-types"
+
 import AccordionDemo from "@/components/demos/accordion-demo"
 import AlertDemo from "@/components/demos/alert-demo"
 import AlertDialogDemo from "@/components/demos/alert-dialog-demo"
@@ -32,7 +34,10 @@ export type ComponentEntry = {
   summary: string
   /** 설치 방식에 대한 추가 메모 (조합형 컴포넌트일 때만) */
   note?: string
-  Demo: React.ComponentType
+  /** 유형이 아직 하나뿐인 컴포넌트의 단일 예시 */
+  Demo?: React.ComponentType
+  /** 사용 유형별 예시 목록 */
+  variants?: DemoVariant[]
 }
 
 export const components: ComponentEntry[] = [
