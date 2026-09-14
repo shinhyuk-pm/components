@@ -46,6 +46,7 @@ import { variants as popoverVariants } from "@/components/demos/popover-variants
 import { variants as progressVariants } from "@/components/demos/progress-variants"
 import { variants as questionnaireVariants } from "@/components/demos/questionnaire-variants"
 import { variants as radioGroupVariants } from "@/components/demos/radio-group-variants"
+import { variants as resizableVariants } from "@/components/demos/resizable-variants"
 
 export type ComponentEntry = {
   /** 문서 페이지 안에서 쓰는 앵커 id */
@@ -372,5 +373,12 @@ export const components: ComponentEntry[] = [
     summary:
       "여러 선택지 중 하나만 고르는 동그란 버튼 묶음입니다. 요금제·배송 방식처럼 딱 하나를 고를 때 씁니다.",
     variants: radioGroupVariants,
+  },
+  {
+    slug: "resizable",
+    name: "Resizable",
+    summary:
+      "경계선을 끌어 영역 크기를 바꾸는 분할 화면입니다. 사이드바 너비나 편집기·미리보기 비율 조절에 씁니다.",
+    variants: resizableVariants,
   },
 ]
