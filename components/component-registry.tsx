@@ -24,6 +24,7 @@ import { variants as commandVariants } from "@/components/demos/command-variants
 import { variants as contextMenuVariants } from "@/components/demos/context-menu-variants"
 import { variants as dataTableVariants } from "@/components/demos/data-table-variants"
 import { variants as datePickerVariants } from "@/components/demos/date-picker-variants"
+import { variants as dialogVariants } from "@/components/demos/dialog-variants"
 
 export type ComponentEntry = {
   /** 문서 페이지 안에서 쓰는 앵커 id */
@@ -196,5 +197,12 @@ export const components: ComponentEntry[] = [
       "버튼을 누르면 달력이 떠서 날짜를 고르는 입력칸입니다. 고른 날짜가 버튼에 바로 표시됩니다.",
     note: "Date Picker는 단독 컴포넌트가 아니라 Popover와 Calendar를 조합해 만든 것입니다.",
     variants: datePickerVariants,
+  },
+  {
+    slug: "dialog",
+    name: "Dialog",
+    summary:
+      "화면 가운데 떠서 배경을 어둡게 가리는 창입니다. 정보 수정이나 확인처럼 잠깐 집중이 필요한 작업에 씁니다.",
+    variants: dialogVariants,
   },
 ]
