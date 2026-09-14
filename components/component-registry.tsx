@@ -41,6 +41,7 @@ import { variants as messageVariants } from "@/components/demos/message-variants
 import { variants as messageScrollerVariants } from "@/components/demos/message-scroller-variants"
 import { variants as nativeSelectVariants } from "@/components/demos/native-select-variants"
 import { variants as navigationMenuVariants } from "@/components/demos/navigation-menu-variants"
+import { variants as paginationVariants } from "@/components/demos/pagination-variants"
 
 export type ComponentEntry = {
   /** 문서 페이지 안에서 쓰는 앵커 id */
@@ -332,5 +333,12 @@ export const components: ComponentEntry[] = [
     summary:
       "사이트 상단에 두는 메뉴입니다. 항목에 마우스를 올리면 하위 링크가 넓게 펼쳐지는 홈페이지 헤더 메뉴에 씁니다.",
     variants: navigationMenuVariants,
+  },
+  {
+    slug: "pagination",
+    name: "Pagination",
+    summary:
+      "긴 목록을 여러 페이지로 나눠 넘겨 보는 페이지 번호 줄입니다. 게시판이나 검색 결과 아래에 씁니다.",
+    variants: paginationVariants,
   },
 ]
