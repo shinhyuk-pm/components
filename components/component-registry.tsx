@@ -38,6 +38,7 @@ import { variants as kbdVariants } from "@/components/demos/kbd-variants"
 import { variants as labelVariants } from "@/components/demos/label-variants"
 import { variants as menubarVariants } from "@/components/demos/menubar-variants"
 import { variants as messageVariants } from "@/components/demos/message-variants"
+import { variants as messageScrollerVariants } from "@/components/demos/message-scroller-variants"
 
 export type ComponentEntry = {
   /** 문서 페이지 안에서 쓰는 앵커 id */
@@ -308,5 +309,12 @@ export const components: ComponentEntry[] = [
     summary:
       "메신저 대화 한 줄을 이루는 묶음입니다. 프로필 사진·이름·말풍선·읽음 표시를 한 세트로 배치합니다.",
     variants: messageVariants,
+  },
+  {
+    slug: "message-scroller",
+    name: "Message Scroller",
+    summary:
+      "채팅 메시지 목록의 스크롤을 똑똑하게 다루는 틀입니다. 답변이 흘러나올 때 맨 아래를 따라가고, 사용자가 위로 올리면 자리를 지켜 줍니다.",
+    variants: messageScrollerVariants,
   },
 ]
