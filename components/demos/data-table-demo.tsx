@@ -24,6 +24,7 @@ import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
@@ -362,13 +363,17 @@ const actionableColumns: ColumnDef<Payment>[] = [
             <MoreHorizontalIcon />
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="w-44">
-            <DropdownMenuLabel>작업</DropdownMenuLabel>
-            <DropdownMenuItem onClick={() => navigator.clipboard.writeText(payment.id)}>
-              결제 ID 복사
-            </DropdownMenuItem>
+            <DropdownMenuGroup>
+              <DropdownMenuLabel>작업</DropdownMenuLabel>
+              <DropdownMenuItem onClick={() => navigator.clipboard.writeText(payment.id)}>
+                결제 ID 복사
+              </DropdownMenuItem>
+            </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>고객 정보 보기</DropdownMenuItem>
-            <DropdownMenuItem>결제 상세 보기</DropdownMenuItem>
+            <DropdownMenuGroup>
+              <DropdownMenuItem>고객 정보 보기</DropdownMenuItem>
+              <DropdownMenuItem>결제 상세 보기</DropdownMenuItem>
+            </DropdownMenuGroup>
           </DropdownMenuContent>
         </DropdownMenu>
       )
