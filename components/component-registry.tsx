@@ -30,6 +30,7 @@ import { variants as dropdownMenuVariants } from "@/components/demos/dropdown-me
 import { variants as emptyVariants } from "@/components/demos/empty-variants"
 import { variants as fieldVariants } from "@/components/demos/field-variants"
 import { variants as hoverCardVariants } from "@/components/demos/hover-card-variants"
+import { variants as inputVariants } from "@/components/demos/input-variants"
 
 export type ComponentEntry = {
   /** 문서 페이지 안에서 쓰는 앵커 id */
@@ -244,5 +245,12 @@ export const components: ComponentEntry[] = [
     summary:
       "마우스를 올리면 잠깐 뜨는 미리보기 카드입니다. 사용자 이름에 프로필 요약을 붙일 때 씁니다.",
     variants: hoverCardVariants,
+  },
+  {
+    slug: "input",
+    name: "Input",
+    summary:
+      "한 줄짜리 글자 입력칸입니다. 이름·이메일·검색어처럼 짧은 값을 받을 때 씁니다.",
+    variants: inputVariants,
   },
 ]
