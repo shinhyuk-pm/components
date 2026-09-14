@@ -25,6 +25,7 @@ import { variants as contextMenuVariants } from "@/components/demos/context-menu
 import { variants as dataTableVariants } from "@/components/demos/data-table-variants"
 import { variants as datePickerVariants } from "@/components/demos/date-picker-variants"
 import { variants as dialogVariants } from "@/components/demos/dialog-variants"
+import { variants as dropdownMenuVariants } from "@/components/demos/dropdown-menu-variants"
 
 export type ComponentEntry = {
   /** 문서 페이지 안에서 쓰는 앵커 id */
@@ -204,5 +205,12 @@ export const components: ComponentEntry[] = [
     summary:
       "화면 가운데 떠서 배경을 어둡게 가리는 창입니다. 정보 수정이나 확인처럼 잠깐 집중이 필요한 작업에 씁니다.",
     variants: dialogVariants,
+  },
+  {
+    slug: "dropdown-menu",
+    name: "Dropdown Menu",
+    summary:
+      "버튼을 누르면 아래로 펼쳐지는 메뉴입니다. 계정 메뉴나 '더 보기' 버튼처럼 여러 동작을 숨겨 둘 때 씁니다.",
+    variants: dropdownMenuVariants,
   },
 ]
