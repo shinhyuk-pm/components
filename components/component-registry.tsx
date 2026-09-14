@@ -44,6 +44,7 @@ import { variants as navigationMenuVariants } from "@/components/demos/navigatio
 import { variants as paginationVariants } from "@/components/demos/pagination-variants"
 import { variants as popoverVariants } from "@/components/demos/popover-variants"
 import { variants as progressVariants } from "@/components/demos/progress-variants"
+import { variants as questionnaireVariants } from "@/components/demos/questionnaire-variants"
 
 export type ComponentEntry = {
   /** 문서 페이지 안에서 쓰는 앵커 id */
@@ -356,5 +357,12 @@ export const components: ComponentEntry[] = [
     summary:
       "작업이 얼마나 진행됐는지 보여주는 막대입니다. 업로드·설치·설문 진행률 표시에 씁니다.",
     variants: progressVariants,
+  },
+  {
+    slug: "questionnaire",
+    name: "Questionnaire",
+    summary:
+      "질문을 한 번에 하나씩 보여주며 답을 모으는 설문 흐름입니다. 온보딩이나 AI에게 작업 조건을 묻는 화면에 씁니다.",
+    variants: questionnaireVariants,
   },
 ]
