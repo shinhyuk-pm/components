@@ -40,6 +40,7 @@ import { variants as menubarVariants } from "@/components/demos/menubar-variants
 import { variants as messageVariants } from "@/components/demos/message-variants"
 import { variants as messageScrollerVariants } from "@/components/demos/message-scroller-variants"
 import { variants as nativeSelectVariants } from "@/components/demos/native-select-variants"
+import { variants as navigationMenuVariants } from "@/components/demos/navigation-menu-variants"
 
 export type ComponentEntry = {
   /** 문서 페이지 안에서 쓰는 앵커 id */
@@ -324,5 +325,12 @@ export const components: ComponentEntry[] = [
     summary:
       "브라우저 기본 선택 상자에 모양만 입힌 것입니다. 가볍고, 휴대폰에서는 기기 고유의 선택 화면이 뜹니다.",
     variants: nativeSelectVariants,
+  },
+  {
+    slug: "navigation-menu",
+    name: "Navigation Menu",
+    summary:
+      "사이트 상단에 두는 메뉴입니다. 항목에 마우스를 올리면 하위 링크가 넓게 펼쳐지는 홈페이지 헤더 메뉴에 씁니다.",
+    variants: navigationMenuVariants,
   },
 ]
