@@ -29,6 +29,7 @@ import { variants as drawerVariants } from "@/components/demos/drawer-variants"
 import { variants as dropdownMenuVariants } from "@/components/demos/dropdown-menu-variants"
 import { variants as emptyVariants } from "@/components/demos/empty-variants"
 import { variants as fieldVariants } from "@/components/demos/field-variants"
+import { variants as hoverCardVariants } from "@/components/demos/hover-card-variants"
 
 export type ComponentEntry = {
   /** 문서 페이지 안에서 쓰는 앵커 id */
@@ -236,5 +237,12 @@ export const components: ComponentEntry[] = [
     summary:
       "라벨·입력칸·설명·오류 메시지를 한 묶음으로 정리하는 폼 조립 부품입니다. 어떤 입력 요소든 같은 모양으로 맞춰 줍니다.",
     variants: fieldVariants,
+  },
+  {
+    slug: "hover-card",
+    name: "Hover Card",
+    summary:
+      "마우스를 올리면 잠깐 뜨는 미리보기 카드입니다. 사용자 이름에 프로필 요약을 붙일 때 씁니다.",
+    variants: hoverCardVariants,
   },
 ]
