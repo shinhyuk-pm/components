@@ -2,7 +2,7 @@ import type * as React from "react"
 
 import type { DemoVariant } from "@/components/demo-types"
 
-import AccordionDemo from "@/components/demos/accordion-demo"
+import { variants as accordionVariants } from "@/components/demos/accordion-variants"
 import AlertDemo from "@/components/demos/alert-demo"
 import AlertDialogDemo from "@/components/demos/alert-dialog-demo"
 import AspectRatioDemo from "@/components/demos/aspect-ratio-demo"
@@ -46,7 +46,7 @@ export const components: ComponentEntry[] = [
     name: "Accordion",
     summary:
       "제목을 누르면 아래 내용이 펼쳐지고 접히는 목록입니다. FAQ처럼 항목이 많을 때 화면을 짧게 유지해 줍니다.",
-    Demo: AccordionDemo,
+    variants: accordionVariants,
   },
   {
     slug: "alert",
