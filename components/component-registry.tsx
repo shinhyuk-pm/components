@@ -36,6 +36,7 @@ import { variants as inputOtpVariants } from "@/components/demos/input-otp-varia
 import { variants as itemVariants } from "@/components/demos/item-variants"
 import { variants as kbdVariants } from "@/components/demos/kbd-variants"
 import { variants as labelVariants } from "@/components/demos/label-variants"
+import { variants as menubarVariants } from "@/components/demos/menubar-variants"
 
 export type ComponentEntry = {
   /** 문서 페이지 안에서 쓰는 앵커 id */
@@ -292,5 +293,12 @@ export const components: ComponentEntry[] = [
     summary:
       "입력 요소 옆에 붙는 이름표입니다. 글자를 눌러도 해당 입력칸이 반응하도록 연결됩니다.",
     variants: labelVariants,
+  },
+  {
+    slug: "menubar",
+    name: "Menubar",
+    summary:
+      "파일·편집·보기처럼 프로그램 상단에 나란히 놓이는 메뉴 막대입니다. 데스크톱 앱 느낌의 화면에 씁니다.",
+    variants: menubarVariants,
   },
 ]
