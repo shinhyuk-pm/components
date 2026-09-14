@@ -34,6 +34,7 @@ import { variants as inputVariants } from "@/components/demos/input-variants"
 import { variants as inputGroupVariants } from "@/components/demos/input-group-variants"
 import { variants as inputOtpVariants } from "@/components/demos/input-otp-variants"
 import { variants as itemVariants } from "@/components/demos/item-variants"
+import { variants as kbdVariants } from "@/components/demos/kbd-variants"
 
 export type ComponentEntry = {
   /** 문서 페이지 안에서 쓰는 앵커 id */
@@ -276,5 +277,12 @@ export const components: ComponentEntry[] = [
     summary:
       "아이콘·제목·설명·버튼을 한 줄로 정돈한 목록 한 칸입니다. 설정 목록, 알림, 사람 목록의 기본 단위로 씁니다.",
     variants: itemVariants,
+  },
+  {
+    slug: "kbd",
+    name: "Kbd",
+    summary:
+      "키보드 키를 작은 키캡 모양으로 보여줍니다. 단축키를 안내하는 도움말이나 검색창 힌트에 씁니다.",
+    variants: kbdVariants,
   },
 ]
