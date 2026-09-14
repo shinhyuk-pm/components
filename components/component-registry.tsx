@@ -12,6 +12,7 @@ import { variants as badgeVariants } from "@/components/demos/badge-variants"
 import { variants as breadcrumbVariants } from "@/components/demos/breadcrumb-variants"
 import { variants as bubbleVariants } from "@/components/demos/bubble-variants"
 import { variants as buttonVariants } from "@/components/demos/button-variants"
+import { variants as buttonGroupVariants } from "@/components/demos/button-group-variants"
 import { variants as cardVariants } from "@/components/demos/card-variants"
 import { variants as carouselVariants } from "@/components/demos/carousel-variants"
 import { variants as checkboxVariants } from "@/components/demos/checkbox-variants"
@@ -19,7 +20,6 @@ import { variants as collapsibleVariants } from "@/components/demos/collapsible-
 import { variants as commandVariants } from "@/components/demos/command-variants"
 import { variants as contextMenuVariants } from "@/components/demos/context-menu-variants"
 import { variants as datePickerVariants } from "@/components/demos/date-picker-variants"
-import ButtonGroupDemo from "@/components/demos/button-group-demo"
 import CalendarDemo from "@/components/demos/calendar-demo"
 import ChartDemo from "@/components/demos/chart-demo"
 import ComboboxDemo from "@/components/demos/combobox-demo"
@@ -45,7 +45,7 @@ export const components: ComponentEntry[] = [
     slug: "accordion",
     name: "Accordion",
     summary:
-      "제목을 누르면 아래 내용이 펼쳐지고 접힐는 목록입니다. FAQ처럼 항목이 많을 때 화면을 짧게 유지해 줍니다.",
+      "제목을 누르면 아래 내용이 펼쳐지고 접히는 목록입니다. FAQ처럼 항목이 많을 때 화면을 짧게 유지해 줍니다.",
     variants: accordionVariants,
   },
   {
@@ -116,7 +116,7 @@ export const components: ComponentEntry[] = [
     name: "Button Group",
     summary:
       "버튼 여러 개를 하나로 붙여 묶습니다. 정렬 방식 전환처럼 선택지가 나란할 때 좋습니다.",
-    Demo: ButtonGroupDemo,
+    variants: buttonGroupVariants,
   },
   {
     slug: "calendar",
