@@ -49,6 +49,7 @@ import { variants as radioGroupVariants } from "@/components/demos/radio-group-v
 import { variants as resizableVariants } from "@/components/demos/resizable-variants"
 import { variants as scrollAreaVariants } from "@/components/demos/scroll-area-variants"
 import { variants as selectVariants } from "@/components/demos/select-variants"
+import { variants as separatorVariants } from "@/components/demos/separator-variants"
 
 export type ComponentEntry = {
   /** 문서 페이지 안에서 쓰는 앵커 id */
@@ -396,5 +397,12 @@ export const components: ComponentEntry[] = [
     summary:
       "버튼을 누르면 목록이 펼쳐지는 선택 상자입니다. 브라우저 기본 것보다 모양을 자유롭게 꾸밀 수 있어 대부분의 폼에 씁니다.",
     variants: selectVariants,
+  },
+  {
+    slug: "separator",
+    name: "Separator",
+    summary:
+      "내용을 시각적으로 나누는 얇은 구분선입니다. 가로·세로 방향을 모두 지원하며, 화면 낭독기에는 구분선으로 읽힙니다.",
+    variants: separatorVariants,
   },
 ]
