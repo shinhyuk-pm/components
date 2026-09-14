@@ -25,6 +25,7 @@ import { variants as contextMenuVariants } from "@/components/demos/context-menu
 import { variants as dataTableVariants } from "@/components/demos/data-table-variants"
 import { variants as datePickerVariants } from "@/components/demos/date-picker-variants"
 import { variants as dialogVariants } from "@/components/demos/dialog-variants"
+import { variants as drawerVariants } from "@/components/demos/drawer-variants"
 import { variants as dropdownMenuVariants } from "@/components/demos/dropdown-menu-variants"
 
 export type ComponentEntry = {
@@ -205,6 +206,13 @@ export const components: ComponentEntry[] = [
     summary:
       "화면 가운데 떠서 배경을 어둡게 가리는 창입니다. 정보 수정이나 확인처럼 잠깐 집중이 필요한 작업에 씁니다.",
     variants: dialogVariants,
+  },
+  {
+    slug: "drawer",
+    name: "Drawer",
+    summary:
+      "화면 가장자리에서 밀려 나오는 패널입니다. 모바일에서 아래에서 올라오는 선택 창에 주로 씁니다.",
+    variants: drawerVariants,
   },
   {
     slug: "dropdown-menu",
