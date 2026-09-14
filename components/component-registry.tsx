@@ -28,6 +28,7 @@ import { variants as dialogVariants } from "@/components/demos/dialog-variants"
 import { variants as drawerVariants } from "@/components/demos/drawer-variants"
 import { variants as dropdownMenuVariants } from "@/components/demos/dropdown-menu-variants"
 import { variants as emptyVariants } from "@/components/demos/empty-variants"
+import { variants as fieldVariants } from "@/components/demos/field-variants"
 
 export type ComponentEntry = {
   /** 문서 페이지 안에서 쓰는 앵커 id */
@@ -228,5 +229,12 @@ export const components: ComponentEntry[] = [
     summary:
       "목록이나 검색 결과가 비었을 때 보여주는 안내 화면입니다. 왜 비었는지 알려주고 다음 행동을 제안합니다.",
     variants: emptyVariants,
+  },
+  {
+    slug: "field",
+    name: "Field",
+    summary:
+      "라벨·입력칸·설명·오류 메시지를 한 묶음으로 정리하는 폼 조립 부품입니다. 어떤 입력 요소든 같은 모양으로 맞춰 줍니다.",
+    variants: fieldVariants,
   },
 ]
