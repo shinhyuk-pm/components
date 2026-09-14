@@ -31,6 +31,7 @@ import { variants as emptyVariants } from "@/components/demos/empty-variants"
 import { variants as fieldVariants } from "@/components/demos/field-variants"
 import { variants as hoverCardVariants } from "@/components/demos/hover-card-variants"
 import { variants as inputVariants } from "@/components/demos/input-variants"
+import { variants as inputGroupVariants } from "@/components/demos/input-group-variants"
 
 export type ComponentEntry = {
   /** 문서 페이지 안에서 쓰는 앵커 id */
@@ -252,5 +253,12 @@ export const components: ComponentEntry[] = [
     summary:
       "한 줄짜리 글자 입력칸입니다. 이름·이메일·검색어처럼 짧은 값을 받을 때 씁니다.",
     variants: inputVariants,
+  },
+  {
+    slug: "input-group",
+    name: "Input Group",
+    summary:
+      "입력칸 앞뒤나 위아래에 아이콘·글자·버튼을 붙여 한 덩어리로 만듭니다. 검색창, 금액 입력, 코드 칸에 씁니다.",
+    variants: inputGroupVariants,
   },
 ]
