@@ -9,19 +9,19 @@ import { variants as aspectRatioVariants } from "@/components/demos/aspect-ratio
 import { variants as avatarVariants } from "@/components/demos/avatar-variants"
 import { variants as badgeVariants } from "@/components/demos/badge-variants"
 import { variants as breadcrumbVariants } from "@/components/demos/breadcrumb-variants"
+import { variants as bubbleVariants } from "@/components/demos/bubble-variants"
 import { variants as buttonVariants } from "@/components/demos/button-variants"
 import { variants as cardVariants } from "@/components/demos/card-variants"
+import { variants as carouselVariants } from "@/components/demos/carousel-variants"
 import { variants as checkboxVariants } from "@/components/demos/checkbox-variants"
 import { variants as collapsibleVariants } from "@/components/demos/collapsible-variants"
+import { variants as commandVariants } from "@/components/demos/command-variants"
+import { variants as contextMenuVariants } from "@/components/demos/context-menu-variants"
 import AttachmentDemo from "@/components/demos/attachment-demo"
-import BubbleDemo from "@/components/demos/bubble-demo"
 import ButtonGroupDemo from "@/components/demos/button-group-demo"
 import CalendarDemo from "@/components/demos/calendar-demo"
-import CarouselDemo from "@/components/demos/carousel-demo"
 import ChartDemo from "@/components/demos/chart-demo"
 import ComboboxDemo from "@/components/demos/combobox-demo"
-import CommandDemo from "@/components/demos/command-demo"
-import ContextMenuDemo from "@/components/demos/context-menu-demo"
 import DataTableDemo from "@/components/demos/data-table-demo"
 import DatePickerDemo from "@/components/demos/date-picker-demo"
 
@@ -102,7 +102,7 @@ export const components: ComponentEntry[] = [
     name: "Bubble",
     summary:
       "메신저 같은 대화 말풍선입니다. 보내는 쪽과 받는 쪽을 색과 정렬로 구분합니다.",
-    Demo: BubbleDemo,
+    variants: bubbleVariants,
   },
   {
     slug: "button",
@@ -137,7 +137,7 @@ export const components: ComponentEntry[] = [
     name: "Carousel",
     summary:
       "좌우로 넘겨 보는 슬라이드입니다. 이미지나 카드가 많을 때 자리를 아껴 줍니다.",
-    Demo: CarouselDemo,
+    variants: carouselVariants,
   },
   {
     slug: "chart",
@@ -172,14 +172,14 @@ export const components: ComponentEntry[] = [
     name: "Command",
     summary:
       "검색해서 기능을 실행하는 명령 팔레트입니다. 단축키로 띄우는 빠른 검색창에 쓰입니다.",
-    Demo: CommandDemo,
+    variants: commandVariants,
   },
   {
     slug: "context-menu",
     name: "Context Menu",
     summary:
       "마우스 오른쪽 버튼을 눌렀을 때 나오는 메뉴입니다. 항목별 추가 동작을 숨겨 둘 때 씁니다.",
-    Demo: ContextMenuDemo,
+    variants: contextMenuVariants,
   },
   {
     slug: "data-table",
