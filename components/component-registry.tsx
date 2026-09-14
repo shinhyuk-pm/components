@@ -6,6 +6,7 @@ import { variants as accordionVariants } from "@/components/demos/accordion-vari
 import { variants as alertVariants } from "@/components/demos/alert-variants"
 import { variants as alertDialogVariants } from "@/components/demos/alert-dialog-variants"
 import { variants as aspectRatioVariants } from "@/components/demos/aspect-ratio-variants"
+import { variants as attachmentVariants } from "@/components/demos/attachment-variants"
 import { variants as avatarVariants } from "@/components/demos/avatar-variants"
 import { variants as badgeVariants } from "@/components/demos/badge-variants"
 import { variants as breadcrumbVariants } from "@/components/demos/breadcrumb-variants"
@@ -17,13 +18,12 @@ import { variants as checkboxVariants } from "@/components/demos/checkbox-varian
 import { variants as collapsibleVariants } from "@/components/demos/collapsible-variants"
 import { variants as commandVariants } from "@/components/demos/command-variants"
 import { variants as contextMenuVariants } from "@/components/demos/context-menu-variants"
-import AttachmentDemo from "@/components/demos/attachment-demo"
+import { variants as datePickerVariants } from "@/components/demos/date-picker-variants"
 import ButtonGroupDemo from "@/components/demos/button-group-demo"
 import CalendarDemo from "@/components/demos/calendar-demo"
 import ChartDemo from "@/components/demos/chart-demo"
 import ComboboxDemo from "@/components/demos/combobox-demo"
 import DataTableDemo from "@/components/demos/data-table-demo"
-import DatePickerDemo from "@/components/demos/date-picker-demo"
 
 export type ComponentEntry = {
   /** 문서 페이지 안에서 쓰는 앵커 id */
@@ -74,7 +74,7 @@ export const components: ComponentEntry[] = [
     name: "Attachment",
     summary:
       "첨부한 파일을 이름·형식·크기와 함께 보여주는 카드입니다. 제거 버튼 같은 동작을 붙일 수 있습니다.",
-    Demo: AttachmentDemo,
+    variants: attachmentVariants,
   },
   {
     slug: "avatar",
@@ -195,6 +195,6 @@ export const components: ComponentEntry[] = [
     summary:
       "버튼을 누르면 달력이 떠서 날짜를 고르는 입력칸입니다. 고른 날짜가 버튼에 바로 표시됩니다.",
     note: "Date Picker는 단독 컴포넌트가 아니라 Popover와 Calendar를 조합해 만든 것입니다.",
-    Demo: DatePickerDemo,
+    variants: datePickerVariants,
   },
 ]
