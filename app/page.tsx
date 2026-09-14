@@ -1,5 +1,3 @@
-import { ExternalLinkIcon } from "lucide-react"
-
 import { components } from "@/components/component-registry"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
@@ -78,15 +76,6 @@ export default function Page() {
                   <h2 className="text-xl font-semibold tracking-tight">
                     {component.name}
                   </h2>
-                  <a
-                    href={component.docs}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-1 text-xs text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
-                  >
-                    공식 문서
-                    <ExternalLinkIcon className="size-3" />
-                  </a>
                 </div>
 
                 <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
@@ -102,10 +91,6 @@ export default function Page() {
                 <div className="mt-5 flex min-h-40 w-full items-center justify-center rounded-xl border bg-card p-8">
                   <Demo />
                 </div>
-
-                <pre className="mt-3 overflow-x-auto rounded-lg bg-muted px-4 py-3 text-xs text-muted-foreground">
-                  <code>{component.command}</code>
-                </pre>
 
                 {index < components.length - 1 ? (
                   <Separator className="mt-16" />
