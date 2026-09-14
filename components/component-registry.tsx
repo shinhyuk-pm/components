@@ -43,6 +43,7 @@ import { variants as nativeSelectVariants } from "@/components/demos/native-sele
 import { variants as navigationMenuVariants } from "@/components/demos/navigation-menu-variants"
 import { variants as paginationVariants } from "@/components/demos/pagination-variants"
 import { variants as popoverVariants } from "@/components/demos/popover-variants"
+import { variants as progressVariants } from "@/components/demos/progress-variants"
 
 export type ComponentEntry = {
   /** 문서 페이지 안에서 쓰는 앵커 id */
@@ -348,5 +349,12 @@ export const components: ComponentEntry[] = [
     summary:
       "버튼을 누르면 바로 옆에 뜨는 작은 창입니다. 배경을 가리지 않아 짧은 설정이나 설명을 보여줄 때 씁니다.",
     variants: popoverVariants,
+  },
+  {
+    slug: "progress",
+    name: "Progress",
+    summary:
+      "작업이 얼마나 진행됐는지 보여주는 막대입니다. 업로드·설치·설문 진행률 표시에 씁니다.",
+    variants: progressVariants,
   },
 ]
