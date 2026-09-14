@@ -35,6 +35,7 @@ import { variants as inputGroupVariants } from "@/components/demos/input-group-v
 import { variants as inputOtpVariants } from "@/components/demos/input-otp-variants"
 import { variants as itemVariants } from "@/components/demos/item-variants"
 import { variants as kbdVariants } from "@/components/demos/kbd-variants"
+import { variants as labelVariants } from "@/components/demos/label-variants"
 
 export type ComponentEntry = {
   /** 문서 페이지 안에서 쓰는 앵커 id */
@@ -284,5 +285,12 @@ export const components: ComponentEntry[] = [
     summary:
       "키보드 키를 작은 키캡 모양으로 보여줍니다. 단축키를 안내하는 도움말이나 검색창 힌트에 씁니다.",
     variants: kbdVariants,
+  },
+  {
+    slug: "label",
+    name: "Label",
+    summary:
+      "입력 요소 옆에 붙는 이름표입니다. 글자를 눌러도 해당 입력칸이 반응하도록 연결됩니다.",
+    variants: labelVariants,
   },
 ]
