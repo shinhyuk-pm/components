@@ -48,6 +48,7 @@ import { variants as questionnaireVariants } from "@/components/demos/questionna
 import { variants as radioGroupVariants } from "@/components/demos/radio-group-variants"
 import { variants as resizableVariants } from "@/components/demos/resizable-variants"
 import { variants as scrollAreaVariants } from "@/components/demos/scroll-area-variants"
+import { variants as selectVariants } from "@/components/demos/select-variants"
 
 export type ComponentEntry = {
   /** 문서 페이지 안에서 쓰는 앵커 id */
@@ -388,5 +389,12 @@ export const components: ComponentEntry[] = [
     summary:
       "정해진 크기 안에서 내용을 스크롤하는 영역입니다. 브라우저마다 다른 스크롤 막대를 얇고 통일된 모양으로 바꿔 줍니다.",
     variants: scrollAreaVariants,
+  },
+  {
+    slug: "select",
+    name: "Select",
+    summary:
+      "버튼을 누르면 목록이 펼쳐지는 선택 상자입니다. 브라우저 기본 것보다 모양을 자유롭게 꾸밀 수 있어 대부분의 폼에 씁니다.",
+    variants: selectVariants,
   },
 ]
