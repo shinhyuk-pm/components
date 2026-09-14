@@ -20,18 +20,18 @@ import {
   ContextMenuTrigger,
 } from "@/components/ui/context-menu"
 
-function Area({ children }: { children?: React.ReactNode }) {
+function Trigger({ children }: { children?: React.ReactNode }) {
   return (
-    <span className="flex h-32 w-full max-w-sm items-center justify-center rounded-lg border border-dashed text-sm text-muted-foreground">
+    <ContextMenuTrigger className="flex h-32 w-full max-w-sm items-center justify-center rounded-lg border border-dashed text-sm text-muted-foreground select-none">
       {children ?? "여기서 마우스 오른쪽 버튼을 눌러보세요"}
-    </span>
+    </ContextMenuTrigger>
   )
 }
 
 export function Basic() {
   return (
     <ContextMenu>
-      <ContextMenuTrigger render={<Area />} />
+      <Trigger />
       <ContextMenuContent>
         <ContextMenuItem>뒤로 가기</ContextMenuItem>
         <ContextMenuItem disabled>앞으로 가기</ContextMenuItem>
@@ -44,7 +44,7 @@ export function Basic() {
 export function WithIconsAndShortcuts() {
   return (
     <ContextMenu>
-      <ContextMenuTrigger render={<Area>아이콘과 단축키가 있는 메뉴</Area>} />
+      <Trigger>아이콘과 단축키가 있는 메뉴</Trigger>
       <ContextMenuContent>
         <ContextMenuItem>
           <CopyIcon />
@@ -68,7 +68,7 @@ export function WithIconsAndShortcuts() {
 export function WithSubmenu() {
   return (
     <ContextMenu>
-      <ContextMenuTrigger render={<Area>하위 메뉴가 펼쳐지는 메뉴</Area>} />
+      <Trigger>하위 메뉴가 펼쳐지는 메뉴</Trigger>
       <ContextMenuContent>
         <ContextMenuItem>이름 바꾸기</ContextMenuItem>
         <ContextMenuSub>
@@ -91,7 +91,7 @@ export function WithCheckboxes() {
 
   return (
     <ContextMenu>
-      <ContextMenuTrigger render={<Area>켜고 끄는 항목이 있는 메뉴</Area>} />
+      <Trigger>켜고 끄는 항목이 있는 메뉴</Trigger>
       <ContextMenuContent>
         <ContextMenuLabel>보기 설정</ContextMenuLabel>
         <ContextMenuSeparator />
@@ -111,7 +111,7 @@ export function WithRadio() {
 
   return (
     <ContextMenu>
-      <ContextMenuTrigger render={<Area>하나만 고르는 메뉴</Area>} />
+      <Trigger>하나만 고르는 메뉴</Trigger>
       <ContextMenuContent>
         <ContextMenuLabel>글자 크기</ContextMenuLabel>
         <ContextMenuSeparator />
@@ -128,7 +128,7 @@ export function WithRadio() {
 export function Destructive() {
   return (
     <ContextMenu>
-      <ContextMenuTrigger render={<Area>삭제가 포함된 메뉴</Area>} />
+      <Trigger>삭제가 포함된 메뉴</Trigger>
       <ContextMenuContent>
         <ContextMenuGroup>
           <ContextMenuItem>
