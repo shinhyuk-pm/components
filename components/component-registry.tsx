@@ -3,18 +3,18 @@ import type * as React from "react"
 import type { DemoVariant } from "@/components/demo-types"
 
 import { variants as accordionVariants } from "@/components/demos/accordion-variants"
-import AlertDemo from "@/components/demos/alert-demo"
-import AlertDialogDemo from "@/components/demos/alert-dialog-demo"
-import AspectRatioDemo from "@/components/demos/aspect-ratio-demo"
+import { variants as alertVariants } from "@/components/demos/alert-variants"
+import { variants as alertDialogVariants } from "@/components/demos/alert-dialog-variants"
+import { variants as aspectRatioVariants } from "@/components/demos/aspect-ratio-variants"
+import { variants as badgeVariants } from "@/components/demos/badge-variants"
+import { variants as cardVariants } from "@/components/demos/card-variants"
 import AttachmentDemo from "@/components/demos/attachment-demo"
 import AvatarDemo from "@/components/demos/avatar-demo"
-import BadgeDemo from "@/components/demos/badge-demo"
 import BreadcrumbDemo from "@/components/demos/breadcrumb-demo"
 import BubbleDemo from "@/components/demos/bubble-demo"
 import ButtonDemo from "@/components/demos/button-demo"
 import ButtonGroupDemo from "@/components/demos/button-group-demo"
 import CalendarDemo from "@/components/demos/calendar-demo"
-import CardDemo from "@/components/demos/card-demo"
 import CarouselDemo from "@/components/demos/carousel-demo"
 import ChartDemo from "@/components/demos/chart-demo"
 import CheckboxDemo from "@/components/demos/checkbox-demo"
@@ -45,7 +45,7 @@ export const components: ComponentEntry[] = [
     slug: "accordion",
     name: "Accordion",
     summary:
-      "제목을 누르면 아래 내용이 펼쳐지고 접히는 목록입니다. FAQ처럼 항목이 많을 때 화면을 짧게 유지해 줍니다.",
+      "제목을 누르면 아래 내용이 펼쳐지고 접힐는 목록입니다. FAQ처럼 항목이 많을 때 화면을 짧게 유지해 줍니다.",
     variants: accordionVariants,
   },
   {
@@ -53,21 +53,21 @@ export const components: ComponentEntry[] = [
     name: "Alert",
     summary:
       "화면 안에 머무르는 알림 상자입니다. 안내나 오류 메시지를 눈에 띄게 보여줄 때 씁니다.",
-    Demo: AlertDemo,
+    variants: alertVariants,
   },
   {
     slug: "alert-dialog",
     name: "Alert Dialog",
     summary:
       "화면을 덮고 뜨는 확인 창입니다. 삭제처럼 되돌릴 수 없는 작업 전에 한 번 더 묻습니다.",
-    Demo: AlertDialogDemo,
+    variants: alertDialogVariants,
   },
   {
     slug: "aspect-ratio",
     name: "Aspect Ratio",
     summary:
       "영역의 가로세로 비율을 고정합니다. 이미지나 영상이 기기마다 찌그러지지 않게 잡아 줍니다.",
-    Demo: AspectRatioDemo,
+    variants: aspectRatioVariants,
   },
   {
     slug: "attachment",
@@ -88,7 +88,7 @@ export const components: ComponentEntry[] = [
     name: "Badge",
     summary:
       "상태나 분류를 표시하는 작은 라벨입니다. '신규', '진행중' 같은 짧은 꼬리표에 씁니다.",
-    Demo: BadgeDemo,
+    variants: badgeVariants,
   },
   {
     slug: "breadcrumb",
@@ -130,7 +130,7 @@ export const components: ComponentEntry[] = [
     name: "Card",
     summary:
       "제목·설명·본문·버튼을 담는 상자입니다. 화면을 구역으로 나눌 때 가장 많이 쓰입니다.",
-    Demo: CardDemo,
+    variants: cardVariants,
   },
   {
     slug: "carousel",
