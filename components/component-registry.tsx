@@ -19,10 +19,10 @@ import { variants as carouselVariants } from "@/components/demos/carousel-varian
 import { variants as chartVariants } from "@/components/demos/chart-variants"
 import { variants as checkboxVariants } from "@/components/demos/checkbox-variants"
 import { variants as collapsibleVariants } from "@/components/demos/collapsible-variants"
+import { variants as comboboxVariants } from "@/components/demos/combobox-variants"
 import { variants as commandVariants } from "@/components/demos/command-variants"
 import { variants as contextMenuVariants } from "@/components/demos/context-menu-variants"
 import { variants as datePickerVariants } from "@/components/demos/date-picker-variants"
-import ComboboxDemo from "@/components/demos/combobox-demo"
 import DataTableDemo from "@/components/demos/data-table-demo"
 
 export type ComponentEntry = {
@@ -165,7 +165,7 @@ export const components: ComponentEntry[] = [
     name: "Combobox",
     summary:
       "직접 입력해서 걸러내며 고르는 선택 상자입니다. 항목이 많을 때 드롭다운보다 편합니다.",
-    Demo: ComboboxDemo,
+    variants: comboboxVariants,
   },
   {
     slug: "command",
