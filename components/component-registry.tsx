@@ -13,6 +13,7 @@ import { variants as breadcrumbVariants } from "@/components/demos/breadcrumb-va
 import { variants as bubbleVariants } from "@/components/demos/bubble-variants"
 import { variants as buttonVariants } from "@/components/demos/button-variants"
 import { variants as buttonGroupVariants } from "@/components/demos/button-group-variants"
+import { variants as calendarVariants } from "@/components/demos/calendar-variants"
 import { variants as cardVariants } from "@/components/demos/card-variants"
 import { variants as carouselVariants } from "@/components/demos/carousel-variants"
 import { variants as checkboxVariants } from "@/components/demos/checkbox-variants"
@@ -20,7 +21,6 @@ import { variants as collapsibleVariants } from "@/components/demos/collapsible-
 import { variants as commandVariants } from "@/components/demos/command-variants"
 import { variants as contextMenuVariants } from "@/components/demos/context-menu-variants"
 import { variants as datePickerVariants } from "@/components/demos/date-picker-variants"
-import CalendarDemo from "@/components/demos/calendar-demo"
 import ChartDemo from "@/components/demos/chart-demo"
 import ComboboxDemo from "@/components/demos/combobox-demo"
 import DataTableDemo from "@/components/demos/data-table-demo"
@@ -123,7 +123,7 @@ export const components: ComponentEntry[] = [
     name: "Calendar",
     summary:
       "달력에서 날짜를 고르는 컴포넌트입니다. 하루만 고르거나 기간으로 고를 수 있습니다.",
-    Demo: CalendarDemo,
+    variants: calendarVariants,
   },
   {
     slug: "card",
