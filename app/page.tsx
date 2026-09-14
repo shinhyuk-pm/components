@@ -7,17 +7,9 @@ export default function HomePage() {
   return (
     <>
       <header className="mb-12">
-        <Badge variant="secondary" className="mb-4">
-          Base UI 변형
-        </Badge>
         <h1 className="text-3xl font-semibold tracking-tight text-balance">
-          shadcn/ui 컴포넌트 22개
+          신혁이의 컴포넌트 모음집
         </h1>
-        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-          Accordion부터 Date Picker까지 22개를 Base UI 변형으로 받아 정리했습니다.
-          아래에서 컴포넌트를 고르면 해당 페이지에서 사용 유형별 예시를 직접 눌러
-          볼 수 있습니다.
-        </p>
         <dl className="mt-6 flex flex-wrap gap-x-8 gap-y-3 text-sm">
           <div>
             <dt className="text-muted-foreground">기반 라이브러리</dt>

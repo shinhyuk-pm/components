@@ -21,7 +21,7 @@ export function DocsSidebar({ items }: { items: Item[] }) {
             : "text-muted-foreground hover:text-foreground"
         )}
       >
-        컴포넌트 {items.length}개
+        Components
       </Link>
       <nav className="flex flex-col gap-0.5">
         {items.map((item, index) => {
