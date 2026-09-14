@@ -32,25 +32,172 @@ const chartConfig = {
   mobile: { label: "모바일", color: "var(--chart-2)" },
 } satisfies ChartConfig
 
-export default function ChartDemo() {
+function Frame({
+  title,
+  description,
+  children,
+}: {
+  title: string
+  description: string
+  children: React.ReactNode
+}) {
   return (
     <Card className="w-full max-w-xl">
       <CardHeader>
-        <CardTitle>월별 방문자</CardTitle>
-        <CardDescription>1월 - 6월</CardDescription>
+        <CardTitle>{title}</CardTitle>
+        <CardDescription>{description}</CardDescription>
       </CardHeader>
-      <CardContent>
-        <ChartContainer config={chartConfig}>
+      <CardContent>{children}</CardContent>
+    </Card>
+  )
+}
+
+export function Basic() {
+  return (
+    <Frame title="월별 방문자" description="1월 - 6월">
+      <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
+        <BarChart accessibilityLayer data={chartData}>
+          <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
+          <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
+        </BarChart>
+      </ChartContainer>
+    </Frame>
+  )
+}
+
+export function Grid() {
+  return (
+    <Frame title="월별 방문자" description="가로 눈금선 추가">
+      <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
+        <BarChart accessibilityLayer data={chartData}>
+          <CartesianGrid vertical={false} />
+          <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
+          <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
+        </BarChart>
+      </ChartContainer>
+    </Frame>
+  )
+}
+
+export function Axis() {
+  return (
+    <Frame title="월별 방문자" description="가로축 이름표 추가">
+      <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
+        <BarChart accessibilityLayer data={chartData}>
+          <CartesianGrid vertical={false} />
+          <XAxis
+            dataKey="month"
+            tickLine={false}
+            tickMargin={10}
+            axisLine={false}
+          />
+          <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
+          <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
+        </BarChart>
+      </ChartContainer>
+    </Frame>
+  )
+}
+
+export function Tooltip() {
+  return (
+    <Frame title="월별 방문자" description="막대에 마우스를 올려 보세요">
+      <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
+        <BarChart accessibilityLayer data={chartData}>
+          <CartesianGrid vertical={false} />
+          <XAxis
+            dataKey="month"
+            tickLine={false}
+            tickMargin={10}
+            axisLine={false}
+          />
+          <ChartTooltip content={<ChartTooltipContent />} />
+          <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
+          <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
+        </BarChart>
+      </ChartContainer>
+    </Frame>
+  )
+}
+
+export function Legend() {
+  return (
+    <Frame title="월별 방문자" description="아래쪽에 범례 추가">
+      <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
+        <BarChart accessibilityLayer data={chartData}>
+          <CartesianGrid vertical={false} />
+          <XAxis
+            dataKey="month"
+            tickLine={false}
+            tickMargin={10}
+            axisLine={false}
+          />
+          <ChartTooltip content={<ChartTooltipContent />} />
+          <ChartLegend content={<ChartLegendContent />} />
+          <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
+          <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
+        </BarChart>
+      </ChartContainer>
+    </Frame>
+  )
+}
+
+export function TooltipOptions() {
+  return (
+    <div className="grid w-full max-w-3xl gap-4 sm:grid-cols-2">
+      <Frame title="indicator=line" description="세로 막대 모양 표식">
+        <ChartContainer config={chartConfig} className="min-h-[180px] w-full">
           <BarChart accessibilityLayer data={chartData}>
             <CartesianGrid vertical={false} />
-            <XAxis dataKey="month" tickLine={false} axisLine={false} tickMargin={8} />
+            <XAxis dataKey="month" tickLine={false} axisLine={false} />
+            <ChartTooltip
+              defaultIndex={2}
+              content={<ChartTooltipContent indicator="line" />}
+            />
+            <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
+            <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
+          </BarChart>
+        </ChartContainer>
+      </Frame>
+      <Frame title="hideLabel + dashed" description="제목을 감춘 점선 표식">
+        <ChartContainer config={chartConfig} className="min-h-[180px] w-full">
+          <BarChart accessibilityLayer data={chartData}>
+            <CartesianGrid vertical={false} />
+            <XAxis dataKey="month" tickLine={false} axisLine={false} />
+            <ChartTooltip
+              defaultIndex={2}
+              content={<ChartTooltipContent hideLabel indicator="dashed" />}
+            />
+            <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
+            <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
+          </BarChart>
+        </ChartContainer>
+      </Frame>
+    </div>
+  )
+}
+
+export function Rtl() {
+  return (
+    <div dir="rtl" className="flex w-full max-w-xl justify-center">
+      <Frame title="월별 방문자" description="오른쪽에서 왼쪽으로 읽는 배치">
+        <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
+          <BarChart accessibilityLayer data={chartData}>
+            <CartesianGrid vertical={false} />
+            <XAxis
+              dataKey="month"
+              reversed
+              tickLine={false}
+              tickMargin={10}
+              axisLine={false}
+            />
             <ChartTooltip content={<ChartTooltipContent />} />
             <ChartLegend content={<ChartLegendContent />} />
             <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
             <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
           </BarChart>
         </ChartContainer>
-      </CardContent>
-    </Card>
+      </Frame>
+    </div>
   )
 }

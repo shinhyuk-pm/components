@@ -16,12 +16,12 @@ import { variants as buttonGroupVariants } from "@/components/demos/button-group
 import { variants as calendarVariants } from "@/components/demos/calendar-variants"
 import { variants as cardVariants } from "@/components/demos/card-variants"
 import { variants as carouselVariants } from "@/components/demos/carousel-variants"
+import { variants as chartVariants } from "@/components/demos/chart-variants"
 import { variants as checkboxVariants } from "@/components/demos/checkbox-variants"
 import { variants as collapsibleVariants } from "@/components/demos/collapsible-variants"
 import { variants as commandVariants } from "@/components/demos/command-variants"
 import { variants as contextMenuVariants } from "@/components/demos/context-menu-variants"
 import { variants as datePickerVariants } from "@/components/demos/date-picker-variants"
-import ChartDemo from "@/components/demos/chart-demo"
 import ComboboxDemo from "@/components/demos/combobox-demo"
 import DataTableDemo from "@/components/demos/data-table-demo"
 
@@ -144,7 +144,7 @@ export const components: ComponentEntry[] = [
     name: "Chart",
     summary:
       "막대·선·영역 그래프를 그립니다. 색과 범례가 테마에 맞춰 자동으로 맞춰집니다.",
-    Demo: ChartDemo,
+    variants: chartVariants,
   },
   {
     slug: "checkbox",
