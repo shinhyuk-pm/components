@@ -47,6 +47,7 @@ import { variants as progressVariants } from "@/components/demos/progress-varian
 import { variants as questionnaireVariants } from "@/components/demos/questionnaire-variants"
 import { variants as radioGroupVariants } from "@/components/demos/radio-group-variants"
 import { variants as resizableVariants } from "@/components/demos/resizable-variants"
+import { variants as scrollAreaVariants } from "@/components/demos/scroll-area-variants"
 
 export type ComponentEntry = {
   /** 문서 페이지 안에서 쓰는 앵커 id */
@@ -380,5 +381,12 @@ export const components: ComponentEntry[] = [
     summary:
       "경계선을 끌어 영역 크기를 바꾸는 분할 화면입니다. 사이드바 너비나 편집기·미리보기 비율 조절에 씁니다.",
     variants: resizableVariants,
+  },
+  {
+    slug: "scroll-area",
+    name: "Scroll Area",
+    summary:
+      "정해진 크기 안에서 내용을 스크롤하는 영역입니다. 브라우저마다 다른 스크롤 막대를 얇고 통일된 모양으로 바꿔 줍니다.",
+    variants: scrollAreaVariants,
   },
 ]
