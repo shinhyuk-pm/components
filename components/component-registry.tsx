@@ -45,6 +45,7 @@ import { variants as paginationVariants } from "@/components/demos/pagination-va
 import { variants as popoverVariants } from "@/components/demos/popover-variants"
 import { variants as progressVariants } from "@/components/demos/progress-variants"
 import { variants as questionnaireVariants } from "@/components/demos/questionnaire-variants"
+import { variants as radioGroupVariants } from "@/components/demos/radio-group-variants"
 
 export type ComponentEntry = {
   /** 문서 페이지 안에서 쓰는 앵커 id */
@@ -364,5 +365,12 @@ export const components: ComponentEntry[] = [
     summary:
       "질문을 한 번에 하나씩 보여주며 답을 모으는 설문 흐름입니다. 온보딩이나 AI에게 작업 조건을 묻는 화면에 씁니다.",
     variants: questionnaireVariants,
+  },
+  {
+    slug: "radio-group",
+    name: "Radio Group",
+    summary:
+      "여러 선택지 중 하나만 고르는 동그란 버튼 묶음입니다. 요금제·배송 방식처럼 딱 하나를 고를 때 씁니다.",
+    variants: radioGroupVariants,
   },
 ]
