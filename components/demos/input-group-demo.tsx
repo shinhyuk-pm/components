@@ -232,7 +232,7 @@ export function Button() {
             title="복사"
             size="icon-xs"
             onClick={() => {
-              navigator.clipboard?.writeText("https://x.com/shadcn")
+              navigator.clipboard?.writeText("https://x.com/shadcn").catch(() => {})
               setCopied(true)
               setTimeout(() => setCopied(false), 1500)
             }}

@@ -365,7 +365,7 @@ const actionableColumns: ColumnDef<Payment>[] = [
           <DropdownMenuContent align="end" className="w-44">
             <DropdownMenuGroup>
               <DropdownMenuLabel>작업</DropdownMenuLabel>
-              <DropdownMenuItem onClick={() => navigator.clipboard.writeText(payment.id)}>
+              <DropdownMenuItem onClick={() => navigator.clipboard?.writeText(payment.id).catch(() => {})}>
                 결제 ID 복사
               </DropdownMenuItem>
             </DropdownMenuGroup>
