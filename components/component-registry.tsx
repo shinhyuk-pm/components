@@ -42,6 +42,7 @@ import { variants as messageScrollerVariants } from "@/components/demos/message-
 import { variants as nativeSelectVariants } from "@/components/demos/native-select-variants"
 import { variants as navigationMenuVariants } from "@/components/demos/navigation-menu-variants"
 import { variants as paginationVariants } from "@/components/demos/pagination-variants"
+import { variants as popoverVariants } from "@/components/demos/popover-variants"
 
 export type ComponentEntry = {
   /** 문서 페이지 안에서 쓰는 앵커 id */
@@ -340,5 +341,12 @@ export const components: ComponentEntry[] = [
     summary:
       "긴 목록을 여러 페이지로 나눠 넘겨 보는 페이지 번호 줄입니다. 게시판이나 검색 결과 아래에 씁니다.",
     variants: paginationVariants,
+  },
+  {
+    slug: "popover",
+    name: "Popover",
+    summary:
+      "버튼을 누르면 바로 옆에 뜨는 작은 창입니다. 배경을 가리지 않아 짧은 설정이나 설명을 보여줄 때 씁니다.",
+    variants: popoverVariants,
   },
 ]
