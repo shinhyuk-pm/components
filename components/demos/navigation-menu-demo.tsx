@@ -113,7 +113,7 @@ export function LinkOnly() {
           { label: "홈", href: "/" },
           { label: "버튼", href: "/components/button" },
           { label: "카드", href: "/components/card" },
-          { label: "표", href: "/components/table" },
+          { label: "아바타", href: "/components/avatar" },
         ].map((item) => (
           <NavigationMenuItem key={item.href}>
             <NavigationMenuLink render={<Link href={item.href} />} className={navigationMenuTriggerStyle()}>
