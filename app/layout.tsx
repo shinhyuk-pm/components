@@ -15,7 +15,7 @@ const fontMono = Geist_Mono({
 })
 
 export const metadata = {
-  title: "shadcn/ui 컴포넌트 모음",
+  title: "신혁이의 컴포넌트 모음집",
   description: "Base UI 변형으로 받은 컴포넌트 22개를 한곳에서 확인합니다.",
 }
 
