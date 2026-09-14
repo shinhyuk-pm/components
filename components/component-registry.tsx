@@ -37,6 +37,7 @@ import { variants as itemVariants } from "@/components/demos/item-variants"
 import { variants as kbdVariants } from "@/components/demos/kbd-variants"
 import { variants as labelVariants } from "@/components/demos/label-variants"
 import { variants as menubarVariants } from "@/components/demos/menubar-variants"
+import { variants as messageVariants } from "@/components/demos/message-variants"
 
 export type ComponentEntry = {
   /** 문서 페이지 안에서 쓰는 앵커 id */
@@ -300,5 +301,12 @@ export const components: ComponentEntry[] = [
     summary:
       "파일·편집·보기처럼 프로그램 상단에 나란히 놓이는 메뉴 막대입니다. 데스크톱 앱 느낌의 화면에 씁니다.",
     variants: menubarVariants,
+  },
+  {
+    slug: "message",
+    name: "Message",
+    summary:
+      "메신저 대화 한 줄을 이루는 묶음입니다. 프로필 사진·이름·말풍선·읽음 표시를 한 세트로 배치합니다.",
+    variants: messageVariants,
   },
 ]
