@@ -55,6 +55,7 @@ import { variants as spinnerVariants } from "@/components/demos/spinner-variants
 import { variants as switchVariants } from "@/components/demos/switch-variants"
 import { variants as tableVariants } from "@/components/demos/table-variants"
 import { variants as textareaVariants } from "@/components/demos/textarea-variants"
+import { variants as tooltipVariants } from "@/components/demos/tooltip-variants"
 
 export type ComponentEntry = {
   /** 문서 페이지 안에서 쓰는 앵커 id */
@@ -444,5 +445,12 @@ export const components: ComponentEntry[] = [
     summary:
       "여러 줄을 입력받는 칸입니다. 한 줄짜리 Input과 달리 문의 내용·메모처럼 긴 글을 받을 때 씁니다.",
     variants: textareaVariants,
+  },
+  {
+    slug: "tooltip",
+    name: "Tooltip",
+    summary:
+      "마우스를 올리면 뜨는 짧은 설명 말풍선입니다. 아이콘 버튼처럼 뜻이 분명하지 않은 요소를 보충 설명할 때 씁니다.",
+    variants: tooltipVariants,
   },
 ]
