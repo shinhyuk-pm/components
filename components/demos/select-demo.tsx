@@ -193,7 +193,7 @@ export function Scrollable() {
       <SelectTrigger className="w-full max-w-64">
         <SelectValue />
       </SelectTrigger>
-      <SelectContent>
+      <SelectContent className="max-h-64">
         {timezoneGroups.map((group) => (
           <SelectGroup key={group.label}>
             <SelectLabel>{group.label}</SelectLabel>

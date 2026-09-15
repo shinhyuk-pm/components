@@ -33,7 +33,7 @@ export const variants: DemoVariant[] = [
     id: "scrollable",
     name: "Scrollable",
     description:
-      "선택지가 많으면 목록 안에서 스크롤됩니다. 시간대 선택처럼 긴 목록에 씁니다.",
+      "선택지가 많아도 목록 높이를 고정해 두고 그 안에서만 스크롤됩니다. 시간대 선택처럼 긴 목록에 씁니다.",
     Demo: Scrollable,
   },
   {
