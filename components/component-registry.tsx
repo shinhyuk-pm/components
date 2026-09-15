@@ -50,6 +50,7 @@ import { variants as resizableVariants } from "@/components/demos/resizable-vari
 import { variants as scrollAreaVariants } from "@/components/demos/scroll-area-variants"
 import { variants as selectVariants } from "@/components/demos/select-variants"
 import { variants as separatorVariants } from "@/components/demos/separator-variants"
+import { variants as switchVariants } from "@/components/demos/switch-variants"
 import { variants as tableVariants } from "@/components/demos/table-variants"
 import { variants as textareaVariants } from "@/components/demos/textarea-variants"
 
@@ -406,6 +407,13 @@ export const components: ComponentEntry[] = [
     summary:
       "내용을 시각적으로 나누는 얇은 구분선입니다. 가로·세로 방향을 모두 지원하며, 화면 낭독기에는 구분선으로 읽힙니다.",
     variants: separatorVariants,
+  },
+  {
+    slug: "switch",
+    name: "Switch",
+    summary:
+      "켜짐·꺼짐 두 상태를 바로 바꾸는 토글입니다. 저장 버튼 없이 즉시 반영되는 설정에 씁니다.",
+    variants: switchVariants,
   },
   {
     slug: "table",
