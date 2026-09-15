@@ -55,6 +55,11 @@ import { variants as sliderVariants } from "@/components/demos/slider-variants"
 import { variants as spinnerVariants } from "@/components/demos/spinner-variants"
 import { variants as switchVariants } from "@/components/demos/switch-variants"
 import { variants as tableVariants } from "@/components/demos/table-variants"
+import { variants as numberFieldVariants } from "@/components/demos/number-field-variants"
+import { variants as tabsVariants } from "@/components/demos/tabs-variants"
+import { variants as toastVariants } from "@/components/demos/toast-variants"
+import { variants as toggleVariants } from "@/components/demos/toggle-variants"
+import { variants as toggleGroupVariants } from "@/components/demos/toggle-group-variants"
 import { variants as textareaVariants } from "@/components/demos/textarea-variants"
 import { variants as tooltipVariants } from "@/components/demos/tooltip-variants"
 
@@ -357,6 +362,13 @@ export const components: ComponentEntry[] = [
     variants: navigationMenuVariants,
   },
   {
+    slug: "number-field",
+    name: "Number Field",
+    summary:
+      "빼기·더하기 버튼으로 숫자를 올리고 내리는 입력칸입니다. 수량·기간처럼 정해진 단위로 세는 값에 씁니다.",
+    variants: numberFieldVariants,
+  },
+  {
     slug: "pagination",
     name: "Pagination",
     summary:
@@ -448,11 +460,39 @@ export const components: ComponentEntry[] = [
     variants: tableVariants,
   },
   {
+    slug: "tabs",
+    name: "Tabs",
+    summary:
+      "여러 화면을 한자리에 겹쳐 두고 위쪽 이름표로 갈아 끼웁니다. 한 번에 하나씩만 보여 줍니다.",
+    variants: tabsVariants,
+  },
+  {
     slug: "textarea",
     name: "Textarea",
     summary:
       "여러 줄을 입력받는 칸입니다. 한 줄짜리 Input과 달리 문의 내용·메모처럼 긴 글을 받을 때 씁니다.",
     variants: textareaVariants,
+  },
+  {
+    slug: "toast",
+    name: "Toast",
+    summary:
+      "화면 구석에 잠깐 떴다가 사라지는 알림입니다. 저장 완료처럼 하던 일을 막지 않고 알려야 할 때 씁니다.",
+    variants: toastVariants,
+  },
+  {
+    slug: "toggle",
+    name: "Toggle",
+    summary:
+      "누르면 눌린 채로 남는 버튼입니다. Switch와 달리 버튼 모양을 유지해 도구 모음에 어울립니다.",
+    variants: toggleVariants,
+  },
+  {
+    slug: "toggle-group",
+    name: "Toggle Group",
+    summary:
+      "눌린 채로 남는 버튼 여러 개를 한 묶음으로 다룹니다. 하나만 고르게 할 수도, 여러 개를 켜게 할 수도 있습니다.",
+    variants: toggleGroupVariants,
   },
   {
     slug: "tooltip",

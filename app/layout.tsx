@@ -4,6 +4,7 @@ import "./globals.css"
 import { components } from "@/components/component-registry"
 import { DocsSidebar } from "@/components/docs-sidebar"
 import { ThemeProvider } from "@/components/theme-provider"
+import { Toaster } from "@/components/ui/sonner"
 import { TooltipProvider } from "@/components/ui/tooltip"
 import { cn } from "@/lib/utils"
 
@@ -44,6 +45,7 @@ export default function RootLayout({
               <DocsSidebar items={items} />
               <main className="min-w-0 flex-1">{children}</main>
             </div>
+            <Toaster position="bottom-right" />
           </TooltipProvider>
         </ThemeProvider>
       </body>
