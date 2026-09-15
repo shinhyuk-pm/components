@@ -1,10 +1,5 @@
 import type { DemoVariant } from "@/components/demo-types"
-import {
-  Basic,
-  DisabledButton,
-  Sides,
-  WithShortcut,
-} from "@/components/demos/tooltip-demo"
+import { Basic, DisabledButton, Sides } from "@/components/demos/tooltip-demo"
 
 export const variants: DemoVariant[] = [
   {
@@ -20,12 +15,6 @@ export const variants: DemoVariant[] = [
     description:
       "말풍선이 뜨는 방향을 위·아래·왼쪽·오른쪽 중에서 고릅니다. 화면 끝에서는 알아서 뒤집힙니다.",
     Demo: Sides,
-  },
-  {
-    id: "shortcut",
-    name: "With Shortcut",
-    description: "설명과 함께 단축키를 보여 줍니다. 도구 모음 버튼에 씁니다.",
-    Demo: WithShortcut,
   },
   {
     id: "disabled-button",

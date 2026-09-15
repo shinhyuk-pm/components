@@ -4,7 +4,6 @@ import {
   ChoiceCard,
   Description,
   Disabled,
-  Fieldset,
   Invalid,
 } from "@/components/demos/radio-group-demo"
 
@@ -28,12 +27,6 @@ export const variants: DemoVariant[] = [
     description:
       "선택지를 카드 모양으로 크게 만들어 제목·설명까지 보여줍니다. 요금제 선택에 흔합니다.",
     Demo: ChoiceCard,
-  },
-  {
-    id: "fieldset",
-    name: "Fieldset",
-    description: "선택지 묶음에 제목(범례)과 설명을 붙입니다.",
-    Demo: Fieldset,
   },
   {
     id: "disabled",

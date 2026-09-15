@@ -1,7 +1,6 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Kbd, KbdGroup } from "@/components/ui/kbd"
 import {
   Tooltip,
   TooltipContent,
@@ -37,37 +36,6 @@ export function Sides() {
           <TooltipContent side={side}>{label}에 나타납니다</TooltipContent>
         </Tooltip>
       ))}
-    </div>
-  )
-}
-
-export function WithShortcut() {
-  return (
-    <div className="flex flex-wrap items-center gap-2">
-      <Tooltip>
-        <TooltipTrigger render={<Button variant="outline" />}>
-          저장
-        </TooltipTrigger>
-        <TooltipContent>
-          변경 사항 저장
-          <KbdGroup>
-            <Kbd>Ctrl</Kbd>
-            <Kbd>S</Kbd>
-          </KbdGroup>
-        </TooltipContent>
-      </Tooltip>
-      <Tooltip>
-        <TooltipTrigger render={<Button variant="outline" />}>
-          검색
-        </TooltipTrigger>
-        <TooltipContent>
-          빠른 검색 열기
-          <KbdGroup>
-            <Kbd>Ctrl</Kbd>
-            <Kbd>K</Kbd>
-          </KbdGroup>
-        </TooltipContent>
-      </Tooltip>
     </div>
   )
 }

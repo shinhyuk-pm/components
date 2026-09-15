@@ -3,7 +3,6 @@ import {
   Basic,
   Group,
   WithButton,
-  WithInputGroup,
   WithTooltip,
 } from "@/components/demos/kbd-demo"
 
@@ -32,11 +31,5 @@ export const variants: DemoVariant[] = [
     name: "Tooltip",
     description: "버튼에 마우스를 올리면 뜨는 말풍선 안에 단축키를 보여줍니다.",
     Demo: WithTooltip,
-  },
-  {
-    id: "input-group",
-    name: "Input Group",
-    description: "검색창 오른쪽에 ⌘K 같은 단축키 힌트를 붙입니다.",
-    Demo: WithInputGroup,
   },
 ]

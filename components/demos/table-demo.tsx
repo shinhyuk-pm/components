@@ -1,16 +1,5 @@
 "use client"
 
-import { MoreHorizontalIcon } from "lucide-react"
-
-import { Button } from "@/components/ui/button"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
 import {
   Table,
   TableBody,
@@ -107,62 +96,6 @@ export function Footer() {
             </TableCell>
           </TableRow>
         </TableFooter>
-      </Table>
-    </div>
-  )
-}
-
-export function Actions() {
-  return (
-    <div className="w-full max-w-xl">
-      <Table>
-        <TableHeader>
-          <TableRow>
-            <TableHead className="w-28">청구번호</TableHead>
-            <TableHead>상태</TableHead>
-            <TableHead className="text-right">금액</TableHead>
-            <TableHead className="w-12" />
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {invoices.slice(0, 3).map((invoice) => (
-            <TableRow key={invoice.id}>
-              <TableCell className="font-medium">{invoice.id}</TableCell>
-              <TableCell>{invoice.status}</TableCell>
-              <TableCell className="text-right tabular-nums">
-                {invoice.amount}
-              </TableCell>
-              <TableCell>
-                <DropdownMenu>
-                  <DropdownMenuTrigger
-                    render={
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        className="size-7"
-                        aria-label={`${invoice.id} 작업`}
-                      />
-                    }
-                  >
-                    <MoreHorizontalIcon />
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end">
-                    <DropdownMenuGroup>
-                      <DropdownMenuItem>상세 보기</DropdownMenuItem>
-                      <DropdownMenuItem>영수증 내려받기</DropdownMenuItem>
-                    </DropdownMenuGroup>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuGroup>
-                      <DropdownMenuItem variant="destructive">
-                        청구 취소
-                      </DropdownMenuItem>
-                    </DropdownMenuGroup>
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
       </Table>
     </div>
   )

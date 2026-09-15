@@ -1,6 +1,5 @@
 "use client"
 
-import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import {
   Empty,
@@ -10,11 +9,6 @@ import {
   EmptyMedia,
   EmptyTitle,
 } from "@/components/ui/empty"
-import {
-  InputGroup,
-  InputGroupAddon,
-  InputGroupInput,
-} from "@/components/ui/input-group"
 import { Spinner } from "@/components/ui/spinner"
 
 export function Basic() {
@@ -34,54 +28,6 @@ export function Size() {
       <Spinner className="size-6" />
       <Spinner className="size-8" />
     </div>
-  )
-}
-
-export function WithButton() {
-  return (
-    <div className="flex flex-wrap items-center gap-2">
-      <Button disabled>
-        <Spinner />
-        저장 중
-      </Button>
-      <Button variant="outline" disabled>
-        불러오는 중
-        <Spinner />
-      </Button>
-      <Button variant="ghost" size="icon" disabled aria-label="처리 중">
-        <Spinner />
-      </Button>
-    </div>
-  )
-}
-
-export function WithBadge() {
-  return (
-    <div className="flex flex-wrap items-center gap-2">
-      <Badge>
-        <Spinner className="size-3" />
-        동기화 중
-      </Badge>
-      <Badge variant="secondary">
-        <Spinner className="size-3" />
-        대기열 처리 중
-      </Badge>
-      <Badge variant="outline">
-        <Spinner className="size-3" />
-        확인 중
-      </Badge>
-    </div>
-  )
-}
-
-export function WithInputGroup() {
-  return (
-    <InputGroup className="w-full max-w-xs">
-      <InputGroupInput placeholder="아이디 중복을 확인하는 중…" />
-      <InputGroupAddon align="inline-end">
-        <Spinner />
-      </InputGroupAddon>
-    </InputGroup>
   )
 }
 

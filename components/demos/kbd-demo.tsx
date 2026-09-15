@@ -1,14 +1,7 @@
 "use client"
 
-import { SearchIcon } from "lucide-react"
-
 import { Button } from "@/components/ui/button"
 import { ButtonGroup } from "@/components/ui/button-group"
-import {
-  InputGroup,
-  InputGroupAddon,
-  InputGroupInput,
-} from "@/components/ui/input-group"
 import { Kbd, KbdGroup } from "@/components/ui/kbd"
 import {
   Tooltip,
@@ -81,20 +74,5 @@ export function WithTooltip() {
         </TooltipContent>
       </Tooltip>
     </ButtonGroup>
-  )
-}
-
-export function WithInputGroup() {
-  return (
-    <InputGroup className="w-full max-w-xs">
-      <InputGroupInput placeholder="검색..." />
-      <InputGroupAddon>
-        <SearchIcon />
-      </InputGroupAddon>
-      <InputGroupAddon align="inline-end">
-        <Kbd>⌘</Kbd>
-        <Kbd>K</Kbd>
-      </InputGroupAddon>
-    </InputGroup>
   )
 }

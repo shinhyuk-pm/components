@@ -18,7 +18,8 @@ export const variants: DemoVariant[] = [
   {
     id: "field",
     name: "Field",
-    description: "Field 안에서 라벨·입력칸·설명이 한 세트로 정돈된 형태입니다.",
+    description:
+      "여러 줄 입력칸을 라벨·설명과 묶어 폼 한 줄로 만듭니다. 설명은 아래에 붙습니다.",
     Demo: WithField,
   },
   {
@@ -31,7 +32,7 @@ export const variants: DemoVariant[] = [
     id: "invalid",
     name: "Invalid",
     description:
-      "값이 잘못됐을 때 테두리가 빨갛게 바뀌고 오류 문구가 아래에 나타납니다.",
+      "글자 수가 모자라는 등 값이 잘못됐을 때 테두리가 빨갛게 바뀌고 이유를 아래에 적어 줍니다.",
     Demo: Invalid,
   },
   {

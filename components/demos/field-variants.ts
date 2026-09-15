@@ -1,7 +1,6 @@
 import type { DemoVariant } from "@/components/demo-types"
 import {
   Basic,
-  ChoiceCard,
   Fieldset,
   Group,
   Responsive,
@@ -72,13 +71,6 @@ export const variants: DemoVariant[] = [
     name: "Switch",
     description: "라벨과 켜기/끄기 스위치를 한 줄에 나란히 둡니다.",
     Demo: WithSwitch,
-  },
-  {
-    id: "choice-card",
-    name: "Choice Card",
-    description:
-      "선택지를 카드 모양으로 크게 만들어 제목·설명까지 보여줍니다. 요금제 선택에 흔합니다.",
-    Demo: ChoiceCard,
   },
   {
     id: "group",

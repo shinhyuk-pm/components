@@ -102,35 +102,6 @@ export function ChoiceCard() {
   )
 }
 
-export function Fieldset() {
-  return (
-    <FieldSet className="w-full max-w-xs">
-      <FieldLegend variant="label">구독 요금제</FieldLegend>
-      <FieldDescription>연간·평생 요금제가 훨씬 저렴합니다.</FieldDescription>
-      <RadioGroup defaultValue="monthly">
-        <Field orientation="horizontal">
-          <RadioGroupItem value="monthly" id="rg-plan-monthly" />
-          <FieldLabel htmlFor="rg-plan-monthly" className="font-normal">
-            월간 (9,900원/월)
-          </FieldLabel>
-        </Field>
-        <Field orientation="horizontal">
-          <RadioGroupItem value="yearly" id="rg-plan-yearly" />
-          <FieldLabel htmlFor="rg-plan-yearly" className="font-normal">
-            연간 (99,000원/년)
-          </FieldLabel>
-        </Field>
-        <Field orientation="horizontal">
-          <RadioGroupItem value="lifetime" id="rg-plan-lifetime" />
-          <FieldLabel htmlFor="rg-plan-lifetime" className="font-normal">
-            평생 (299,000원)
-          </FieldLabel>
-        </Field>
-      </RadioGroup>
-    </FieldSet>
-  )
-}
-
 export function Disabled() {
   return (
     <RadioGroup defaultValue="option2" className="w-fit">
