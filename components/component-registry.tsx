@@ -50,6 +50,7 @@ import { variants as resizableVariants } from "@/components/demos/resizable-vari
 import { variants as scrollAreaVariants } from "@/components/demos/scroll-area-variants"
 import { variants as selectVariants } from "@/components/demos/select-variants"
 import { variants as separatorVariants } from "@/components/demos/separator-variants"
+import { variants as tableVariants } from "@/components/demos/table-variants"
 
 export type ComponentEntry = {
   /** 문서 페이지 안에서 쓰는 앵커 id */
@@ -404,5 +405,12 @@ export const components: ComponentEntry[] = [
     summary:
       "내용을 시각적으로 나누는 얇은 구분선입니다. 가로·세로 방향을 모두 지원하며, 화면 낭독기에는 구분선으로 읽힙니다.",
     variants: separatorVariants,
+  },
+  {
+    slug: "table",
+    name: "Table",
+    summary:
+      "데이터를 행과 열로 정리해 보여 주는 표입니다. 정렬·검색 같은 기능이 붙은 것은 Data Table을 쓰고, 이쪽은 단순히 값을 나열할 때 씁니다.",
+    variants: tableVariants,
   },
 ]
