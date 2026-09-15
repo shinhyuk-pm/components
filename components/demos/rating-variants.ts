@@ -27,7 +27,8 @@ export const variants: DemoVariant[] = [
   {
     id: "size",
     name: "Size",
-    description: "작게·보통·크게 세 가지 크기를 지원합니다.",
+    description:
+      "별 크기를 작게·보통·크게 세 가지로 바꿉니다. 목록 안에서는 작게 씁니다.",
     Demo: Size,
   },
   {

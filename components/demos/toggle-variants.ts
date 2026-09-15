@@ -25,7 +25,8 @@ export const variants: DemoVariant[] = [
   {
     id: "size",
     name: "Size",
-    description: "작게·보통·크게 세 가지 크기를 지원합니다.",
+    description:
+      "버튼 높이를 작게·보통·크게 세 가지로 바꿉니다. 도구 모음에 맞춰 고릅니다.",
     Demo: Size,
   },
   {
