@@ -68,7 +68,7 @@ export function Basic() {
 }
 
 export function AlignItem() {
-  const [alignItemWithTrigger, setAlignItemWithTrigger] = React.useState(true)
+  const [alignItemWithTrigger, setAlignItemWithTrigger] = React.useState(false)
 
   return (
     <FieldGroup className="w-full max-w-xs">
@@ -76,7 +76,8 @@ export function AlignItem() {
         <FieldContent>
           <FieldLabel htmlFor="select-align-item">항목 맞추기</FieldLabel>
           <FieldDescription>
-            켜면 고른 항목이 버튼 위치에 딱 맞춰 열립니다.
+            기본값은 꺼짐이라 목록이 버튼 아래에 열립니다. 켜면 고른 항목이 버튼
+            위치에 딱 맞춰 겹쳐서 열립니다.
           </FieldDescription>
         </FieldContent>
         <Switch
