@@ -51,6 +51,7 @@ import { variants as scrollAreaVariants } from "@/components/demos/scroll-area-v
 import { variants as selectVariants } from "@/components/demos/select-variants"
 import { variants as separatorVariants } from "@/components/demos/separator-variants"
 import { variants as sliderVariants } from "@/components/demos/slider-variants"
+import { variants as spinnerVariants } from "@/components/demos/spinner-variants"
 import { variants as switchVariants } from "@/components/demos/switch-variants"
 import { variants as tableVariants } from "@/components/demos/table-variants"
 import { variants as textareaVariants } from "@/components/demos/textarea-variants"
@@ -415,6 +416,13 @@ export const components: ComponentEntry[] = [
     summary:
       "손잡이를 끌어 정해진 범위 안에서 값을 고르는 막대입니다. 가격대·음량처럼 대략적인 값을 정할 때 씁니다.",
     variants: sliderVariants,
+  },
+  {
+    slug: "spinner",
+    name: "Spinner",
+    summary:
+      "빙글빙글 도는 표시로 처리 중임을 알립니다. 진행률을 알 수 있을 때는 Progress를 쓰고, 알 수 없을 때 이것을 씁니다.",
+    variants: spinnerVariants,
   },
   {
     slug: "switch",
