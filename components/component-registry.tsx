@@ -62,6 +62,13 @@ import { variants as toggleVariants } from "@/components/demos/toggle-variants"
 import { variants as toggleGroupVariants } from "@/components/demos/toggle-group-variants"
 import { variants as textareaVariants } from "@/components/demos/textarea-variants"
 import { variants as tooltipVariants } from "@/components/demos/tooltip-variants"
+import { variants as descriptionListVariants } from "@/components/demos/description-list-variants"
+import { variants as fileUploadVariants } from "@/components/demos/file-upload-variants"
+import { variants as filterBarVariants } from "@/components/demos/filter-bar-variants"
+import { variants as pageHeaderVariants } from "@/components/demos/page-header-variants"
+import { variants as ratingVariants } from "@/components/demos/rating-variants"
+import { variants as statCardVariants } from "@/components/demos/stat-card-variants"
+import { variants as stepperVariants } from "@/components/demos/stepper-variants"
 
 export type ComponentEntry = {
   /** 문서 페이지 안에서 쓰는 앵커 id */
@@ -236,6 +243,13 @@ export const components: ComponentEntry[] = [
     variants: datePickerVariants,
   },
   {
+    slug: "description-list",
+    name: "Description List",
+    summary:
+      "이름표와 값을 짝지어 나열하는 정보 표입니다. 상세 화면에서 등록된 내용을 읽기만 할 때 씁니다.",
+    variants: descriptionListVariants,
+  },
+  {
     slug: "dialog",
     name: "Dialog",
     summary:
@@ -269,6 +283,20 @@ export const components: ComponentEntry[] = [
     summary:
       "라벨·입력칸·설명·오류 메시지를 한 묶음으로 정리하는 폼 조립 부품입니다. 어떤 입력 요소든 같은 모양으로 맞춰 줍니다.",
     variants: fieldVariants,
+  },
+  {
+    slug: "file-upload",
+    name: "File Upload",
+    summary:
+      "파일을 끌어다 놓거나 눌러서 고르는 영역입니다. 엑셀 일괄 등록이나 사진 첨부에 씁니다.",
+    variants: fileUploadVariants,
+  },
+  {
+    slug: "filter-bar",
+    name: "Filter Bar",
+    summary:
+      "기간·조건·검색어를 한 상자에 모아 목록을 좁히는 검색 영역입니다. 관리자 목록 화면에 흔합니다.",
+    variants: filterBarVariants,
   },
   {
     slug: "hover-card",
@@ -369,6 +397,13 @@ export const components: ComponentEntry[] = [
     variants: numberFieldVariants,
   },
   {
+    slug: "page-header",
+    name: "Page Header",
+    summary:
+      "화면 이름·설명·주요 버튼을 한 줄로 묶은 머리글입니다. 모든 관리자 화면 맨 위에 놓입니다.",
+    variants: pageHeaderVariants,
+  },
+  {
     slug: "pagination",
     name: "Pagination",
     summary:
@@ -402,6 +437,13 @@ export const components: ComponentEntry[] = [
     summary:
       "여러 선택지 중 하나만 고르는 동그란 버튼 묶음입니다. 요금제·배송 방식처럼 딱 하나를 고를 때 씁니다.",
     variants: radioGroupVariants,
+  },
+  {
+    slug: "rating",
+    name: "Rating",
+    summary:
+      "별로 점수를 매기거나 보여 줍니다. 리뷰 작성과 상품 평점 표시에 씁니다.",
+    variants: ratingVariants,
   },
   {
     slug: "resizable",
@@ -444,6 +486,20 @@ export const components: ComponentEntry[] = [
     summary:
       "빙글빙글 도는 표시로 처리 중임을 알립니다. 진행률을 알 수 있을 때는 Progress를 쓰고, 알 수 없을 때 이것을 씁니다.",
     variants: spinnerVariants,
+  },
+  {
+    slug: "stat-card",
+    name: "Stat Card",
+    summary:
+      "숫자 하나와 증감을 함께 보여 주는 카드입니다. 대시보드 맨 위 요약 지표에 씁니다.",
+    variants: statCardVariants,
+  },
+  {
+    slug: "stepper",
+    name: "Stepper",
+    summary:
+      "여러 단계를 거치는 화면에서 지금 몇 번째인지 보여 줍니다. 회원가입·신청 흐름에 씁니다.",
+    variants: stepperVariants,
   },
   {
     slug: "switch",

@@ -35,7 +35,12 @@ export function Basic() {
         }
       />
       <PopoverContent className="w-auto p-0" align="start">
-        <Calendar mode="single" selected={date} onSelect={setDate} locale={ko} />
+        <Calendar
+          mode="single"
+          selected={date}
+          onSelect={setDate}
+          locale={ko}
+        />
       </PopoverContent>
     </Popover>
   )
@@ -167,7 +172,12 @@ export function WithPresets() {
           ))}
         </div>
         <div className="rounded-md border">
-          <Calendar mode="single" selected={date} onSelect={setDate} locale={ko} />
+          <Calendar
+            mode="single"
+            selected={date}
+            onSelect={setDate}
+            locale={ko}
+          />
         </div>
       </PopoverContent>
     </Popover>
@@ -207,6 +217,55 @@ export function Disabled() {
       <span className="text-xs text-muted-foreground">
         지난 날짜는 고를 수 없게 막았습니다.
       </span>
+    </div>
+  )
+}
+
+export function TwoInputs() {
+  const [from, setFrom] = React.useState<Date | undefined>(new Date())
+  const [to, setTo] = React.useState<Date | undefined>(addDays(new Date(), 14))
+
+  const Cell = ({
+    value,
+    onSelect,
+    label,
+  }: {
+    value: Date | undefined
+    onSelect: (d: Date | undefined) => void
+    label: string
+  }) => (
+    <Popover>
+      <PopoverTrigger
+        render={
+          <Button
+            variant="outline"
+            aria-label={label}
+            className={cn(
+              "w-full justify-start px-2.5 text-left font-normal",
+              !value && "text-muted-foreground"
+            )}
+          />
+        }
+      >
+        <CalendarIcon />
+        {value ? format(value, "yyyy-MM-dd") : "YYYY-MM-DD"}
+      </PopoverTrigger>
+      <PopoverContent className="w-auto p-0" align="start">
+        <Calendar
+          mode="single"
+          selected={value}
+          onSelect={onSelect}
+          locale={ko}
+        />
+      </PopoverContent>
+    </Popover>
+  )
+
+  return (
+    <div className="flex w-full max-w-sm items-center gap-2">
+      <Cell value={from} onSelect={setFrom} label="시작일" />
+      <span className="shrink-0 text-sm text-muted-foreground">~</span>
+      <Cell value={to} onSelect={setTo} label="종료일" />
     </div>
   )
 }
