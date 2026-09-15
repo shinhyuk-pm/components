@@ -1,5 +1,5 @@
 import type { DemoVariant } from "@/components/demo-types"
-import { Basic, Footer } from "@/components/demos/table-demo"
+import { Basic, EmptyState, Footer } from "@/components/demos/table-demo"
 
 export const variants: DemoVariant[] = [
   {
@@ -15,5 +15,12 @@ export const variants: DemoVariant[] = [
     description:
       "표 맨 아래에 합계 줄을 붙입니다. 금액처럼 전체를 요약해야 할 때 씁니다.",
     Demo: Footer,
+  },
+  {
+    id: "empty",
+    name: "Empty",
+    description:
+      "보여 줄 행이 없을 때 표 안쪽에 안내를 띄웁니다. 제목줄은 그대로 두어 어떤 표인지 알 수 있게 합니다.",
+    Demo: EmptyState,
   },
 ]

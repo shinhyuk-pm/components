@@ -7,6 +7,7 @@ import {
   Grid,
   Inline,
   Invalid,
+  Masked,
   Required,
   WithBadge,
   WithButtonGroup,
@@ -95,5 +96,12 @@ export const variants: DemoVariant[] = [
     name: "Form",
     description: "이름·이메일·전화·국가·주소를 모두 갖춘 실제 폼 예시입니다.",
     Demo: Form,
+  },
+  {
+    id: "masked",
+    name: "Masked",
+    description:
+      "숫자만 치면 하이픈·쉼표가 저절로 들어갑니다. 전화번호·주민등록번호·금액처럼 정해진 모양이 있는 값에 씁니다.",
+    Demo: Masked,
   },
 ]

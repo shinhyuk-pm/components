@@ -1,5 +1,7 @@
 "use client"
 
+import * as React from "react"
+
 import { InfoIcon } from "lucide-react"
 
 import { Badge } from "@/components/ui/badge"
@@ -261,5 +263,74 @@ export function Form() {
         </Field>
       </FieldGroup>
     </form>
+  )
+}
+
+export function Masked() {
+  const [phone, setPhone] = React.useState("")
+  const [rrn, setRrn] = React.useState("")
+  const [amount, setAmount] = React.useState("")
+
+  const formatPhone = (raw: string) => {
+    const d = raw.replace(/\D/g, "").slice(0, 11)
+    if (d.length < 4) return d
+    if (d.length < 8) return `${d.slice(0, 3)}-${d.slice(3)}`
+    return `${d.slice(0, 3)}-${d.slice(3, 7)}-${d.slice(7)}`
+  }
+
+  const formatRrn = (raw: string) => {
+    const d = raw.replace(/\D/g, "").slice(0, 13)
+    return d.length < 7 ? d : `${d.slice(0, 6)}-${d.slice(6)}`
+  }
+
+  const formatAmount = (raw: string) => {
+    const d = raw.replace(/\D/g, "").slice(0, 12)
+    return d ? Number(d).toLocaleString("ko-KR") : ""
+  }
+
+  return (
+    <FieldGroup className="max-w-xs">
+      <Field>
+        <FieldLabel htmlFor="input-masked-phone">휴대폰 번호</FieldLabel>
+        <Input
+          id="input-masked-phone"
+          inputMode="numeric"
+          placeholder="010-0000-0000"
+          value={phone}
+          onChange={(e) => setPhone(formatPhone(e.target.value))}
+        />
+        <FieldDescription>
+          숫자만 치면 하이픈(-)이 저절로 들어갑니다.
+        </FieldDescription>
+      </Field>
+      <Field>
+        <FieldLabel htmlFor="input-masked-rrn">주민등록번호</FieldLabel>
+        <Input
+          id="input-masked-rrn"
+          inputMode="numeric"
+          placeholder="000000-0000000"
+          value={rrn}
+          onChange={(e) => setRrn(formatRrn(e.target.value))}
+        />
+        <FieldDescription>앞 6자리 뒤에 하이픈이 붙습니다.</FieldDescription>
+      </Field>
+      <Field>
+        <FieldLabel htmlFor="input-masked-amount">금액</FieldLabel>
+        <InputGroup>
+          <InputGroupInput
+            id="input-masked-amount"
+            inputMode="numeric"
+            placeholder="0"
+            value={amount}
+            onChange={(e) => setAmount(formatAmount(e.target.value))}
+            className="text-right"
+          />
+          <InputGroupAddon align="inline-end">
+            <InputGroupText>원</InputGroupText>
+          </InputGroupAddon>
+        </InputGroup>
+        <FieldDescription>천 단위마다 쉼표가 저절로 찍힙니다.</FieldDescription>
+      </Field>
+    </FieldGroup>
   )
 }

@@ -20,6 +20,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import { Input } from "@/components/ui/input"
 import { Switch } from "@/components/ui/switch"
 
 const fruits = [
@@ -243,6 +244,61 @@ export function Invalid() {
         </SelectContent>
       </Select>
       <FieldError>과일을 골라 주세요.</FieldError>
+    </Field>
+  )
+}
+
+const emailDomains = [
+  { label: "직접 입력", value: "custom" },
+  { label: "naver.com", value: "naver.com" },
+  { label: "gmail.com", value: "gmail.com" },
+  { label: "daum.net", value: "daum.net" },
+  { label: "kakao.com", value: "kakao.com" },
+]
+
+export function EmailDomain() {
+  const [domain, setDomain] = React.useState<string | null>("naver.com")
+  const custom = domain === "custom"
+
+  return (
+    <Field className="w-full max-w-sm">
+      <FieldLabel htmlFor="select-email-local">이메일 주소</FieldLabel>
+      <div className="flex items-center gap-2">
+        <Input
+          id="select-email-local"
+          placeholder="아이디"
+          className="min-w-0 flex-1"
+        />
+        <span className="text-sm text-muted-foreground">@</span>
+        {custom ? (
+          <Input
+            aria-label="도메인 직접 입력"
+            placeholder="도메인 입력"
+            className="min-w-0 flex-1"
+            autoFocus
+          />
+        ) : (
+          <span className="min-w-0 flex-1 truncate text-sm">{domain}</span>
+        )}
+      </div>
+      <Select
+        items={emailDomains}
+        value={domain}
+        onValueChange={(next) => setDomain(next as string)}
+      >
+        <SelectTrigger className="w-full">
+          <SelectValue />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectGroup>
+            <Items items={emailDomains} />
+          </SelectGroup>
+        </SelectContent>
+      </Select>
+      <FieldDescription>
+        도메인을 고르면 바로 채워지고, &lsquo;직접 입력&rsquo;을 고르면 빈 칸이
+        나타납니다.
+      </FieldDescription>
     </Field>
   )
 }

@@ -1,5 +1,7 @@
 "use client"
 
+import * as React from "react"
+
 import { CheckIcon, LogOutIcon, SettingsIcon, UserIcon } from "lucide-react"
 
 import {
@@ -10,6 +12,7 @@ import {
   AvatarGroupCount,
   AvatarImage,
 } from "@/components/ui/avatar"
+import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -108,7 +111,10 @@ export function WithDropdown() {
     <DropdownMenu>
       <DropdownMenuTrigger
         render={
-          <button type="button" className="rounded-full outline-none focus-visible:ring-3 focus-visible:ring-ring/50" />
+          <button
+            type="button"
+            className="rounded-full outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
+          />
         }
       >
         <Avatar>
@@ -134,5 +140,55 @@ export function WithDropdown() {
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
+  )
+}
+
+export function Upload() {
+  const [preview, setPreview] = React.useState<string | null>(SRC)
+  const inputRef = React.useRef<HTMLInputElement>(null)
+
+  const pick = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (file) setPreview(URL.createObjectURL(file))
+  }
+
+  return (
+    <div className="flex items-center gap-4">
+      <Avatar className="size-16">
+        {preview ? <AvatarImage src={preview} alt="프로필 사진" /> : null}
+        <AvatarFallback>
+          <UserIcon className="size-6 text-muted-foreground" />
+        </AvatarFallback>
+      </Avatar>
+      <div className="flex flex-col gap-2">
+        <div className="flex gap-2">
+          <Button
+            size="sm"
+            variant="outline"
+            onClick={() => inputRef.current?.click()}
+          >
+            사진 변경
+          </Button>
+          <Button
+            size="sm"
+            variant="ghost"
+            disabled={!preview}
+            onClick={() => setPreview(null)}
+          >
+            삭제
+          </Button>
+        </div>
+        <p className="text-xs text-muted-foreground">
+          JPG·PNG, 5MB 이하. 지우면 이니셜이 대신 보입니다.
+        </p>
+      </div>
+      <input
+        ref={inputRef}
+        type="file"
+        accept="image/*"
+        className="sr-only"
+        onChange={pick}
+      />
+    </div>
   )
 }

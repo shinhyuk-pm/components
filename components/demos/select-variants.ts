@@ -3,6 +3,7 @@ import {
   AlignItem,
   Basic,
   Disabled,
+  EmailDomain,
   Groups,
   Invalid,
   Scrollable,
@@ -49,5 +50,12 @@ export const variants: DemoVariant[] = [
     description:
       "값이 잘못됐을 때 테두리가 빨갛게 바뀌고 오류 문구가 아래에 나타납니다.",
     Demo: Invalid,
+  },
+  {
+    id: "email-domain",
+    name: "Email Domain",
+    description:
+      "이메일 도메인을 목록에서 고르되, '직접 입력'을 고르면 빈 칸으로 바뀝니다. 회원가입 폼에 흔한 형태입니다.",
+    Demo: EmailDomain,
   },
 ]

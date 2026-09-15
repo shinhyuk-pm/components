@@ -1,5 +1,17 @@
 "use client"
 
+import { SearchXIcon } from "lucide-react"
+
+import { Button } from "@/components/ui/button"
+import {
+  Empty,
+  EmptyContent,
+  EmptyDescription,
+  EmptyHeader,
+  EmptyMedia,
+  EmptyTitle,
+} from "@/components/ui/empty"
+
 import {
   Table,
   TableBody,
@@ -96,6 +108,45 @@ export function Footer() {
             </TableCell>
           </TableRow>
         </TableFooter>
+      </Table>
+    </div>
+  )
+}
+
+export function EmptyState() {
+  return (
+    <div className="w-full max-w-xl">
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <TableHead className="w-28">청구번호</TableHead>
+            <TableHead>상태</TableHead>
+            <TableHead>결제 수단</TableHead>
+            <TableHead className="text-right">금액</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          <TableRow className="hover:bg-transparent">
+            <TableCell colSpan={4} className="h-40 p-0">
+              <Empty className="border-0 bg-transparent">
+                <EmptyHeader>
+                  <EmptyMedia variant="icon">
+                    <SearchXIcon />
+                  </EmptyMedia>
+                  <EmptyTitle>검색 결과가 없습니다</EmptyTitle>
+                  <EmptyDescription>
+                    조건을 바꾸거나 검색어를 지우고 다시 찾아 보세요.
+                  </EmptyDescription>
+                </EmptyHeader>
+                <EmptyContent>
+                  <Button variant="outline" size="sm">
+                    검색 조건 초기화
+                  </Button>
+                </EmptyContent>
+              </Empty>
+            </TableCell>
+          </TableRow>
+        </TableBody>
       </Table>
     </div>
   )
