@@ -39,7 +39,10 @@ const months = [
 
 const years = [
   { label: "YYYY", value: null },
-  ...["2026", "2027", "2028", "2029", "2030"].map((y) => ({ label: y, value: y })),
+  ...["2026", "2027", "2028", "2029", "2030"].map((y) => ({
+    label: y,
+    value: y,
+  })),
 ]
 
 export function Basic() {
@@ -49,16 +52,26 @@ export function Basic() {
         <FieldGroup>
           <FieldSet>
             <FieldLegend>결제 수단</FieldLegend>
-            <FieldDescription>모든 거래는 안전하게 암호화됩니다.</FieldDescription>
+            <FieldDescription>
+              모든 거래는 안전하게 암호화됩니다.
+            </FieldDescription>
             <FieldGroup>
               <Field>
-                <FieldLabel htmlFor="field-card-name">카드 소유자 이름</FieldLabel>
+                <FieldLabel htmlFor="field-card-name">
+                  카드 소유자 이름
+                </FieldLabel>
                 <Input id="field-card-name" placeholder="홍길동" required />
               </Field>
               <Field>
                 <FieldLabel htmlFor="field-card-number">카드 번호</FieldLabel>
-                <Input id="field-card-number" placeholder="1234 5678 9012 3456" required />
-                <FieldDescription>16자리 카드 번호를 입력하세요.</FieldDescription>
+                <Input
+                  id="field-card-number"
+                  placeholder="1234 5678 9012 3456"
+                  required
+                />
+                <FieldDescription>
+                  16자리 카드 번호를 입력하세요.
+                </FieldDescription>
               </Field>
               <div className="grid grid-cols-3 gap-4">
                 <Field>
@@ -105,11 +118,16 @@ export function Basic() {
           <FieldSeparator />
           <FieldSet>
             <FieldLegend>청구 주소</FieldLegend>
-            <FieldDescription>결제 수단에 연결된 청구 주소입니다.</FieldDescription>
+            <FieldDescription>
+              결제 수단에 연결된 청구 주소입니다.
+            </FieldDescription>
             <FieldGroup>
               <Field orientation="horizontal">
                 <Checkbox id="field-same-address" defaultChecked />
-                <FieldLabel htmlFor="field-same-address" className="font-normal">
+                <FieldLabel
+                  htmlFor="field-same-address"
+                  className="font-normal"
+                >
                   배송 주소와 동일
                 </FieldLabel>
               </Field>
@@ -119,7 +137,11 @@ export function Basic() {
             <FieldGroup>
               <Field>
                 <FieldLabel htmlFor="field-comments">요청 사항</FieldLabel>
-                <Textarea id="field-comments" placeholder="추가 요청 사항을 적어 주세요" className="resize-none" />
+                <Textarea
+                  id="field-comments"
+                  placeholder="추가 요청 사항을 적어 주세요"
+                  className="resize-none"
+                />
               </Field>
             </FieldGroup>
           </FieldSet>
@@ -142,7 +164,9 @@ export function WithInput() {
         <Field>
           <FieldLabel htmlFor="field-username">아이디</FieldLabel>
           <Input id="field-username" type="text" placeholder="gildong" />
-          <FieldDescription>계정에서 쓸 고유한 아이디를 정하세요.</FieldDescription>
+          <FieldDescription>
+            계정에서 쓸 고유한 아이디를 정하세요.
+          </FieldDescription>
         </Field>
         <Field>
           <FieldLabel htmlFor="field-password">비밀번호</FieldLabel>
@@ -160,8 +184,14 @@ export function WithTextarea() {
       <FieldGroup>
         <Field>
           <FieldLabel htmlFor="field-feedback">의견</FieldLabel>
-          <Textarea id="field-feedback" placeholder="여러분의 의견이 서비스를 더 좋게 만듭니다..." rows={4} />
-          <FieldDescription>서비스에 대한 생각을 자유롭게 적어 주세요.</FieldDescription>
+          <Textarea
+            id="field-feedback"
+            placeholder="여러분의 의견이 서비스를 더 좋게 만듭니다..."
+            rows={4}
+          />
+          <FieldDescription>
+            서비스에 대한 생각을 자유롭게 적어 주세요.
+          </FieldDescription>
         </Field>
       </FieldGroup>
     </FieldSet>
@@ -209,7 +239,8 @@ export function WithSlider() {
     <Field className="w-full max-w-xs">
       <FieldTitle>가격 범위</FieldTitle>
       <FieldDescription>
-        예산 범위를 정하세요 (<span className="font-medium tabular-nums">{value[0]}</span> –{" "}
+        예산 범위를 정하세요 (
+        <span className="font-medium tabular-nums">{value[0]}</span> –{" "}
         <span className="font-medium tabular-nums">{value[1]}</span>달러).
       </FieldDescription>
       <Slider
@@ -257,23 +288,31 @@ export function WithCheckbox() {
         <FieldLegend variant="label">바탕화면에 표시할 항목</FieldLegend>
         <FieldDescription>바탕화면에 보일 항목을 고르세요.</FieldDescription>
         <FieldGroup className="gap-3">
-          {["하드 디스크", "외장 디스크", "CD·DVD", "연결된 서버"].map((label, i) => (
-            <Field key={label} orientation="horizontal">
-              <Checkbox id={`field-desktop-${i}`} />
-              <FieldLabel htmlFor={`field-desktop-${i}`} className="font-normal">
-                {label}
-              </FieldLabel>
-            </Field>
-          ))}
+          {["하드 디스크", "외장 디스크", "CD·DVD", "연결된 서버"].map(
+            (label, i) => (
+              <Field key={label} orientation="horizontal">
+                <Checkbox id={`field-desktop-${i}`} />
+                <FieldLabel
+                  htmlFor={`field-desktop-${i}`}
+                  className="font-normal"
+                >
+                  {label}
+                </FieldLabel>
+              </Field>
+            )
+          )}
         </FieldGroup>
       </FieldSet>
       <FieldSeparator />
       <Field orientation="horizontal">
         <Checkbox id="field-sync" defaultChecked />
         <FieldContent>
-          <FieldLabel htmlFor="field-sync">바탕화면·문서 폴더 동기화</FieldLabel>
+          <FieldLabel htmlFor="field-sync">
+            바탕화면·문서 폴더 동기화
+          </FieldLabel>
           <FieldDescription>
-            바탕화면과 문서 폴더가 클라우드와 동기화되어 다른 기기에서도 열 수 있습니다.
+            바탕화면과 문서 폴더가 클라우드와 동기화되어 다른 기기에서도 열 수
+            있습니다.
           </FieldDescription>
         </FieldContent>
       </Field>
@@ -330,7 +369,9 @@ export function ChoiceCard() {
             <Field orientation="horizontal">
               <FieldContent>
                 <FieldTitle>Kubernetes</FieldTitle>
-                <FieldDescription>K8s 클러스터에서 GPU 작업을 실행합니다.</FieldDescription>
+                <FieldDescription>
+                  K8s 클러스터에서 GPU 작업을 실행합니다.
+                </FieldDescription>
               </FieldContent>
               <RadioGroupItem value="kubernetes" id="field-env-k8s" />
             </Field>
@@ -339,7 +380,9 @@ export function ChoiceCard() {
             <Field orientation="horizontal">
               <FieldContent>
                 <FieldTitle>가상 머신</FieldTitle>
-                <FieldDescription>GPU 작업용 클러스터에 접속합니다.</FieldDescription>
+                <FieldDescription>
+                  GPU 작업용 클러스터에 접속합니다.
+                </FieldDescription>
               </FieldContent>
               <RadioGroupItem value="vm" id="field-env-vm" />
             </Field>
@@ -371,7 +414,8 @@ export function Group() {
       <FieldSet>
         <FieldLabel>작업</FieldLabel>
         <FieldDescription>
-          만들어 둔 작업에 변동이 생기면 알려 드립니다. <a href="#">작업 관리</a>
+          만들어 둔 작업에 변동이 생기면 알려 드립니다.{" "}
+          <a href="#">작업 관리</a>
         </FieldDescription>
         <FieldGroup data-slot="checkbox-group">
           <Field orientation="horizontal">
@@ -398,12 +442,17 @@ export function Responsive() {
       <form onSubmit={(e) => e.preventDefault()}>
         <FieldSet>
           <FieldLegend>프로필</FieldLegend>
-          <FieldDescription>프로필 정보를 입력하세요. 화면이 넓으면 라벨과 입력칸이 나란히 놓입니다.</FieldDescription>
+          <FieldDescription>
+            프로필 정보를 입력하세요. 화면이 넓으면 라벨과 입력칸이 나란히
+            놓입니다.
+          </FieldDescription>
           <FieldGroup>
             <Field orientation="responsive">
               <FieldContent>
                 <FieldLabel htmlFor="field-resp-name">이름</FieldLabel>
-                <FieldDescription>본인 확인을 위한 실명을 적어 주세요.</FieldDescription>
+                <FieldDescription>
+                  본인 확인을 위한 실명을 적어 주세요.
+                </FieldDescription>
               </FieldContent>
               <Input id="field-resp-name" placeholder="홍길동" required />
             </Field>
@@ -416,28 +465,6 @@ export function Responsive() {
           </FieldGroup>
         </FieldSet>
       </form>
-    </div>
-  )
-}
-
-export function Rtl() {
-  return (
-    <div dir="rtl" className="flex w-full max-w-xs flex-col gap-3">
-      <FieldSet>
-        <FieldGroup>
-          <Field>
-            <FieldLabel htmlFor="field-rtl-username">اسم المستخدم</FieldLabel>
-            <Input id="field-rtl-username" type="text" placeholder="Max Leiter" />
-            <FieldDescription>اختر اسم مستخدم فريدًا لحسابك.</FieldDescription>
-          </Field>
-          <Field>
-            <FieldLabel htmlFor="field-rtl-password">كلمة المرور</FieldLabel>
-            <FieldDescription>يجب أن تتكون من 8 أحرف على الأقل.</FieldDescription>
-            <Input id="field-rtl-password" type="password" placeholder="••••••••" />
-          </Field>
-        </FieldGroup>
-      </FieldSet>
-      <p className="text-xs text-muted-foreground">라벨과 설명이 오른쪽 정렬로 뒤집힙니다.</p>
     </div>
   )
 }

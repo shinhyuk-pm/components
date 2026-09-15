@@ -127,3 +127,14 @@
     @apply font-sans;
     }
 }
+
+/* 스크롤은 되지만 스크롤 막대는 보이지 않게 하는 유틸리티 */
+@utility no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    display: none;
+  }
+}

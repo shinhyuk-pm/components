@@ -10,15 +10,13 @@ import {
   Invalid,
   Multiple,
   Popup,
-  Rtl,
 } from "@/components/demos/combobox-demo"
 
 export const variants: DemoVariant[] = [
   {
     id: "basic",
     name: "Basic",
-    description:
-      "입력칸에 글자를 치면 목록이 걸러지는 기본 형태입니다.",
+    description: "입력칸에 글자를 치면 목록이 걸러지는 기본 형태입니다.",
     Demo: Basic,
   },
   {
@@ -51,7 +49,8 @@ export const variants: DemoVariant[] = [
   {
     id: "invalid",
     name: "Invalid",
-    description: "aria-invalid를 주면 테두리가 빨갛게 바뀌어 입력이 잘못됐다고 알려줍니다.",
+    description:
+      "aria-invalid를 주면 테두리가 빨갛게 바뀌어 입력이 잘못됐다고 알려줍니다.",
     Demo: Invalid,
   },
   {
@@ -80,12 +79,5 @@ export const variants: DemoVariant[] = [
     description:
       "입력칸 왼쪽에 아이콘을 붙였습니다. 시간대처럼 항목의 종류를 아이콘으로 미리 알려줄 때 씁니다.",
     Demo: InputGroup,
-  },
-  {
-    id: "rtl",
-    name: "RTL",
-    description:
-      "아랍어처럼 오른쪽에서 왼쪽으로 읽는 언어용 배치입니다. 글자와 화살표 방향이 뒤집힙니다.",
-    Demo: Rtl,
   },
 ]

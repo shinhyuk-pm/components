@@ -11,7 +11,7 @@ export function DocsSidebar({ items }: { items: Item[] }) {
   const pathname = usePathname()
 
   return (
-    <aside className="sticky top-10 hidden h-[calc(100svh-5rem)] w-56 shrink-0 overflow-y-auto lg:block">
+    <aside className="sticky top-10 no-scrollbar hidden h-[calc(100svh-5rem)] w-56 shrink-0 overflow-y-auto lg:block">
       <Link
         href="/"
         className={cn(

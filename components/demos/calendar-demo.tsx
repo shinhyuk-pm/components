@@ -1,9 +1,8 @@
 "use client"
 
 import * as React from "react"
-import { addDays, format } from "date-fns"
+import { addDays } from "date-fns"
 import { ko } from "date-fns/locale"
-import { arSA } from "react-day-picker/locale"
 import type { DateRange } from "react-day-picker"
 
 import { Button } from "@/components/ui/button"
@@ -178,25 +177,5 @@ export function WeekNumbers() {
       locale={ko}
       className="rounded-lg border"
     />
-  )
-}
-
-export function Rtl() {
-  const [date, setDate] = React.useState<Date | undefined>(new Date())
-
-  return (
-    <div className="flex flex-col items-center gap-3">
-      <Calendar
-        mode="single"
-        dir="rtl"
-        locale={arSA}
-        selected={date}
-        onSelect={setDate}
-        className="rounded-lg border"
-      />
-      <p className="text-xs text-muted-foreground">
-        선택한 날짜: {date ? format(date, "PPP", { locale: ko }) : "없음"}
-      </p>
-    </div>
   )
 }

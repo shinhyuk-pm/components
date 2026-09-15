@@ -8,7 +8,6 @@ import {
   FourDigits,
   Invalid,
   Pattern,
-  Rtl,
   Separator,
 } from "@/components/demos/input-otp-demo"
 
@@ -16,7 +15,8 @@ export const variants: DemoVariant[] = [
   {
     id: "basic",
     name: "Basic",
-    description: "여섯 칸짜리 인증번호 입력칸입니다. 한 글자 치면 다음 칸으로 자동으로 넘어갑니다.",
+    description:
+      "여섯 칸짜리 인증번호 입력칸입니다. 한 글자 치면 다음 칸으로 자동으로 넘어갑니다.",
     Demo: Basic,
   },
   {
@@ -34,13 +34,15 @@ export const variants: DemoVariant[] = [
   {
     id: "disabled",
     name: "Disabled",
-    description: "입력을 막은 상태입니다. 이미 확인이 끝난 번호를 보여줄 때 씁니다.",
+    description:
+      "입력을 막은 상태입니다. 이미 확인이 끝난 번호를 보여줄 때 씁니다.",
     Demo: Disabled,
   },
   {
     id: "controlled",
     name: "Controlled",
-    description: "입력한 값을 아래 문장에 바로 보여줍니다. 값을 코드에서 직접 다루는 형태입니다.",
+    description:
+      "입력한 값을 아래 문장에 바로 보여줍니다. 값을 코드에서 직접 다루는 형태입니다.",
     Demo: Controlled,
   },
   {
@@ -64,13 +66,8 @@ export const variants: DemoVariant[] = [
   {
     id: "form",
     name: "Form",
-    description: "카드 안에 제목·설명·다시 보내기·확인 버튼까지 갖춘 실제 인증 화면입니다.",
+    description:
+      "카드 안에 제목·설명·다시 보내기·확인 버튼까지 갖춘 실제 인증 화면입니다.",
     Demo: Form,
-  },
-  {
-    id: "rtl",
-    name: "RTL",
-    description: "아랍어처럼 오른쪽에서 왼쪽으로 읽는 언어용 배치입니다. 칸 순서가 뒤집힙니다.",
-    Demo: Rtl,
   },
 ]

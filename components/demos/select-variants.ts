@@ -5,7 +5,6 @@ import {
   Disabled,
   Groups,
   Invalid,
-  Rtl,
   Scrollable,
 } from "@/components/demos/select-demo"
 
@@ -20,7 +19,8 @@ export const variants: DemoVariant[] = [
   {
     id: "align-item",
     name: "Align Item",
-    description: "고른 항목이 버튼 위치에 딱 맞춰 열릴지, 목록이 버튼 아래에 열릴지 스위치로 바꿔 봅니다.",
+    description:
+      "고른 항목이 버튼 위치에 딱 맞춰 열릴지, 목록이 버튼 아래에 열릴지 스위치로 바꿔 봅니다.",
     Demo: AlignItem,
   },
   {
@@ -32,25 +32,22 @@ export const variants: DemoVariant[] = [
   {
     id: "scrollable",
     name: "Scrollable",
-    description: "선택지가 많으면 목록 안에서 스크롤됩니다. 시간대 선택처럼 긴 목록에 씁니다.",
+    description:
+      "선택지가 많으면 목록 안에서 스크롤됩니다. 시간대 선택처럼 긴 목록에 씁니다.",
     Demo: Scrollable,
   },
   {
     id: "disabled",
     name: "Disabled",
-    description: "선택 상자 전체를 막거나, 특정 항목만 고를 수 없게 할 수 있습니다.",
+    description:
+      "선택 상자 전체를 막거나, 특정 항목만 고를 수 없게 할 수 있습니다.",
     Demo: Disabled,
   },
   {
     id: "invalid",
     name: "Invalid",
-    description: "값이 잘못됐을 때 테두리가 빨갛게 바뀌고 오류 문구가 아래에 나타납니다.",
+    description:
+      "값이 잘못됐을 때 테두리가 빨갛게 바뀌고 오류 문구가 아래에 나타납니다.",
     Demo: Invalid,
-  },
-  {
-    id: "rtl",
-    name: "RTL",
-    description: "아랍어처럼 오른쪽에서 왼쪽으로 읽는 언어용 배치입니다. 글자와 화살표 위치가 뒤집힙니다.",
-    Demo: Rtl,
   },
 ]

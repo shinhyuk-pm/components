@@ -1,7 +1,6 @@
 "use client"
 
 import * as React from "react"
-import { DirectionProvider } from "@base-ui/react/direction-provider"
 import {
   flexRender,
   getCoreRowModel,
@@ -16,7 +15,11 @@ import {
   type Table as TanstackTable,
   type VisibilityState,
 } from "@tanstack/react-table"
-import { ArrowUpDownIcon, ChevronDownIcon, MoreHorizontalIcon } from "lucide-react"
+import {
+  ArrowUpDownIcon,
+  ChevronDownIcon,
+  MoreHorizontalIcon,
+} from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
@@ -50,9 +53,19 @@ type Payment = {
 const data: Payment[] = [
   { id: "m5gr84i9", status: "성공", email: "ken99@example.com", amount: 316 },
   { id: "3u1reuv4", status: "성공", email: "abe45@example.com", amount: 242 },
-  { id: "derv1ws0", status: "처리중", email: "monserrat44@example.com", amount: 837 },
+  {
+    id: "derv1ws0",
+    status: "처리중",
+    email: "monserrat44@example.com",
+    amount: 837,
+  },
   { id: "5kma53ae", status: "성공", email: "silas22@example.com", amount: 874 },
-  { id: "bhqecj4p", status: "실패", email: "carmella@example.com", amount: 721 },
+  {
+    id: "bhqecj4p",
+    status: "실패",
+    email: "carmella@example.com",
+    amount: 721,
+  },
 ]
 
 function DataTableShell<TData>({
@@ -71,7 +84,10 @@ function DataTableShell<TData>({
               <TableHead key={header.id}>
                 {header.isPlaceholder
                   ? null
-                  : flexRender(header.column.columnDef.header, header.getContext())}
+                  : flexRender(
+                      header.column.columnDef.header,
+                      header.getContext()
+                    )}
               </TableHead>
             ))}
           </TableRow>
@@ -80,7 +96,10 @@ function DataTableShell<TData>({
       <TableBody>
         {table.getRowModel().rows.length ? (
           table.getRowModel().rows.map((row) => (
-            <TableRow key={row.id} data-state={row.getIsSelected() && "selected"}>
+            <TableRow
+              key={row.id}
+              data-state={row.getIsSelected() && "selected"}
+            >
               {row.getVisibleCells().map((cell) => (
                 <TableCell key={cell.id}>
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
@@ -90,7 +109,10 @@ function DataTableShell<TData>({
           ))
         ) : (
           <TableRow>
-            <TableCell colSpan={columnsLength} className="h-24 text-center text-muted-foreground">
+            <TableCell
+              colSpan={columnsLength}
+              className="h-24 text-center text-muted-foreground"
+            >
               결과가 없습니다.
             </TableCell>
           </TableRow>
@@ -201,7 +223,9 @@ export function Sorting() {
 
 export function Filtering() {
   const [sorting, setSorting] = React.useState<SortingState>([])
-  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([])
+  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
+    []
+  )
 
   const table = useReactTable({
     data,
@@ -220,7 +244,9 @@ export function Filtering() {
         <Input
           placeholder="이메일로 검색..."
           value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
-          onChange={(event) => table.getColumn("email")?.setFilterValue(event.target.value)}
+          onChange={(event) =>
+            table.getColumn("email")?.setFilterValue(event.target.value)
+          }
           className="max-w-sm"
         />
       </div>
@@ -233,8 +259,11 @@ export function Filtering() {
 
 export function Visibility() {
   const [sorting, setSorting] = React.useState<SortingState>([])
-  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([])
-  const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({})
+  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
+    []
+  )
+  const [columnVisibility, setColumnVisibility] =
+    React.useState<VisibilityState>({})
 
   const table = useReactTable({
     data,
@@ -254,11 +283,15 @@ export function Visibility() {
         <Input
           placeholder="이메일로 검색..."
           value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
-          onChange={(event) => table.getColumn("email")?.setFilterValue(event.target.value)}
+          onChange={(event) =>
+            table.getColumn("email")?.setFilterValue(event.target.value)
+          }
           className="max-w-sm"
         />
         <DropdownMenu>
-          <DropdownMenuTrigger render={<Button variant="outline" className="ml-auto" />}>
+          <DropdownMenuTrigger
+            render={<Button variant="outline" className="ml-auto" />}
+          >
             열 선택
             <ChevronDownIcon />
           </DropdownMenuTrigger>
@@ -272,7 +305,11 @@ export function Visibility() {
                   checked={column.getIsVisible()}
                   onCheckedChange={(value) => column.toggleVisibility(!!value)}
                 >
-                  {column.id === "status" ? "상태" : column.id === "email" ? "이메일" : "금액"}
+                  {column.id === "status"
+                    ? "상태"
+                    : column.id === "email"
+                      ? "이메일"
+                      : "금액"}
                 </DropdownMenuCheckboxItem>
               ))}
           </DropdownMenuContent>
@@ -291,7 +328,9 @@ const selectableColumns: ColumnDef<Payment>[] = [
     header: ({ table }) => (
       <Checkbox
         checked={table.getIsAllPageRowsSelected()}
-        indeterminate={table.getIsSomePageRowsSelected() && !table.getIsAllPageRowsSelected()}
+        indeterminate={
+          table.getIsSomePageRowsSelected() && !table.getIsAllPageRowsSelected()
+        }
         onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
         aria-label="전체 선택"
       />
@@ -311,8 +350,11 @@ const selectableColumns: ColumnDef<Payment>[] = [
 
 export function RowSelection() {
   const [sorting, setSorting] = React.useState<SortingState>([])
-  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([])
-  const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({})
+  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
+    []
+  )
+  const [columnVisibility, setColumnVisibility] =
+    React.useState<VisibilityState>({})
   const [rowSelection, setRowSelection] = React.useState<RowSelectionState>({})
 
   const table = useReactTable({
@@ -334,15 +376,21 @@ export function RowSelection() {
         <Input
           placeholder="이메일로 검색..."
           value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
-          onChange={(event) => table.getColumn("email")?.setFilterValue(event.target.value)}
+          onChange={(event) =>
+            table.getColumn("email")?.setFilterValue(event.target.value)
+          }
           className="max-w-sm"
         />
       </div>
       <div className="overflow-hidden rounded-lg border">
-        <DataTableShell table={table} columnsLength={selectableColumns.length} />
+        <DataTableShell
+          table={table}
+          columnsLength={selectableColumns.length}
+        />
       </div>
       <div className="py-4 text-sm text-muted-foreground">
-        {table.getFilteredSelectedRowModel().rows.length} / {table.getFilteredRowModel().rows.length}행 선택됨
+        {table.getFilteredSelectedRowModel().rows.length} /{" "}
+        {table.getFilteredRowModel().rows.length}행 선택됨
       </div>
     </div>
   )
@@ -358,14 +406,20 @@ const actionableColumns: ColumnDef<Payment>[] = [
 
       return (
         <DropdownMenu>
-          <DropdownMenuTrigger render={<Button variant="ghost" size="icon-xs" />}>
+          <DropdownMenuTrigger
+            render={<Button variant="ghost" size="icon-xs" />}
+          >
             <span className="sr-only">메뉴 열기</span>
             <MoreHorizontalIcon />
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="w-44">
             <DropdownMenuGroup>
               <DropdownMenuLabel>작업</DropdownMenuLabel>
-              <DropdownMenuItem onClick={() => navigator.clipboard?.writeText(payment.id).catch(() => {})}>
+              <DropdownMenuItem
+                onClick={() =>
+                  navigator.clipboard?.writeText(payment.id).catch(() => {})
+                }
+              >
                 결제 ID 복사
               </DropdownMenuItem>
             </DropdownMenuGroup>
@@ -404,7 +458,9 @@ export function RowActions() {
 
 export function Pagination() {
   const [sorting, setSorting] = React.useState<SortingState>([])
-  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([])
+  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
+    []
+  )
   const [rowSelection, setRowSelection] = React.useState<RowSelectionState>({})
 
   const table = useReactTable({
@@ -427,16 +483,22 @@ export function Pagination() {
         <Input
           placeholder="이메일로 검색..."
           value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
-          onChange={(event) => table.getColumn("email")?.setFilterValue(event.target.value)}
+          onChange={(event) =>
+            table.getColumn("email")?.setFilterValue(event.target.value)
+          }
           className="max-w-sm"
         />
       </div>
       <div className="overflow-hidden rounded-lg border">
-        <DataTableShell table={table} columnsLength={actionableColumns.length} />
+        <DataTableShell
+          table={table}
+          columnsLength={actionableColumns.length}
+        />
       </div>
       <div className="flex items-center justify-end gap-2 py-4">
         <div className="flex-1 text-sm text-muted-foreground">
-          {table.getFilteredSelectedRowModel().rows.length} / {table.getFilteredRowModel().rows.length}행 선택됨
+          {table.getFilteredSelectedRowModel().rows.length} /{" "}
+          {table.getFilteredRowModel().rows.length}행 선택됨
         </div>
         <Button
           variant="outline"
@@ -455,50 +517,6 @@ export function Pagination() {
           다음
         </Button>
       </div>
-    </div>
-  )
-}
-
-export function Rtl() {
-  const [sorting, setSorting] = React.useState<SortingState>([])
-
-  const rtlColumns: ColumnDef<Payment>[] = [
-    { accessorKey: "status", header: "الحالة" },
-    {
-      accessorKey: "email",
-      header: ({ column }) => (
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          البريد الإلكتروني
-          <ArrowUpDownIcon />
-        </Button>
-      ),
-    },
-    { accessorKey: "amount", header: "المبلغ" },
-  ]
-
-  const table = useReactTable({
-    data,
-    columns: rtlColumns,
-    state: { sorting },
-    onSortingChange: setSorting,
-    getCoreRowModel: getCoreRowModel(),
-    getSortedRowModel: getSortedRowModel(),
-  })
-
-  return (
-    <div dir="rtl" className="flex w-full max-w-2xl flex-col items-end gap-2">
-      <DirectionProvider direction="rtl">
-        <div className="w-full overflow-hidden rounded-lg border">
-          <DataTableShell table={table} columnsLength={rtlColumns.length} />
-        </div>
-      </DirectionProvider>
-      <p className="text-xs text-muted-foreground">
-        글자와 열 순서가 오른쪽에서 왼쪽으로 뒤집힙니다.
-      </p>
     </div>
   )
 }

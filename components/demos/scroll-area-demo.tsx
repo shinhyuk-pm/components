@@ -5,7 +5,9 @@ import * as React from "react"
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
 import { Separator } from "@/components/ui/separator"
 
-const tags = Array.from({ length: 50 }).map((_, i, a) => `v1.2.0-beta.${a.length - i}`)
+const tags = Array.from({ length: 50 }).map(
+  (_, i, a) => `v1.2.0-beta.${a.length - i}`
+)
 
 export function Basic() {
   return (
@@ -47,31 +49,15 @@ export function Horizontal() {
               />
             </div>
             <figcaption className="pt-2 text-xs text-muted-foreground">
-              사진: <span className="font-semibold text-foreground">{work.artist}</span>
+              사진:{" "}
+              <span className="font-semibold text-foreground">
+                {work.artist}
+              </span>
             </figcaption>
           </figure>
         ))}
       </div>
       <ScrollBar orientation="horizontal" />
     </ScrollArea>
-  )
-}
-
-export function Rtl() {
-  return (
-    <div dir="rtl" className="flex flex-col items-center gap-3">
-      <ScrollArea className="h-72 w-48 rounded-md border">
-        <div className="p-4">
-          <h4 className="mb-4 text-sm leading-none font-medium">الوسوم</h4>
-          {tags.slice(0, 25).map((tag) => (
-            <React.Fragment key={tag}>
-              <div className="text-sm">{tag}</div>
-              <Separator className="my-2" />
-            </React.Fragment>
-          ))}
-        </div>
-      </ScrollArea>
-      <p className="text-xs text-muted-foreground">스크롤 막대가 왼쪽에 붙고 글자는 오른쪽 정렬됩니다.</p>
-    </div>
   )
 }

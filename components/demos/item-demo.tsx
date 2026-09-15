@@ -36,7 +36,9 @@ export function Basic() {
       <Item variant="outline">
         <ItemContent>
           <ItemTitle>기본 항목</ItemTitle>
-          <ItemDescription>제목과 설명만 있는 단순한 항목입니다.</ItemDescription>
+          <ItemDescription>
+            제목과 설명만 있는 단순한 항목입니다.
+          </ItemDescription>
         </ItemContent>
         <ItemActions>
           <Button variant="outline" size="sm">
@@ -61,9 +63,21 @@ export function Basic() {
 
 export function Variant() {
   const variants = [
-    { variant: "default", title: "기본", description: "배경도 테두리도 없는 투명한 형태입니다." },
-    { variant: "outline", title: "테두리", description: "테두리가 보이는 형태입니다." },
-    { variant: "muted", title: "연한 배경", description: "덜 중요한 내용에 쓰는 연한 배경 형태입니다." },
+    {
+      variant: "default",
+      title: "기본",
+      description: "배경도 테두리도 없는 투명한 형태입니다.",
+    },
+    {
+      variant: "outline",
+      title: "테두리",
+      description: "테두리가 보이는 형태입니다.",
+    },
+    {
+      variant: "muted",
+      title: "연한 배경",
+      description: "덜 중요한 내용에 쓰는 연한 배경 형태입니다.",
+    },
   ] as const
 
   return (
@@ -85,9 +99,21 @@ export function Variant() {
 
 export function Size() {
   const sizes = [
-    { size: "default", title: "기본 크기", description: "대부분의 경우에 쓰는 표준 크기입니다." },
-    { size: "sm", title: "작은 크기", description: "촘촘한 목록에 맞는 크기입니다." },
-    { size: "xs", title: "아주 작은 크기", description: "가장 촘촘한 크기입니다." },
+    {
+      size: "default",
+      title: "기본 크기",
+      description: "대부분의 경우에 쓰는 표준 크기입니다.",
+    },
+    {
+      size: "sm",
+      title: "작은 크기",
+      description: "촘촘한 목록에 맞는 크기입니다.",
+    },
+    {
+      size: "xs",
+      title: "아주 작은 크기",
+      description: "가장 촘촘한 크기입니다.",
+    },
   ] as const
 
   return (
@@ -116,7 +142,9 @@ export function Icon() {
         </ItemMedia>
         <ItemContent>
           <ItemTitle>보안 알림</ItemTitle>
-          <ItemDescription>알 수 없는 기기에서 새 로그인이 감지되었습니다.</ItemDescription>
+          <ItemDescription>
+            알 수 없는 기기에서 새 로그인이 감지되었습니다.
+          </ItemDescription>
         </ItemContent>
         <ItemActions>
           <Button size="sm" variant="outline">
@@ -143,7 +171,12 @@ export function WithAvatar() {
           <ItemDescription>5개월 전 마지막 접속</ItemDescription>
         </ItemContent>
         <ItemActions>
-          <Button size="icon-sm" variant="outline" className="rounded-full" aria-label="초대">
+          <Button
+            size="icon-sm"
+            variant="outline"
+            className="rounded-full"
+            aria-label="초대"
+          >
             <PlusIcon />
           </Button>
         </ItemActions>
@@ -156,11 +189,17 @@ export function WithAvatar() {
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>
             <Avatar className="hidden sm:flex">
-              <AvatarImage src="https://github.com/maxleiter.png" alt="@maxleiter" />
+              <AvatarImage
+                src="https://github.com/maxleiter.png"
+                alt="@maxleiter"
+              />
               <AvatarFallback>LR</AvatarFallback>
             </Avatar>
             <Avatar>
-              <AvatarImage src="https://github.com/evilrabbit.png" alt="@evilrabbit" />
+              <AvatarImage
+                src="https://github.com/evilrabbit.png"
+                alt="@evilrabbit"
+              />
               <AvatarFallback>ER</AvatarFallback>
             </Avatar>
           </div>
@@ -180,9 +219,24 @@ export function WithAvatar() {
 }
 
 const music = [
-  { title: "Midnight City Lights", artist: "Neon Dreams", album: "Electric Nights", duration: "3:45" },
-  { title: "Coffee Shop Conversations", artist: "The Morning Brew", album: "Urban Stories", duration: "4:05" },
-  { title: "Digital Rain", artist: "Cyber Symphony", album: "Binary Beats", duration: "3:30" },
+  {
+    title: "Midnight City Lights",
+    artist: "Neon Dreams",
+    album: "Electric Nights",
+    duration: "3:45",
+  },
+  {
+    title: "Coffee Shop Conversations",
+    artist: "The Morning Brew",
+    album: "Urban Stories",
+    duration: "4:05",
+  },
+  {
+    title: "Digital Rain",
+    artist: "Cyber Symphony",
+    album: "Binary Beats",
+    duration: "3:30",
+  },
 ]
 
 export function Image() {
@@ -190,7 +244,12 @@ export function Image() {
     <div className="flex w-full max-w-md flex-col gap-6">
       <ItemGroup className="gap-4">
         {music.map((song) => (
-          <Item key={song.title} variant="outline" render={<a href="#" />} role="listitem">
+          <Item
+            key={song.title}
+            variant="outline"
+            render={<a href="#" />}
+            role="listitem"
+          >
             <ItemMedia variant="image">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -203,7 +262,8 @@ export function Image() {
             </ItemMedia>
             <ItemContent>
               <ItemTitle className="line-clamp-1">
-                {song.title} - <span className="text-muted-foreground">{song.album}</span>
+                {song.title} -{" "}
+                <span className="text-muted-foreground">{song.album}</span>
               </ItemTitle>
               <ItemDescription>{song.artist}</ItemDescription>
             </ItemContent>
@@ -218,9 +278,21 @@ export function Image() {
 }
 
 const people = [
-  { username: "shadcn", avatar: "https://github.com/shadcn.png", email: "shadcn@vercel.com" },
-  { username: "maxleiter", avatar: "https://github.com/maxleiter.png", email: "maxleiter@vercel.com" },
-  { username: "evilrabbit", avatar: "https://github.com/evilrabbit.png", email: "evilrabbit@vercel.com" },
+  {
+    username: "shadcn",
+    avatar: "https://github.com/shadcn.png",
+    email: "shadcn@vercel.com",
+  },
+  {
+    username: "maxleiter",
+    avatar: "https://github.com/maxleiter.png",
+    email: "maxleiter@vercel.com",
+  },
+  {
+    username: "evilrabbit",
+    avatar: "https://github.com/evilrabbit.png",
+    email: "evilrabbit@vercel.com",
+  },
 ]
 
 export function Group() {
@@ -239,7 +311,12 @@ export function Group() {
             <ItemDescription>{person.email}</ItemDescription>
           </ItemContent>
           <ItemActions>
-            <Button variant="ghost" size="icon" className="rounded-full" aria-label="추가">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="rounded-full"
+              aria-label="추가"
+            >
               <PlusIcon />
             </Button>
           </ItemActions>
@@ -294,7 +371,10 @@ export function Link() {
           <ChevronRightIcon className="size-4" />
         </ItemActions>
       </Item>
-      <Item variant="outline" render={<a href="#" target="_blank" rel="noopener noreferrer" />}>
+      <Item
+        variant="outline"
+        render={<a href="#" target="_blank" rel="noopener noreferrer" />}
+      >
         <ItemContent>
           <ItemTitle>외부 자료</ItemTitle>
           <ItemDescription>새 탭에서 안전하게 열립니다.</ItemDescription>
@@ -326,7 +406,9 @@ export function Dropdown() {
                 </ItemMedia>
                 <ItemContent className="gap-0">
                   <ItemTitle>{person.username}</ItemTitle>
-                  <ItemDescription className="leading-none">{person.email}</ItemDescription>
+                  <ItemDescription className="leading-none">
+                    {person.email}
+                  </ItemDescription>
                 </ItemContent>
               </Item>
             </DropdownMenuItem>
@@ -334,27 +416,5 @@ export function Dropdown() {
         </DropdownMenuGroup>
       </DropdownMenuContent>
     </DropdownMenu>
-  )
-}
-
-export function Rtl() {
-  return (
-    <div dir="rtl" className="flex w-full max-w-md flex-col gap-3">
-      <Item variant="outline">
-        <ItemMedia variant="icon">
-          <ShieldAlertIcon />
-        </ItemMedia>
-        <ItemContent>
-          <ItemTitle>تنبيه أمني</ItemTitle>
-          <ItemDescription>تم اكتشاف تسجيل دخول جديد من جهاز غير معروف.</ItemDescription>
-        </ItemContent>
-        <ItemActions>
-          <Button size="sm" variant="outline">
-            مراجعة
-          </Button>
-        </ItemActions>
-      </Item>
-      <p className="text-xs text-muted-foreground">아이콘·글자·버튼 순서가 오른쪽에서 왼쪽으로 뒤집힙니다.</p>
-    </div>
   )
 }

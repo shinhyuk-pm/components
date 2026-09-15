@@ -1,7 +1,6 @@
 "use client"
 
 import * as React from "react"
-import { DirectionProvider } from "@base-ui/react/direction-provider"
 import {
   BadgeCheckIcon,
   BellIcon,
@@ -48,7 +47,9 @@ import {
 export function Basic() {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger render={<Button variant="outline" />}>열기</DropdownMenuTrigger>
+      <DropdownMenuTrigger render={<Button variant="outline" />}>
+        열기
+      </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuGroup>
           <DropdownMenuLabel>내 계정</DropdownMenuLabel>
@@ -68,7 +69,9 @@ export function Basic() {
 export function Submenu() {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger render={<Button variant="outline" />}>열기</DropdownMenuTrigger>
+      <DropdownMenuTrigger render={<Button variant="outline" />}>
+        열기
+      </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuGroup>
           <DropdownMenuItem>팀</DropdownMenuItem>
@@ -95,8 +98,7 @@ export function Submenu() {
             </DropdownMenuPortal>
           </DropdownMenuSub>
           <DropdownMenuItem>
-            새 팀
-            <DropdownMenuShortcut>⌘+T</DropdownMenuShortcut>
+            새 팀<DropdownMenuShortcut>⌘+T</DropdownMenuShortcut>
           </DropdownMenuItem>
         </DropdownMenuGroup>
       </DropdownMenuContent>
@@ -107,7 +109,9 @@ export function Submenu() {
 export function Shortcuts() {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger render={<Button variant="outline" />}>열기</DropdownMenuTrigger>
+      <DropdownMenuTrigger render={<Button variant="outline" />}>
+        열기
+      </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuGroup>
           <DropdownMenuLabel>내 계정</DropdownMenuLabel>
@@ -137,7 +141,9 @@ export function Shortcuts() {
 export function Icons() {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger render={<Button variant="outline" />}>열기</DropdownMenuTrigger>
+      <DropdownMenuTrigger render={<Button variant="outline" />}>
+        열기
+      </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuItem>
           <UserIcon />
@@ -168,17 +174,29 @@ export function Checkboxes() {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger render={<Button variant="outline" />}>열기</DropdownMenuTrigger>
+      <DropdownMenuTrigger render={<Button variant="outline" />}>
+        열기
+      </DropdownMenuTrigger>
       <DropdownMenuContent className="w-40">
         <DropdownMenuGroup>
           <DropdownMenuLabel>화면 구성</DropdownMenuLabel>
-          <DropdownMenuCheckboxItem checked={showStatusBar} onCheckedChange={setShowStatusBar}>
+          <DropdownMenuCheckboxItem
+            checked={showStatusBar}
+            onCheckedChange={setShowStatusBar}
+          >
             상태 표시줄
           </DropdownMenuCheckboxItem>
-          <DropdownMenuCheckboxItem checked={showActivityBar} onCheckedChange={setShowActivityBar} disabled>
+          <DropdownMenuCheckboxItem
+            checked={showActivityBar}
+            onCheckedChange={setShowActivityBar}
+            disabled
+          >
             활동 표시줄
           </DropdownMenuCheckboxItem>
-          <DropdownMenuCheckboxItem checked={showPanel} onCheckedChange={setShowPanel}>
+          <DropdownMenuCheckboxItem
+            checked={showPanel}
+            onCheckedChange={setShowPanel}
+          >
             패널
           </DropdownMenuCheckboxItem>
         </DropdownMenuGroup>
@@ -188,31 +206,43 @@ export function Checkboxes() {
 }
 
 export function CheckboxesWithIcons() {
-  const [notifications, setNotifications] = React.useState({ email: true, sms: false, push: true })
+  const [notifications, setNotifications] = React.useState({
+    email: true,
+    sms: false,
+    push: true,
+  })
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger render={<Button variant="outline" />}>알림</DropdownMenuTrigger>
+      <DropdownMenuTrigger render={<Button variant="outline" />}>
+        알림
+      </DropdownMenuTrigger>
       <DropdownMenuContent className="w-48">
         <DropdownMenuGroup>
           <DropdownMenuLabel>알림 설정</DropdownMenuLabel>
           <DropdownMenuCheckboxItem
             checked={notifications.email}
-            onCheckedChange={(checked) => setNotifications({ ...notifications, email: checked })}
+            onCheckedChange={(checked) =>
+              setNotifications({ ...notifications, email: checked })
+            }
           >
             <MailIcon />
             이메일 알림
           </DropdownMenuCheckboxItem>
           <DropdownMenuCheckboxItem
             checked={notifications.sms}
-            onCheckedChange={(checked) => setNotifications({ ...notifications, sms: checked })}
+            onCheckedChange={(checked) =>
+              setNotifications({ ...notifications, sms: checked })
+            }
           >
             <MessageSquareIcon />
             문자 알림
           </DropdownMenuCheckboxItem>
           <DropdownMenuCheckboxItem
             checked={notifications.push}
-            onCheckedChange={(checked) => setNotifications({ ...notifications, push: checked })}
+            onCheckedChange={(checked) =>
+              setNotifications({ ...notifications, push: checked })
+            }
           >
             <BellIcon />
             푸시 알림
@@ -228,7 +258,9 @@ export function RadioGroup() {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger render={<Button variant="outline" />}>열기</DropdownMenuTrigger>
+      <DropdownMenuTrigger render={<Button variant="outline" />}>
+        열기
+      </DropdownMenuTrigger>
       <DropdownMenuContent className="w-32">
         <DropdownMenuGroup>
           <DropdownMenuLabel>패널 위치</DropdownMenuLabel>
@@ -248,11 +280,16 @@ export function RadioWithIcons() {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger render={<Button variant="outline" />}>결제 수단</DropdownMenuTrigger>
+      <DropdownMenuTrigger render={<Button variant="outline" />}>
+        결제 수단
+      </DropdownMenuTrigger>
       <DropdownMenuContent className="min-w-48">
         <DropdownMenuGroup>
           <DropdownMenuLabel>결제 수단 선택</DropdownMenuLabel>
-          <DropdownMenuRadioGroup value={paymentMethod} onValueChange={setPaymentMethod}>
+          <DropdownMenuRadioGroup
+            value={paymentMethod}
+            onValueChange={setPaymentMethod}
+          >
             <DropdownMenuRadioItem value="card">
               <CreditCardIcon />
               신용카드
@@ -275,7 +312,9 @@ export function RadioWithIcons() {
 export function Destructive() {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger render={<Button variant="outline" />}>작업</DropdownMenuTrigger>
+      <DropdownMenuTrigger render={<Button variant="outline" />}>
+        작업
+      </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuGroup>
           <DropdownMenuItem>
@@ -302,7 +341,9 @@ export function Destructive() {
 export function WithAvatar() {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger render={<Button variant="ghost" size="icon" className="rounded-full" />}>
+      <DropdownMenuTrigger
+        render={<Button variant="ghost" size="icon" className="rounded-full" />}
+      >
         <Avatar>
           <AvatarImage src="https://github.com/shadcn.png" alt="shadcn" />
           <AvatarFallback>SH</AvatarFallback>
@@ -340,18 +381,18 @@ export function Complex() {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger render={<Button variant="outline" />}>복합 메뉴</DropdownMenuTrigger>
+      <DropdownMenuTrigger render={<Button variant="outline" />}>
+        복합 메뉴
+      </DropdownMenuTrigger>
       <DropdownMenuContent className="w-44">
         <DropdownMenuGroup>
           <DropdownMenuLabel>파일</DropdownMenuLabel>
           <DropdownMenuItem>
-            <FileIcon />
-            새 파일
+            <FileIcon />새 파일
             <DropdownMenuShortcut>⌘N</DropdownMenuShortcut>
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <FolderIcon />
-            새 폴더
+            <FolderIcon />새 폴더
             <DropdownMenuShortcut>⇧⌘N</DropdownMenuShortcut>
           </DropdownMenuItem>
           <DropdownMenuItem>
@@ -363,10 +404,16 @@ export function Complex() {
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuLabel>보기</DropdownMenuLabel>
-          <DropdownMenuCheckboxItem checked={showSidebar} onCheckedChange={setShowSidebar}>
+          <DropdownMenuCheckboxItem
+            checked={showSidebar}
+            onCheckedChange={setShowSidebar}
+          >
             사이드바 표시
           </DropdownMenuCheckboxItem>
-          <DropdownMenuCheckboxItem checked={showStatusBar} onCheckedChange={setShowStatusBar}>
+          <DropdownMenuCheckboxItem
+            checked={showStatusBar}
+            onCheckedChange={setShowStatusBar}
+          >
             상태 표시줄 표시
           </DropdownMenuCheckboxItem>
           <DropdownMenuSub>
@@ -378,7 +425,10 @@ export function Complex() {
               <DropdownMenuSubContent>
                 <DropdownMenuGroup>
                   <DropdownMenuLabel>화면 모드</DropdownMenuLabel>
-                  <DropdownMenuRadioGroup value={theme} onValueChange={setTheme}>
+                  <DropdownMenuRadioGroup
+                    value={theme}
+                    onValueChange={setTheme}
+                  >
                     <DropdownMenuRadioItem value="light">
                       <SunIcon />
                       밝게
@@ -420,43 +470,5 @@ export function Complex() {
         </DropdownMenuGroup>
       </DropdownMenuContent>
     </DropdownMenu>
-  )
-}
-
-export function Rtl() {
-  return (
-    <div dir="rtl" className="flex flex-col items-center gap-3">
-      <DirectionProvider direction="rtl">
-        <DropdownMenu>
-          <DropdownMenuTrigger render={<Button variant="outline" />}>فتح</DropdownMenuTrigger>
-          <DropdownMenuContent dir="rtl">
-            <DropdownMenuGroup>
-              <DropdownMenuLabel>حسابي</DropdownMenuLabel>
-              <DropdownMenuItem>
-                <UserIcon />
-                الملف الشخصي
-                <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <CreditCardIcon />
-                الفواتير
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <SettingsIcon />
-                الإعدادات
-              </DropdownMenuItem>
-            </DropdownMenuGroup>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem variant="destructive">
-              <LogOutIcon />
-              تسجيل الخروج
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
-      </DirectionProvider>
-      <p className="text-xs text-muted-foreground">
-        아이콘·단축키·체크 표시 위치가 오른쪽에서 왼쪽으로 뒤집힙니다.
-      </p>
-    </div>
   )
 }

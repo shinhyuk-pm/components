@@ -1,8 +1,14 @@
 "use client"
 
 import * as React from "react"
-import { DirectionProvider } from "@base-ui/react/direction-provider"
-import { FileIcon, FolderIcon, HelpCircleIcon, SaveIcon, SettingsIcon, TrashIcon } from "lucide-react"
+import {
+  FileIcon,
+  FolderIcon,
+  HelpCircleIcon,
+  SaveIcon,
+  SettingsIcon,
+  TrashIcon,
+} from "lucide-react"
 
 import {
   Menubar,
@@ -148,7 +154,9 @@ export function Checkbox() {
         <MenubarTrigger>보기</MenubarTrigger>
         <MenubarContent className="w-64">
           <MenubarCheckboxItem>북마크 바 항상 표시</MenubarCheckboxItem>
-          <MenubarCheckboxItem defaultChecked>전체 URL 항상 표시</MenubarCheckboxItem>
+          <MenubarCheckboxItem defaultChecked>
+            전체 URL 항상 표시
+          </MenubarCheckboxItem>
           <MenubarSeparator />
           <MenubarItem inset>
             새로고침 <MenubarShortcut>⌘R</MenubarShortcut>
@@ -258,8 +266,7 @@ export function Icons() {
         <MenubarTrigger>파일</MenubarTrigger>
         <MenubarContent>
           <MenubarItem>
-            <FileIcon />
-            새 파일 <MenubarShortcut>⌘N</MenubarShortcut>
+            <FileIcon />새 파일 <MenubarShortcut>⌘N</MenubarShortcut>
           </MenubarItem>
           <MenubarItem>
             <FolderIcon />
@@ -293,40 +300,5 @@ export function Icons() {
         </MenubarContent>
       </MenubarMenu>
     </Menubar>
-  )
-}
-
-export function Rtl() {
-  return (
-    <div dir="rtl" className="flex flex-col items-center gap-3">
-      <DirectionProvider direction="rtl">
-        <Menubar className="w-72">
-          <MenubarMenu>
-            <MenubarTrigger>ملف</MenubarTrigger>
-            <MenubarContent dir="rtl">
-              <MenubarItem>
-                علامة تبويب جديدة <MenubarShortcut>⌘T</MenubarShortcut>
-              </MenubarItem>
-              <MenubarItem>
-                نافذة جديدة <MenubarShortcut>⌘N</MenubarShortcut>
-              </MenubarItem>
-              <MenubarSeparator />
-              <MenubarItem>
-                طباعة... <MenubarShortcut>⌘P</MenubarShortcut>
-              </MenubarItem>
-            </MenubarContent>
-          </MenubarMenu>
-          <MenubarMenu>
-            <MenubarTrigger>تحرير</MenubarTrigger>
-            <MenubarContent dir="rtl">
-              <MenubarItem>قص</MenubarItem>
-              <MenubarItem>نسخ</MenubarItem>
-              <MenubarItem>لصق</MenubarItem>
-            </MenubarContent>
-          </MenubarMenu>
-        </Menubar>
-      </DirectionProvider>
-      <p className="text-xs text-muted-foreground">메뉴 순서와 단축키 위치가 오른쪽에서 왼쪽으로 뒤집힙니다.</p>
-    </div>
   )
 }

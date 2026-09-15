@@ -158,7 +158,8 @@ export function Alphanumeric() {
   )
 }
 
-const bigSlots = "*:data-[slot=input-otp-slot]:h-12 *:data-[slot=input-otp-slot]:w-11 *:data-[slot=input-otp-slot]:text-xl"
+const bigSlots =
+  "*:data-[slot=input-otp-slot]:h-12 *:data-[slot=input-otp-slot]:w-11 *:data-[slot=input-otp-slot]:text-xl"
 
 export function Form() {
   return (
@@ -166,7 +167,8 @@ export function Form() {
       <CardHeader>
         <CardTitle>로그인 확인</CardTitle>
         <CardDescription>
-          이메일로 보낸 인증번호를 입력하세요: <span className="font-medium">m@example.com</span>
+          이메일로 보낸 인증번호를 입력하세요:{" "}
+          <span className="font-medium">m@example.com</span>
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -203,36 +205,15 @@ export function Form() {
           </Button>
           <div className="text-sm text-muted-foreground">
             로그인이 안 되나요?{" "}
-            <a href="#" className="underline underline-offset-4 transition-colors hover:text-primary">
+            <a
+              href="#"
+              className="underline underline-offset-4 transition-colors hover:text-primary"
+            >
               고객 지원 문의
             </a>
           </div>
         </Field>
       </CardFooter>
     </Card>
-  )
-}
-
-export function Rtl() {
-  return (
-    <div dir="rtl" className="flex flex-col items-center gap-3">
-      <Field className="w-fit">
-        <FieldLabel htmlFor="otp-rtl">رمز التحقق</FieldLabel>
-        <InputOTP id="otp-rtl" maxLength={6} defaultValue="123456">
-          <InputOTPGroup>
-            <InputOTPSlot index={0} />
-            <InputOTPSlot index={1} />
-            <InputOTPSlot index={2} />
-          </InputOTPGroup>
-          <InputOTPSeparator />
-          <InputOTPGroup>
-            <InputOTPSlot index={3} />
-            <InputOTPSlot index={4} />
-            <InputOTPSlot index={5} />
-          </InputOTPGroup>
-        </InputOTP>
-      </Field>
-      <p className="text-xs text-muted-foreground">칸 순서가 오른쪽에서 왼쪽으로 뒤집힙니다.</p>
-    </div>
   )
 }

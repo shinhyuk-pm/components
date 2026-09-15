@@ -1,5 +1,10 @@
 import type { DemoVariant } from "@/components/demo-types"
-import { Basic, Disabled, Groups, Invalid, Rtl } from "@/components/demos/native-select-demo"
+import {
+  Basic,
+  Disabled,
+  Groups,
+  Invalid,
+} from "@/components/demos/native-select-demo"
 
 export const variants: DemoVariant[] = [
   {
@@ -26,11 +31,5 @@ export const variants: DemoVariant[] = [
     name: "Invalid",
     description: "값이 잘못됐을 때 테두리가 빨갛게 바뀝니다.",
     Demo: Invalid,
-  },
-  {
-    id: "rtl",
-    name: "RTL",
-    description: "아랍어처럼 오른쪽에서 왼쪽으로 읽는 언어용 배치입니다. 글자와 화살표 위치가 뒤집힙니다.",
-    Demo: Rtl,
   },
 ]

@@ -4,7 +4,6 @@ import {
   Basic,
   Grid,
   Legend,
-  Rtl,
   Tooltip,
   TooltipOptions,
 } from "@/components/demos/chart-demo"
@@ -49,12 +48,5 @@ export const variants: DemoVariant[] = [
     description:
       "툴팁의 표식 모양(dot·line·dashed)과 제목 표시 여부를 바꾼 예시입니다.",
     Demo: TooltipOptions,
-  },
-  {
-    id: "rtl",
-    name: "RTL",
-    description:
-      "아랍어처럼 오른쪽에서 왼쪽으로 읽는 언어용 배치입니다. 가로축 순서가 뒤집힙니다.",
-    Demo: Rtl,
   },
 ]

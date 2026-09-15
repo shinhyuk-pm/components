@@ -1,5 +1,5 @@
 import type { DemoVariant } from "@/components/demo-types"
-import { Alignments, Basic, Form, Rtl } from "@/components/demos/popover-demo"
+import { Alignments, Basic, Form } from "@/components/demos/popover-demo"
 
 export const variants: DemoVariant[] = [
   {
@@ -18,13 +18,8 @@ export const variants: DemoVariant[] = [
   {
     id: "form",
     name: "Form",
-    description: "창 안에 입력칸을 넣어 값을 바로 고칠 수 있게 합니다. 너비·높이 설정 같은 데 씁니다.",
+    description:
+      "창 안에 입력칸을 넣어 값을 바로 고칠 수 있게 합니다. 너비·높이 설정 같은 데 씁니다.",
     Demo: Form,
-  },
-  {
-    id: "rtl",
-    name: "RTL",
-    description: "아랍어처럼 오른쪽에서 왼쪽으로 읽는 언어용 배치입니다. 글자 정렬과 열리는 방향이 뒤집힙니다.",
-    Demo: Rtl,
   },
 ]

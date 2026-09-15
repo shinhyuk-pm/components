@@ -10,7 +10,9 @@ export function Basic() {
         <div className="text-muted-foreground">디자인 시스템의 기초</div>
       </div>
       <Separator />
-      <div>마음대로 고치고 확장해서 쓸 수 있는, 잘 디자인된 컴포넌트 모음입니다.</div>
+      <div>
+        마음대로 고치고 확장해서 쓸 수 있는, 잘 디자인된 컴포넌트 모음입니다.
+      </div>
     </div>
   )
 }
@@ -66,21 +68,6 @@ export function List() {
           </dl>
         </div>
       ))}
-    </div>
-  )
-}
-
-export function Rtl() {
-  return (
-    <div dir="rtl" className="flex flex-col items-center gap-3">
-      <div className="flex h-5 items-center gap-4 text-sm">
-        <div>المدونة</div>
-        <Separator orientation="vertical" />
-        <div>الوثائق</div>
-        <Separator orientation="vertical" />
-        <div>المصدر</div>
-      </div>
-      <p className="text-xs text-muted-foreground">항목 순서가 오른쪽에서 왼쪽으로 뒤집힙니다.</p>
     </div>
   )
 }

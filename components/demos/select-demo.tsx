@@ -1,7 +1,6 @@
 "use client"
 
 import * as React from "react"
-import { DirectionProvider } from "@base-ui/react/direction-provider"
 
 import {
   Field,
@@ -32,11 +31,19 @@ const fruits = [
   { label: "파인애플", value: "pineapple" },
 ]
 
-function Items({ items }: { items: { label: string; value: string | null; disabled?: boolean }[] }) {
+function Items({
+  items,
+}: {
+  items: { label: string; value: string | null; disabled?: boolean }[]
+}) {
   return (
     <>
       {items.map((item) => (
-        <SelectItem key={item.label} value={item.value} disabled={item.disabled}>
+        <SelectItem
+          key={item.label}
+          value={item.value}
+          disabled={item.disabled}
+        >
           {item.label}
         </SelectItem>
       ))}
@@ -68,9 +75,15 @@ export function AlignItem() {
       <Field orientation="horizontal">
         <FieldContent>
           <FieldLabel htmlFor="select-align-item">항목 맞추기</FieldLabel>
-          <FieldDescription>켜면 고른 항목이 버튼 위치에 딱 맞춰 열립니다.</FieldDescription>
+          <FieldDescription>
+            켜면 고른 항목이 버튼 위치에 딱 맞춰 열립니다.
+          </FieldDescription>
         </FieldContent>
-        <Switch id="select-align-item" checked={alignItemWithTrigger} onCheckedChange={setAlignItemWithTrigger} />
+        <Switch
+          id="select-align-item"
+          checked={alignItemWithTrigger}
+          onCheckedChange={setAlignItemWithTrigger}
+        />
       </Field>
       <Field>
         <Select items={fruits} defaultValue="banana">
@@ -100,7 +113,11 @@ const vegetables = [
 ]
 
 export function Groups() {
-  const allItems = [{ label: "식재료 선택", value: null }, ...fruitOnly, ...vegetables]
+  const allItems = [
+    { label: "식재료 선택", value: null },
+    ...fruitOnly,
+    ...vegetables,
+  ]
 
   return (
     <Select items={allItems}>
@@ -165,7 +182,10 @@ const timezoneGroups = [
 ]
 
 export function Scrollable() {
-  const items = [{ label: "시간대 선택", value: null }, ...timezoneGroups.flatMap((g) => g.items)]
+  const items = [
+    { label: "시간대 선택", value: null },
+    ...timezoneGroups.flatMap((g) => g.items),
+  ]
 
   return (
     <Select items={items}>
@@ -223,33 +243,5 @@ export function Invalid() {
       </Select>
       <FieldError>과일을 골라 주세요.</FieldError>
     </Field>
-  )
-}
-
-const fruitsAr = [
-  { label: "اختر فاكهة", value: null },
-  { label: "تفاح", value: "apple" },
-  { label: "موز", value: "banana" },
-  { label: "عنب", value: "grapes" },
-]
-
-export function Rtl() {
-  return (
-    <div dir="rtl" className="flex flex-col items-center gap-3">
-      <DirectionProvider direction="rtl">
-        <Select items={fruitsAr}>
-          <SelectTrigger className="w-48">
-            <SelectValue />
-          </SelectTrigger>
-          <SelectContent dir="rtl">
-            <SelectGroup>
-              <SelectLabel>الفواكه</SelectLabel>
-              <Items items={fruitsAr} />
-            </SelectGroup>
-          </SelectContent>
-        </Select>
-      </DirectionProvider>
-      <p className="text-xs text-muted-foreground">글자와 화살표·체크 표시 위치가 오른쪽에서 왼쪽으로 뒤집힙니다.</p>
-    </div>
   )
 }

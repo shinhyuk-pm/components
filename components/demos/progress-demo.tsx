@@ -2,7 +2,11 @@
 
 import * as React from "react"
 
-import { Progress, ProgressLabel, ProgressValue } from "@/components/ui/progress"
+import {
+  Progress,
+  ProgressLabel,
+  ProgressValue,
+} from "@/components/ui/progress"
 import { Slider } from "@/components/ui/slider"
 
 export function Basic() {
@@ -42,18 +46,6 @@ export function Controlled() {
         step={1}
         aria-label="진행률"
       />
-    </div>
-  )
-}
-
-export function Rtl() {
-  return (
-    <div dir="rtl" className="flex w-full max-w-sm flex-col items-center gap-3">
-      <Progress value={56} className="w-full">
-        <ProgressLabel>تقدم التحميل</ProgressLabel>
-        <ProgressValue />
-      </Progress>
-      <p className="text-xs text-muted-foreground">막대가 오른쪽에서 왼쪽으로 채워집니다.</p>
     </div>
   )
 }

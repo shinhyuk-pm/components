@@ -7,7 +7,6 @@ import {
   Icon,
   Image,
   Link,
-  Rtl,
   Size,
   Variant,
   WithAvatar,
@@ -17,7 +16,8 @@ export const variants: DemoVariant[] = [
   {
     id: "basic",
     name: "Basic",
-    description: "제목·설명·버튼을 한 줄에 정돈한 목록 한 칸입니다. 설정·알림 목록의 기본 단위입니다.",
+    description:
+      "제목·설명·버튼을 한 줄에 정돈한 목록 한 칸입니다. 설정·알림 목록의 기본 단위입니다.",
     Demo: Basic,
   },
   {
@@ -29,7 +29,8 @@ export const variants: DemoVariant[] = [
   {
     id: "size",
     name: "Size",
-    description: "기본·작게·아주 작게 세 크기입니다. 촘촘한 목록일수록 작은 크기를 씁니다.",
+    description:
+      "기본·작게·아주 작게 세 크기입니다. 촘촘한 목록일수록 작은 크기를 씁니다.",
     Demo: Size,
   },
   {
@@ -59,25 +60,22 @@ export const variants: DemoVariant[] = [
   {
     id: "header",
     name: "Header",
-    description: "위쪽에 큰 이미지를 두고 아래에 제목·설명을 쓰는 카드 모양입니다.",
+    description:
+      "위쪽에 큰 이미지를 두고 아래에 제목·설명을 쓰는 카드 모양입니다.",
     Demo: Header,
   },
   {
     id: "link",
     name: "Link",
-    description: "항목 전체가 링크가 되어 누르면 이동합니다. 새 탭 열기도 가능합니다.",
+    description:
+      "항목 전체가 링크가 되어 누르면 이동합니다. 새 탭 열기도 가능합니다.",
     Demo: Link,
   },
   {
     id: "dropdown",
     name: "Dropdown",
-    description: "드롭다운 메뉴 안의 각 항목을 Item으로 꾸며 사진·이메일까지 보여줍니다.",
+    description:
+      "드롭다운 메뉴 안의 각 항목을 Item으로 꾸며 사진·이메일까지 보여줍니다.",
     Demo: Dropdown,
-  },
-  {
-    id: "rtl",
-    name: "RTL",
-    description: "아랍어처럼 오른쪽에서 왼쪽으로 읽는 언어용 배치입니다. 아이콘과 버튼 위치가 뒤집힙니다.",
-    Demo: Rtl,
   },
 ]

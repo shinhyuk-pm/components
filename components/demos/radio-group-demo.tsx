@@ -38,7 +38,9 @@ export function Description() {
         <RadioGroupItem value="default" id="rg-desc-1" />
         <FieldContent>
           <FieldLabel htmlFor="rg-desc-1">기본</FieldLabel>
-          <FieldDescription>대부분의 경우에 맞는 표준 간격입니다.</FieldDescription>
+          <FieldDescription>
+            대부분의 경우에 맞는 표준 간격입니다.
+          </FieldDescription>
         </FieldContent>
       </Field>
       <Field orientation="horizontal">
@@ -52,7 +54,9 @@ export function Description() {
         <RadioGroupItem value="compact" id="rg-desc-3" />
         <FieldContent>
           <FieldLabel htmlFor="rg-desc-3">촘촘하게</FieldLabel>
-          <FieldDescription>빽빽한 화면을 위한 최소 간격입니다.</FieldDescription>
+          <FieldDescription>
+            빽빽한 화면을 위한 최소 간격입니다.
+          </FieldDescription>
         </FieldContent>
       </Field>
     </RadioGroup>
@@ -61,9 +65,24 @@ export function Description() {
 
 export function ChoiceCard() {
   const plans = [
-    { value: "plus", id: "rg-plan-plus", title: "Plus", description: "개인과 소규모 팀용" },
-    { value: "pro", id: "rg-plan-pro", title: "Pro", description: "성장하는 비즈니스용" },
-    { value: "enterprise", id: "rg-plan-enterprise", title: "Enterprise", description: "대규모 팀과 기업용" },
+    {
+      value: "plus",
+      id: "rg-plan-plus",
+      title: "Plus",
+      description: "개인과 소규모 팀용",
+    },
+    {
+      value: "pro",
+      id: "rg-plan-pro",
+      title: "Pro",
+      description: "성장하는 비즈니스용",
+    },
+    {
+      value: "enterprise",
+      id: "rg-plan-enterprise",
+      title: "Enterprise",
+      description: "대규모 팀과 기업용",
+    },
   ]
 
   return (
@@ -163,27 +182,5 @@ export function Invalid() {
         </Field>
       </RadioGroup>
     </FieldSet>
-  )
-}
-
-export function Rtl() {
-  return (
-    <div dir="rtl" className="flex flex-col items-center gap-3">
-      <RadioGroup defaultValue="comfortable" className="w-fit">
-        <div className="flex items-center gap-3">
-          <RadioGroupItem value="default" id="rg-rtl-1" />
-          <Label htmlFor="rg-rtl-1">افتراضي</Label>
-        </div>
-        <div className="flex items-center gap-3">
-          <RadioGroupItem value="comfortable" id="rg-rtl-2" />
-          <Label htmlFor="rg-rtl-2">مريح</Label>
-        </div>
-        <div className="flex items-center gap-3">
-          <RadioGroupItem value="compact" id="rg-rtl-3" />
-          <Label htmlFor="rg-rtl-3">مضغوط</Label>
-        </div>
-      </RadioGroup>
-      <p className="text-xs text-muted-foreground">동그라미가 오른쪽, 글자가 왼쪽으로 뒤집힙니다.</p>
-    </div>
   )
 }

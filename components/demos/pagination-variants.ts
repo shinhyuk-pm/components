@@ -1,5 +1,5 @@
 import type { DemoVariant } from "@/components/demo-types"
-import { Basic, IconsOnly, Rtl, Simple } from "@/components/demos/pagination-demo"
+import { Basic, IconsOnly, Simple } from "@/components/demos/pagination-demo"
 
 export const variants: DemoVariant[] = [
   {
@@ -18,13 +18,8 @@ export const variants: DemoVariant[] = [
   {
     id: "icons-only",
     name: "Icons Only",
-    description: "화살표만 남기고 페이지당 행 수 선택을 곁들인 표 하단용 형태입니다.",
+    description:
+      "화살표만 남기고 페이지당 행 수 선택을 곁들인 표 하단용 형태입니다.",
     Demo: IconsOnly,
-  },
-  {
-    id: "rtl",
-    name: "RTL",
-    description: "아랍어처럼 오른쪽에서 왼쪽으로 읽는 언어용 배치입니다. 화살표와 숫자 순서가 뒤집힙니다.",
-    Demo: Rtl,
   },
 ]

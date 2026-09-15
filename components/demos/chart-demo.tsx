@@ -176,28 +176,3 @@ export function TooltipOptions() {
     </div>
   )
 }
-
-export function Rtl() {
-  return (
-    <div dir="rtl" className="flex w-full max-w-xl justify-center">
-      <Frame title="월별 방문자" description="오른쪽에서 왼쪽으로 읽는 배치">
-        <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
-          <BarChart accessibilityLayer data={chartData}>
-            <CartesianGrid vertical={false} />
-            <XAxis
-              dataKey="month"
-              reversed
-              tickLine={false}
-              tickMargin={10}
-              axisLine={false}
-            />
-            <ChartTooltip content={<ChartTooltipContent />} />
-            <ChartLegend content={<ChartLegendContent />} />
-            <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
-            <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
-          </BarChart>
-        </ChartContainer>
-      </Frame>
-    </div>
-  )
-}

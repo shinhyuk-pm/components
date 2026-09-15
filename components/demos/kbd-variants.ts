@@ -2,7 +2,6 @@ import type { DemoVariant } from "@/components/demo-types"
 import {
   Basic,
   Group,
-  Rtl,
   WithButton,
   WithInputGroup,
   WithTooltip,
@@ -12,7 +11,8 @@ export const variants: DemoVariant[] = [
   {
     id: "basic",
     name: "Basic",
-    description: "키보드 키 하나하나를 작은 키캡 모양으로 보여줍니다. 단축키 안내에 씁니다.",
+    description:
+      "키보드 키 하나하나를 작은 키캡 모양으로 보여줍니다. 단축키 안내에 씁니다.",
     Demo: Basic,
   },
   {
@@ -38,11 +38,5 @@ export const variants: DemoVariant[] = [
     name: "Input Group",
     description: "검색창 오른쪽에 ⌘K 같은 단축키 힌트를 붙입니다.",
     Demo: WithInputGroup,
-  },
-  {
-    id: "rtl",
-    name: "RTL",
-    description: "아랍어처럼 오른쪽에서 왼쪽으로 읽는 언어용 배치입니다. 문장과 키 순서가 뒤집힙니다.",
-    Demo: Rtl,
   },
 ]

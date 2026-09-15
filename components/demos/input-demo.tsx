@@ -5,7 +5,12 @@ import { InfoIcon } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { ButtonGroup } from "@/components/ui/button-group"
-import { Field, FieldDescription, FieldGroup, FieldLabel } from "@/components/ui/field"
+import {
+  Field,
+  FieldDescription,
+  FieldGroup,
+  FieldLabel,
+} from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 import {
   InputGroup,
@@ -30,7 +35,11 @@ export function WithField() {
   return (
     <Field className="max-w-xs">
       <FieldLabel htmlFor="input-field-username">아이디</FieldLabel>
-      <Input id="input-field-username" type="text" placeholder="아이디를 입력하세요" />
+      <Input
+        id="input-field-username"
+        type="text"
+        placeholder="아이디를 입력하세요"
+      />
       <FieldDescription>계정에서 쓸 고유한 아이디를 정하세요.</FieldDescription>
     </Field>
   )
@@ -45,7 +54,11 @@ export function WithFieldGroup() {
       </Field>
       <Field>
         <FieldLabel htmlFor="input-fg-email">이메일</FieldLabel>
-        <Input id="input-fg-email" type="email" placeholder="name@example.com" />
+        <Input
+          id="input-fg-email"
+          type="email"
+          placeholder="name@example.com"
+        />
         <FieldDescription>이 주소로 소식을 보내 드립니다.</FieldDescription>
       </Field>
       <Field orientation="horizontal">
@@ -118,7 +131,11 @@ export function Required() {
       <FieldLabel htmlFor="input-required">
         필수 항목 <span className="text-destructive">*</span>
       </FieldLabel>
-      <Input id="input-required" placeholder="반드시 입력해야 합니다" required />
+      <Input
+        id="input-required"
+        placeholder="반드시 입력해야 합니다"
+        required
+      />
       <FieldDescription>비워 둘 수 없는 항목입니다.</FieldDescription>
     </Field>
   )
@@ -133,7 +150,11 @@ export function WithBadge() {
           베타
         </Badge>
       </FieldLabel>
-      <Input id="input-badge" type="url" placeholder="https://api.example.com/webhook" />
+      <Input
+        id="input-badge"
+        type="url"
+        placeholder="https://api.example.com/webhook"
+      />
     </Field>
   )
 }
@@ -179,17 +200,32 @@ export function Form() {
       <FieldGroup>
         <Field>
           <FieldLabel htmlFor="input-form-name">이름</FieldLabel>
-          <Input id="input-form-name" type="text" placeholder="홍길동" required />
+          <Input
+            id="input-form-name"
+            type="text"
+            placeholder="홍길동"
+            required
+          />
         </Field>
         <Field>
           <FieldLabel htmlFor="input-form-email">이메일</FieldLabel>
-          <Input id="input-form-email" type="email" placeholder="gildong@example.com" />
-          <FieldDescription>이메일은 다른 곳에 공유하지 않습니다.</FieldDescription>
+          <Input
+            id="input-form-email"
+            type="email"
+            placeholder="gildong@example.com"
+          />
+          <FieldDescription>
+            이메일은 다른 곳에 공유하지 않습니다.
+          </FieldDescription>
         </Field>
         <div className="grid grid-cols-2 gap-4">
           <Field>
             <FieldLabel htmlFor="input-form-phone">전화번호</FieldLabel>
-            <Input id="input-form-phone" type="tel" placeholder="010-1234-5678" />
+            <Input
+              id="input-form-phone"
+              type="tel"
+              placeholder="010-1234-5678"
+            />
           </Field>
           <Field>
             <FieldLabel htmlFor="input-form-country">국가</FieldLabel>
@@ -211,7 +247,11 @@ export function Form() {
         </div>
         <Field>
           <FieldLabel htmlFor="input-form-address">주소</FieldLabel>
-          <Input id="input-form-address" type="text" placeholder="테헤란로 123" />
+          <Input
+            id="input-form-address"
+            type="text"
+            placeholder="테헤란로 123"
+          />
         </Field>
         <Field orientation="horizontal">
           <Button type="button" variant="outline">
@@ -221,18 +261,5 @@ export function Form() {
         </Field>
       </FieldGroup>
     </form>
-  )
-}
-
-export function Rtl() {
-  return (
-    <div dir="rtl" className="flex w-full max-w-xs flex-col gap-3">
-      <Field>
-        <FieldLabel htmlFor="input-rtl-username">اسم المستخدم</FieldLabel>
-        <Input id="input-rtl-username" type="text" placeholder="أدخل اسم المستخدم" />
-        <FieldDescription>اختر اسم مستخدم فريدًا لحسابك.</FieldDescription>
-      </Field>
-      <p className="text-xs text-muted-foreground">글자가 오른쪽에서 시작해 왼쪽으로 채워집니다.</p>
-    </div>
   )
 }

@@ -1,7 +1,6 @@
 "use client"
 
 import * as React from "react"
-import { DirectionProvider } from "@base-ui/react/direction-provider"
 import { GlobeIcon } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
@@ -52,7 +51,12 @@ export function Multiple() {
 
   return (
     <div className="w-full max-w-xs">
-      <Combobox multiple autoHighlight items={frameworks} defaultValue={[frameworks[0]]}>
+      <Combobox
+        multiple
+        autoHighlight
+        items={frameworks}
+        defaultValue={[frameworks[0]]}
+      >
         <ComboboxChips ref={anchor}>
           <ComboboxValue>
             {(values: string[]) => (
@@ -103,7 +107,12 @@ export function ClearButton() {
 const cityGroups = [
   {
     value: "아메리카",
-    items: ["뉴욕 (GMT-5)", "로스앤젤레스 (GMT-8)", "토론토 (GMT-5)", "상파울루 (GMT-3)"],
+    items: [
+      "뉴욕 (GMT-5)",
+      "로스앤젤레스 (GMT-8)",
+      "토론토 (GMT-5)",
+      "상파울루 (GMT-3)",
+    ],
   },
   {
     value: "유럽",
@@ -111,7 +120,12 @@ const cityGroups = [
   },
   {
     value: "아시아·태평양",
-    items: ["도쿄 (GMT+9)", "서울 (GMT+9)", "싱가포르 (GMT+8)", "시드니 (GMT+11)"],
+    items: [
+      "도쿄 (GMT+9)",
+      "서울 (GMT+9)",
+      "싱가포르 (GMT+8)",
+      "시드니 (GMT+11)",
+    ],
   },
 ]
 
@@ -253,7 +267,14 @@ export function Popup() {
       itemToStringLabel={(country: Country) => country.label}
       itemToStringValue={(country: Country) => country.label}
     >
-      <ComboboxTrigger render={<Button variant="outline" className="w-52 justify-between font-normal" />}>
+      <ComboboxTrigger
+        render={
+          <Button
+            variant="outline"
+            className="w-52 justify-between font-normal"
+          />
+        }
+      >
         <ComboboxValue />
       </ComboboxTrigger>
       <ComboboxContent>
@@ -297,32 +318,5 @@ export function InputGroup() {
         </ComboboxList>
       </ComboboxContent>
     </Combobox>
-  )
-}
-
-const fruitsAr = ["تفاح", "موز", "برتقال", "عنب", "مانجو"]
-
-export function Rtl() {
-  return (
-    <div dir="rtl" className="flex w-full max-w-xs flex-col items-end gap-2">
-      <DirectionProvider direction="rtl">
-        <Combobox items={fruitsAr}>
-          <ComboboxInput placeholder="اختر فاكهة" />
-          <ComboboxContent>
-            <ComboboxEmpty>لا توجد نتائج.</ComboboxEmpty>
-            <ComboboxList>
-              {(item: string) => (
-                <ComboboxItem key={item} value={item}>
-                  {item}
-                </ComboboxItem>
-              )}
-            </ComboboxList>
-          </ComboboxContent>
-        </Combobox>
-      </DirectionProvider>
-      <p className="text-xs text-muted-foreground">
-        글자와 화살표 방향이 오른쪽에서 왼쪽으로 뒤집힙니다.
-      </p>
-    </div>
   )
 }

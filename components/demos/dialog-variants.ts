@@ -3,7 +3,6 @@ import {
   Basic,
   CustomCloseButton,
   NoCloseButton,
-  Rtl,
   ScrollableContent,
   StickyFooter,
 } from "@/components/demos/dialog-demo"
@@ -43,12 +42,5 @@ export const variants: DemoVariant[] = [
     description:
       "창 전체가 아니라 안쪽 내용만 스크롤됩니다. 제목은 위에 고정됩니다.",
     Demo: ScrollableContent,
-  },
-  {
-    id: "rtl",
-    name: "RTL",
-    description:
-      "아랍어처럼 오른쪽에서 왼쪽으로 읽는 언어용 배치입니다. 제목과 버튼 위치가 뒤집힙니다.",
-    Demo: Rtl,
   },
 ]

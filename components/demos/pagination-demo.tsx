@@ -103,7 +103,10 @@ export function IconsOnly() {
         </Select>
       </Field>
       <div className="flex items-center gap-2">
-        <span className="text-sm text-muted-foreground" data-testid="page-status">
+        <span
+          className="text-sm text-muted-foreground"
+          data-testid="page-status"
+        >
           {page} / 4
         </span>
         <Pagination className="mx-0 w-auto">
@@ -117,36 +120,6 @@ export function IconsOnly() {
           </PaginationContent>
         </Pagination>
       </div>
-    </div>
-  )
-}
-
-export function Rtl() {
-  const { page, go } = usePage(10)
-
-  return (
-    <div dir="rtl" className="flex flex-col items-center gap-3">
-      <Pagination>
-        <PaginationContent>
-          <PaginationItem>
-            <PaginationPrevious href="#" onClick={go(page - 1)} />
-          </PaginationItem>
-          {[1, 2, 3].map((n) => (
-            <PaginationItem key={n}>
-              <PaginationLink href="#" isActive={page === n} onClick={go(n)}>
-                {n}
-              </PaginationLink>
-            </PaginationItem>
-          ))}
-          <PaginationItem>
-            <PaginationEllipsis />
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationNext href="#" onClick={go(page + 1)} />
-          </PaginationItem>
-        </PaginationContent>
-      </Pagination>
-      <p className="text-xs text-muted-foreground">이전·다음 화살표와 숫자 순서가 오른쪽에서 왼쪽으로 뒤집힙니다.</p>
     </div>
   )
 }

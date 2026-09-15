@@ -1,6 +1,10 @@
 "use client"
 
-import { NativeSelect, NativeSelectOptGroup, NativeSelectOption } from "@/components/ui/native-select"
+import {
+  NativeSelect,
+  NativeSelectOptGroup,
+  NativeSelectOption,
+} from "@/components/ui/native-select"
 
 export function Basic() {
   return (
@@ -25,12 +29,18 @@ export function Groups() {
       </NativeSelectOptGroup>
       <NativeSelectOptGroup label="영업">
         <NativeSelectOption value="sales-rep">영업 담당</NativeSelectOption>
-        <NativeSelectOption value="account-manager">고객 관리</NativeSelectOption>
-        <NativeSelectOption value="sales-director">영업 이사</NativeSelectOption>
+        <NativeSelectOption value="account-manager">
+          고객 관리
+        </NativeSelectOption>
+        <NativeSelectOption value="sales-director">
+          영업 이사
+        </NativeSelectOption>
       </NativeSelectOptGroup>
       <NativeSelectOptGroup label="운영">
         <NativeSelectOption value="support">고객 지원</NativeSelectOption>
-        <NativeSelectOption value="product-manager">프로덕트 매니저</NativeSelectOption>
+        <NativeSelectOption value="product-manager">
+          프로덕트 매니저
+        </NativeSelectOption>
         <NativeSelectOption value="ops-manager">운영 매니저</NativeSelectOption>
       </NativeSelectOptGroup>
     </NativeSelect>
@@ -56,19 +66,5 @@ export function Invalid() {
       <NativeSelectOption value="banana">바나나</NativeSelectOption>
       <NativeSelectOption value="blueberry">블루베리</NativeSelectOption>
     </NativeSelect>
-  )
-}
-
-export function Rtl() {
-  return (
-    <div dir="rtl" className="flex flex-col items-center gap-3">
-      <NativeSelect>
-        <NativeSelectOption value="">اختر الحالة</NativeSelectOption>
-        <NativeSelectOption value="todo">قيد الانتظار</NativeSelectOption>
-        <NativeSelectOption value="in-progress">قيد التنفيذ</NativeSelectOption>
-        <NativeSelectOption value="done">مكتمل</NativeSelectOption>
-      </NativeSelect>
-      <p className="text-xs text-muted-foreground">글자와 화살표 위치가 오른쪽에서 왼쪽으로 뒤집힙니다.</p>
-    </div>
   )
 }

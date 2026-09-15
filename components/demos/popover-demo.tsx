@@ -1,7 +1,5 @@
 "use client"
 
-import { DirectionProvider } from "@base-ui/react/direction-provider"
-
 import { Button } from "@/components/ui/button"
 import { Field, FieldGroup, FieldLabel } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
@@ -17,7 +15,9 @@ import {
 export function Basic() {
   return (
     <Popover>
-      <PopoverTrigger render={<Button variant="outline" className="w-fit" />}>팝오버 열기</PopoverTrigger>
+      <PopoverTrigger render={<Button variant="outline" className="w-fit" />}>
+        팝오버 열기
+      </PopoverTrigger>
       <PopoverContent align="start">
         <PopoverHeader>
           <PopoverTitle>크기</PopoverTitle>
@@ -39,7 +39,9 @@ export function Alignments() {
     <div className="flex gap-6">
       {aligns.map(({ align, label }) => (
         <Popover key={align}>
-          <PopoverTrigger render={<Button variant="outline" size="sm" />}>{label}</PopoverTrigger>
+          <PopoverTrigger render={<Button variant="outline" size="sm" />}>
+            {label}
+          </PopoverTrigger>
           <PopoverContent align={align} className="w-40">
             {label} 기준 정렬
           </PopoverContent>
@@ -52,7 +54,9 @@ export function Alignments() {
 export function Form() {
   return (
     <Popover>
-      <PopoverTrigger render={<Button variant="outline" />}>팝오버 열기</PopoverTrigger>
+      <PopoverTrigger render={<Button variant="outline" />}>
+        팝오버 열기
+      </PopoverTrigger>
       <PopoverContent className="w-64" align="start">
         <PopoverHeader>
           <PopoverTitle>크기</PopoverTitle>
@@ -74,24 +78,5 @@ export function Form() {
         </FieldGroup>
       </PopoverContent>
     </Popover>
-  )
-}
-
-export function Rtl() {
-  return (
-    <div dir="rtl" className="flex flex-col items-center gap-3">
-      <DirectionProvider direction="rtl">
-        <Popover>
-          <PopoverTrigger render={<Button variant="outline" />}>فتح النافذة</PopoverTrigger>
-          <PopoverContent align="start" dir="rtl">
-            <PopoverHeader>
-              <PopoverTitle>الأبعاد</PopoverTitle>
-              <PopoverDescription>حدد أبعاد الطبقة.</PopoverDescription>
-            </PopoverHeader>
-          </PopoverContent>
-        </Popover>
-      </DirectionProvider>
-      <p className="text-xs text-muted-foreground">글자 정렬과 열리는 방향이 오른쪽에서 왼쪽으로 뒤집힙니다.</p>
-    </div>
   )
 }

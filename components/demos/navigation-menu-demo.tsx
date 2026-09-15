@@ -2,8 +2,11 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { DirectionProvider } from "@base-ui/react/direction-provider"
-import { CircleAlertIcon, CircleCheckIcon, CircleDashedIcon } from "lucide-react"
+import {
+  CircleAlertIcon,
+  CircleCheckIcon,
+  CircleDashedIcon,
+} from "lucide-react"
 
 import {
   NavigationMenu,
@@ -16,12 +19,36 @@ import {
 } from "@/components/ui/navigation-menu"
 
 const components = [
-  { title: "Alert Dialog", href: "/components/alert-dialog", description: "중요한 내용을 띄우고 응답을 요구하는 확인 창입니다." },
-  { title: "Hover Card", href: "/components/hover-card", description: "링크에 마우스를 올리면 뜨는 미리보기 카드입니다." },
-  { title: "Combobox", href: "/components/combobox", description: "입력해서 걸러내며 고르는 선택 상자입니다." },
-  { title: "Data Table", href: "/components/data-table", description: "정렬·필터가 되는 데이터 표입니다." },
-  { title: "Dialog", href: "/components/dialog", description: "화면 가운데 뜨는 모달 창입니다." },
-  { title: "Drawer", href: "/components/drawer", description: "가장자리에서 밀려 나오는 패널입니다." },
+  {
+    title: "Alert Dialog",
+    href: "/components/alert-dialog",
+    description: "중요한 내용을 띄우고 응답을 요구하는 확인 창입니다.",
+  },
+  {
+    title: "Hover Card",
+    href: "/components/hover-card",
+    description: "링크에 마우스를 올리면 뜨는 미리보기 카드입니다.",
+  },
+  {
+    title: "Combobox",
+    href: "/components/combobox",
+    description: "입력해서 걸러내며 고르는 선택 상자입니다.",
+  },
+  {
+    title: "Data Table",
+    href: "/components/data-table",
+    description: "정렬·필터가 되는 데이터 표입니다.",
+  },
+  {
+    title: "Dialog",
+    href: "/components/dialog",
+    description: "화면 가운데 뜨는 모달 창입니다.",
+  },
+  {
+    title: "Drawer",
+    href: "/components/drawer",
+    description: "가장자리에서 밀려 나오는 패널입니다.",
+  },
 ]
 
 function ListItem({
@@ -79,15 +106,26 @@ export function Basic() {
           <NavigationMenuContent>
             <ul className="grid w-[200px]">
               <li>
-                <NavigationMenuLink render={<Link href="#" className="flex-row items-center gap-2" />}>
+                <NavigationMenuLink
+                  render={
+                    <Link href="#" className="flex-row items-center gap-2" />
+                  }
+                >
                   <CircleAlertIcon />
                   백로그
                 </NavigationMenuLink>
-                <NavigationMenuLink render={<Link href="#" className="flex-row items-center gap-2" />}>
-                  <CircleDashedIcon />
-                  할 일
+                <NavigationMenuLink
+                  render={
+                    <Link href="#" className="flex-row items-center gap-2" />
+                  }
+                >
+                  <CircleDashedIcon />할 일
                 </NavigationMenuLink>
-                <NavigationMenuLink render={<Link href="#" className="flex-row items-center gap-2" />}>
+                <NavigationMenuLink
+                  render={
+                    <Link href="#" className="flex-row items-center gap-2" />
+                  }
+                >
                   <CircleCheckIcon />
                   완료
                 </NavigationMenuLink>
@@ -96,7 +134,10 @@ export function Basic() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuLink render={<Link href="/" />} className={navigationMenuTriggerStyle()}>
+          <NavigationMenuLink
+            render={<Link href="/" />}
+            className={navigationMenuTriggerStyle()}
+          >
             문서
           </NavigationMenuLink>
         </NavigationMenuItem>
@@ -116,44 +157,15 @@ export function LinkOnly() {
           { label: "아바타", href: "/components/avatar" },
         ].map((item) => (
           <NavigationMenuItem key={item.href}>
-            <NavigationMenuLink render={<Link href={item.href} />} className={navigationMenuTriggerStyle()}>
+            <NavigationMenuLink
+              render={<Link href={item.href} />}
+              className={navigationMenuTriggerStyle()}
+            >
               {item.label}
             </NavigationMenuLink>
           </NavigationMenuItem>
         ))}
       </NavigationMenuList>
     </NavigationMenu>
-  )
-}
-
-export function Rtl() {
-  return (
-    <div dir="rtl" className="flex flex-col items-center gap-3">
-      <DirectionProvider direction="rtl">
-        <NavigationMenu>
-          <NavigationMenuList>
-            <NavigationMenuItem>
-              <NavigationMenuTrigger>البدء</NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="w-80" dir="rtl">
-                  <ListItem href="/" title="مقدمة">
-                    مكونات قابلة لإعادة الاستخدام مبنية بـ Tailwind CSS.
-                  </ListItem>
-                  <ListItem href="/components/button" title="التثبيت">
-                    كيفية تثبيت التبعيات وهيكلة تطبيقك.
-                  </ListItem>
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuLink render={<Link href="/" />} className={navigationMenuTriggerStyle()}>
-                الوثائق
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
-      </DirectionProvider>
-      <p className="text-xs text-muted-foreground">메뉴 순서와 화살표 방향이 오른쪽에서 왼쪽으로 뒤집힙니다.</p>
-    </div>
   )
 }

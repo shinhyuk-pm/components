@@ -1,6 +1,10 @@
 "use client"
 
-import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/components/ui/resizable"
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from "@/components/ui/resizable"
 
 function Box({ children }: { children: React.ReactNode }) {
   return (
@@ -12,7 +16,10 @@ function Box({ children }: { children: React.ReactNode }) {
 
 export function Basic() {
   return (
-    <ResizablePanelGroup orientation="horizontal" className="w-full max-w-sm rounded-lg border">
+    <ResizablePanelGroup
+      orientation="horizontal"
+      className="w-full max-w-sm rounded-lg border"
+    >
       <ResizablePanel defaultSize="50%">
         <div className="flex h-[200px] items-center justify-center p-6">
           <span className="font-semibold">하나</span>
@@ -36,7 +43,10 @@ export function Basic() {
 
 export function Vertical() {
   return (
-    <ResizablePanelGroup orientation="vertical" className="min-h-[200px] w-full max-w-sm rounded-lg border">
+    <ResizablePanelGroup
+      orientation="vertical"
+      className="min-h-[200px] w-full max-w-sm rounded-lg border"
+    >
       <ResizablePanel defaultSize="25%">
         <Box>머리글</Box>
       </ResizablePanel>
@@ -50,7 +60,10 @@ export function Vertical() {
 
 export function Handle() {
   return (
-    <ResizablePanelGroup orientation="horizontal" className="min-h-[200px] w-full max-w-sm rounded-lg border">
+    <ResizablePanelGroup
+      orientation="horizontal"
+      className="min-h-[200px] w-full max-w-sm rounded-lg border"
+    >
       <ResizablePanel defaultSize="25%">
         <Box>사이드바</Box>
       </ResizablePanel>
@@ -59,22 +72,5 @@ export function Handle() {
         <Box>본문</Box>
       </ResizablePanel>
     </ResizablePanelGroup>
-  )
-}
-
-export function Rtl() {
-  return (
-    <div dir="rtl" className="flex w-full max-w-sm flex-col items-center gap-3">
-      <ResizablePanelGroup orientation="horizontal" className="min-h-[200px] w-full rounded-lg border">
-        <ResizablePanel defaultSize="25%">
-          <Box>الشريط الجانبي</Box>
-        </ResizablePanel>
-        <ResizableHandle withHandle />
-        <ResizablePanel defaultSize="75%">
-          <Box>المحتوى</Box>
-        </ResizablePanel>
-      </ResizablePanelGroup>
-      <p className="text-xs text-muted-foreground">사이드바가 오른쪽에 놓이고 끄는 방향도 뒤집힙니다.</p>
-    </div>
   )
 }

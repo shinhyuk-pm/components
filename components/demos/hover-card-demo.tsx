@@ -1,20 +1,28 @@
 "use client"
 
-import { DirectionProvider } from "@base-ui/react/direction-provider"
-
 import { Button } from "@/components/ui/button"
-import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card"
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card"
 
 export function Basic() {
   return (
     <HoverCard>
-      <HoverCardTrigger delay={10} closeDelay={100} render={<Button variant="link" />}>
+      <HoverCardTrigger
+        delay={10}
+        closeDelay={100}
+        render={<Button variant="link" />}
+      >
         여기에 마우스를 올려 보세요
       </HoverCardTrigger>
       <HoverCardContent className="flex w-64 flex-col gap-0.5">
         <div className="font-semibold">@nextjs</div>
         <div>@vercel이 만들고 관리하는 React 프레임워크입니다.</div>
-        <div className="mt-1 text-xs text-muted-foreground">2021년 12월 가입</div>
+        <div className="mt-1 text-xs text-muted-foreground">
+          2021년 12월 가입
+        </div>
       </HoverCardContent>
     </HoverCard>
   )
@@ -32,7 +40,11 @@ export function Sides() {
     <div className="flex flex-wrap justify-center gap-2">
       {sides.map(({ side, label }) => (
         <HoverCard key={side}>
-          <HoverCardTrigger delay={100} closeDelay={100} render={<Button variant="outline" />}>
+          <HoverCardTrigger
+            delay={100}
+            closeDelay={100}
+            render={<Button variant="outline" />}
+          >
             {label}
           </HoverCardTrigger>
           <HoverCardContent side={side}>
@@ -43,26 +55,6 @@ export function Sides() {
           </HoverCardContent>
         </HoverCard>
       ))}
-    </div>
-  )
-}
-
-export function Rtl() {
-  return (
-    <div dir="rtl" className="flex flex-col items-center gap-3">
-      <DirectionProvider direction="rtl">
-        <HoverCard>
-          <HoverCardTrigger delay={10} closeDelay={100} render={<Button variant="link" />}>
-            مرر الماوس هنا
-          </HoverCardTrigger>
-          <HoverCardContent className="flex w-64 flex-col gap-0.5" dir="rtl">
-            <div className="font-semibold">@nextjs</div>
-            <div>إطار عمل React – تم إنشاؤه وصيانته بواسطة @vercel.</div>
-            <div className="mt-1 text-xs text-muted-foreground">انضم في ديسمبر 2021</div>
-          </HoverCardContent>
-        </HoverCard>
-      </DirectionProvider>
-      <p className="text-xs text-muted-foreground">카드 안 글자가 오른쪽 정렬로 뒤집힙니다.</p>
     </div>
   )
 }

@@ -9,7 +9,6 @@ import {
   Icon,
   InlineEnd,
   InlineStart,
-  Rtl,
   Text,
   Textarea,
   WithKbd,
@@ -32,31 +31,36 @@ export const variants: DemoVariant[] = [
   {
     id: "inline-end",
     name: "Inline End",
-    description: "아이콘을 입력칸 뒤쪽(오른쪽)에 둡니다. 비밀번호 보기 버튼에 흔합니다.",
+    description:
+      "아이콘을 입력칸 뒤쪽(오른쪽)에 둡니다. 비밀번호 보기 버튼에 흔합니다.",
     Demo: InlineEnd,
   },
   {
     id: "block-start",
     name: "Block Start",
-    description: "입력칸 위쪽에 머리글 줄을 붙입니다. 파일 이름·복사 버튼을 얹은 코드 칸에 씁니다.",
+    description:
+      "입력칸 위쪽에 머리글 줄을 붙입니다. 파일 이름·복사 버튼을 얹은 코드 칸에 씁니다.",
     Demo: BlockStart,
   },
   {
     id: "block-end",
     name: "Block End",
-    description: "입력칸 아래쪽에 바닥글 줄을 붙입니다. 글자 수·게시 버튼을 얹은 댓글 칸에 씁니다.",
+    description:
+      "입력칸 아래쪽에 바닥글 줄을 붙입니다. 글자 수·게시 버튼을 얹은 댓글 칸에 씁니다.",
     Demo: BlockEnd,
   },
   {
     id: "icon",
     name: "Icon",
-    description: "검색·메일·카드 등 아이콘을 앞뒤에 다양하게 붙인 예시 모음입니다.",
+    description:
+      "검색·메일·카드 등 아이콘을 앞뒤에 다양하게 붙인 예시 모음입니다.",
     Demo: Icon,
   },
   {
     id: "text",
     name: "Text",
-    description: "'$', 'https://', '@company.com'처럼 고정 글자를 앞뒤에 붙입니다.",
+    description:
+      "'$', 'https://', '@company.com'처럼 고정 글자를 앞뒤에 붙입니다.",
     Demo: Text,
   },
   {
@@ -74,7 +78,8 @@ export const variants: DemoVariant[] = [
   {
     id: "dropdown",
     name: "Dropdown",
-    description: "입력칸 안 버튼을 누르면 메뉴가 펼쳐집니다. 검색 범위 선택 같은 데 씁니다.",
+    description:
+      "입력칸 안 버튼을 누르면 메뉴가 펼쳐집니다. 검색 범위 선택 같은 데 씁니다.",
     Demo: Dropdown,
   },
   {
@@ -86,19 +91,15 @@ export const variants: DemoVariant[] = [
   {
     id: "textarea",
     name: "Textarea",
-    description: "여러 줄 입력칸 위아래에 도구 줄을 붙인 코드 편집기 모양입니다.",
+    description:
+      "여러 줄 입력칸 위아래에 도구 줄을 붙인 코드 편집기 모양입니다.",
     Demo: Textarea,
   },
   {
     id: "custom",
     name: "Custom",
-    description: "직접 만든 입력 요소도 data-slot만 맞추면 같은 묶음 안에 넣을 수 있습니다.",
+    description:
+      "직접 만든 입력 요소도 data-slot만 맞추면 같은 묶음 안에 넣을 수 있습니다.",
     Demo: Custom,
-  },
-  {
-    id: "rtl",
-    name: "RTL",
-    description: "아랍어처럼 오른쪽에서 왼쪽으로 읽는 언어용 배치입니다. 아이콘 위치가 뒤집힙니다.",
-    Demo: Rtl,
   },
 ]

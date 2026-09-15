@@ -7,7 +7,6 @@ import {
   MonthAndYearSelector,
   Presets,
   Range,
-  Rtl,
   WeekNumbers,
 } from "@/components/demos/calendar-demo"
 
@@ -67,12 +66,5 @@ export const variants: DemoVariant[] = [
     description:
       "왼쪽에 그 해의 몇 번째 주인지 표시합니다. 주 단위로 일하는 업무에 유용합니다.",
     Demo: WeekNumbers,
-  },
-  {
-    id: "rtl",
-    name: "RTL",
-    description:
-      "아랍어처럼 오른쪽에서 왼쪽으로 읽는 언어용 배치입니다. 요일 순서와 화살표 방향이 뒤집힙니다.",
-    Demo: Rtl,
   },
 ]

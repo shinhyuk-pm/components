@@ -20,7 +20,11 @@ import {
   EmptyMedia,
   EmptyTitle,
 } from "@/components/ui/empty"
-import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group"
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupInput,
+} from "@/components/ui/input-group"
 import { Kbd } from "@/components/ui/kbd"
 
 export function Basic() {
@@ -31,9 +35,7 @@ export function Basic() {
           <FolderCodeIcon />
         </EmptyMedia>
         <EmptyTitle>아직 프로젝트가 없습니다</EmptyTitle>
-        <EmptyDescription>
-          첫 프로젝트를 만들어 시작해 보세요.
-        </EmptyDescription>
+        <EmptyDescription>첫 프로젝트를 만들어 시작해 보세요.</EmptyDescription>
       </EmptyHeader>
       <EmptyContent className="flex-row justify-center gap-2">
         <Button>프로젝트 만들기</Button>
@@ -60,7 +62,9 @@ export function Outline() {
           <CloudIcon />
         </EmptyMedia>
         <EmptyTitle>클라우드 저장소가 비어 있습니다</EmptyTitle>
-        <EmptyDescription>파일을 올리면 어디서든 열어 볼 수 있습니다.</EmptyDescription>
+        <EmptyDescription>
+          파일을 올리면 어디서든 열어 볼 수 있습니다.
+        </EmptyDescription>
       </EmptyHeader>
       <EmptyContent>
         <Button variant="outline" size="sm">
@@ -99,7 +103,10 @@ export function WithAvatar() {
       <EmptyHeader>
         <EmptyMedia variant="default">
           <Avatar className="size-12">
-            <AvatarImage src="https://github.com/shadcn.png" className="grayscale" />
+            <AvatarImage
+              src="https://github.com/shadcn.png"
+              className="grayscale"
+            />
             <AvatarFallback>SH</AvatarFallback>
           </Avatar>
         </EmptyMedia>
@@ -126,11 +133,17 @@ export function WithAvatarGroup() {
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>
             <Avatar>
-              <AvatarImage src="https://github.com/maxleiter.png" alt="@maxleiter" />
+              <AvatarImage
+                src="https://github.com/maxleiter.png"
+                alt="@maxleiter"
+              />
               <AvatarFallback>LR</AvatarFallback>
             </Avatar>
             <Avatar>
-              <AvatarImage src="https://github.com/evilrabbit.png" alt="@evilrabbit" />
+              <AvatarImage
+                src="https://github.com/evilrabbit.png"
+                alt="@evilrabbit"
+              />
               <AvatarFallback>ER</AvatarFallback>
             </Avatar>
           </div>
@@ -171,33 +184,6 @@ export function WithInputGroup() {
           도움이 필요하신가요? <a href="#">고객 지원 문의</a>
         </EmptyDescription>
       </EmptyContent>
-    </Empty>
-  )
-}
-
-export function Rtl() {
-  return (
-    <Empty dir="rtl">
-      <EmptyHeader>
-        <EmptyMedia variant="icon">
-          <FolderCodeIcon />
-        </EmptyMedia>
-        <EmptyTitle>لا توجد مشاريع بعد</EmptyTitle>
-        <EmptyDescription>لم تقم بإنشاء أي مشاريع بعد. ابدأ بإنشاء مشروعك الأول.</EmptyDescription>
-      </EmptyHeader>
-      <EmptyContent className="flex-row justify-center gap-2">
-        <Button>إنشاء مشروع</Button>
-        <Button variant="outline">استيراد مشروع</Button>
-      </EmptyContent>
-      <Button
-        variant="link"
-        render={<a href="#" />}
-        className="text-muted-foreground"
-        size="sm"
-        nativeButton={false}
-      >
-        تعرف على المزيد <ArrowUpRightIcon className="rtl:rotate-270" data-icon="inline-end" />
-      </Button>
     </Empty>
   )
 }

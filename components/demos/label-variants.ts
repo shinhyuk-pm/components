@@ -1,5 +1,5 @@
 import type { DemoVariant } from "@/components/demo-types"
-import { Basic, InField, Rtl } from "@/components/demos/label-demo"
+import { Basic, InField } from "@/components/demos/label-demo"
 
 export const variants: DemoVariant[] = [
   {
@@ -14,11 +14,5 @@ export const variants: DemoVariant[] = [
     name: "Label in Field",
     description: "Field 안에서 라벨·입력칸·설명이 한 세트로 정돈된 형태입니다.",
     Demo: InField,
-  },
-  {
-    id: "rtl",
-    name: "RTL",
-    description: "아랍어처럼 오른쪽에서 왼쪽으로 읽는 언어용 배치입니다. 체크박스와 글자 위치가 뒤집힙니다.",
-    Demo: Rtl,
   },
 ]

@@ -1,5 +1,5 @@
 import type { DemoVariant } from "@/components/demo-types"
-import { Basic, Controlled, Rtl, WithLabel } from "@/components/demos/progress-demo"
+import { Basic, Controlled, WithLabel } from "@/components/demos/progress-demo"
 
 export const variants: DemoVariant[] = [
   {
@@ -18,13 +18,8 @@ export const variants: DemoVariant[] = [
   {
     id: "controlled",
     name: "Controlled",
-    description: "슬라이더로 값을 바꾸면 막대가 따라 움직입니다. 값을 코드에서 직접 다루는 형태입니다.",
+    description:
+      "슬라이더로 값을 바꾸면 막대가 따라 움직입니다. 값을 코드에서 직접 다루는 형태입니다.",
     Demo: Controlled,
-  },
-  {
-    id: "rtl",
-    name: "RTL",
-    description: "아랍어처럼 오른쪽에서 왼쪽으로 읽는 언어용 배치입니다. 막대가 오른쪽부터 채워집니다.",
-    Demo: Rtl,
   },
 ]

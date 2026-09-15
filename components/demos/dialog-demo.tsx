@@ -1,7 +1,5 @@
 "use client"
 
-import { DirectionProvider } from "@base-ui/react/direction-provider"
-
 import { Button } from "@/components/ui/button"
 import {
   Dialog,
@@ -21,7 +19,9 @@ const longText =
 export function Basic() {
   return (
     <Dialog>
-      <DialogTrigger render={<Button variant="outline" />}>창 열기</DialogTrigger>
+      <DialogTrigger render={<Button variant="outline" />}>
+        창 열기
+      </DialogTrigger>
       <DialogContent className="sm:max-w-sm">
         <DialogHeader>
           <DialogTitle>프로필 수정</DialogTitle>
@@ -63,7 +63,10 @@ export function CustomCloseButton() {
             이 링크를 가진 사람은 누구나 볼 수 있습니다.
           </DialogDescription>
         </DialogHeader>
-        <Input defaultValue="https://ui.shadcn.com/docs/installation" readOnly />
+        <Input
+          defaultValue="https://ui.shadcn.com/docs/installation"
+          readOnly
+        />
         <DialogFooter className="sm:justify-start">
           <DialogClose render={<Button />}>닫기</DialogClose>
         </DialogFooter>
@@ -75,7 +78,9 @@ export function CustomCloseButton() {
 export function NoCloseButton() {
   return (
     <Dialog>
-      <DialogTrigger render={<Button variant="outline" />}>닫기 버튼 없음</DialogTrigger>
+      <DialogTrigger render={<Button variant="outline" />}>
+        닫기 버튼 없음
+      </DialogTrigger>
       <DialogContent showCloseButton={false}>
         <DialogHeader>
           <DialogTitle>닫기 버튼 없음</DialogTitle>
@@ -91,7 +96,9 @@ export function NoCloseButton() {
 export function StickyFooter() {
   return (
     <Dialog>
-      <DialogTrigger render={<Button variant="outline" />}>고정 푸터</DialogTrigger>
+      <DialogTrigger render={<Button variant="outline" />}>
+        고정 푸터
+      </DialogTrigger>
       <DialogContent>
         <DialogHeader>
           <DialogTitle>고정 푸터</DialogTitle>
@@ -99,7 +106,7 @@ export function StickyFooter() {
             내용이 스크롤되는 동안에도 아래 버튼 영역은 그대로 보입니다.
           </DialogDescription>
         </DialogHeader>
-        <div className="no-scrollbar -mx-4 max-h-[50vh] overflow-y-auto px-4">
+        <div className="-mx-4 no-scrollbar max-h-[50vh] overflow-y-auto px-4">
           {Array.from({ length: 10 }).map((_, index) => (
             <p key={index} className="mb-4 leading-normal">
               {longText}
@@ -117,13 +124,17 @@ export function StickyFooter() {
 export function ScrollableContent() {
   return (
     <Dialog>
-      <DialogTrigger render={<Button variant="outline" />}>스크롤 내용</DialogTrigger>
+      <DialogTrigger render={<Button variant="outline" />}>
+        스크롤 내용
+      </DialogTrigger>
       <DialogContent>
         <DialogHeader>
           <DialogTitle>스크롤 내용</DialogTitle>
-          <DialogDescription>내용이 길면 창 안쪽만 스크롤됩니다.</DialogDescription>
+          <DialogDescription>
+            내용이 길면 창 안쪽만 스크롤됩니다.
+          </DialogDescription>
         </DialogHeader>
-        <div className="no-scrollbar -mx-4 max-h-[50vh] overflow-y-auto px-4">
+        <div className="-mx-4 no-scrollbar max-h-[50vh] overflow-y-auto px-4">
           {Array.from({ length: 10 }).map((_, index) => (
             <p key={index} className="mb-4 leading-normal">
               {longText}
@@ -132,46 +143,5 @@ export function ScrollableContent() {
         </div>
       </DialogContent>
     </Dialog>
-  )
-}
-
-export function Rtl() {
-  return (
-    <div dir="rtl" className="flex flex-col items-center gap-3">
-      <DirectionProvider direction="rtl">
-        <Dialog>
-          <DialogTrigger render={<Button variant="outline" />}>فتح الحوار</DialogTrigger>
-          <DialogContent className="sm:max-w-sm" dir="rtl">
-            <DialogHeader>
-              <DialogTitle>تعديل الملف الشخصي</DialogTitle>
-              <DialogDescription>
-                قم بإجراء تغييرات على ملفك الشخصي هنا. انقر فوق حفظ عند الانتهاء.
-              </DialogDescription>
-            </DialogHeader>
-            <div className="flex flex-col gap-4">
-              <div className="flex flex-col gap-2">
-                <label htmlFor="dialog-rtl-name" className="text-sm font-medium">
-                  الاسم
-                </label>
-                <Input id="dialog-rtl-name" defaultValue="Pedro Duarte" />
-              </div>
-              <div className="flex flex-col gap-2">
-                <label htmlFor="dialog-rtl-username" className="text-sm font-medium">
-                  اسم المستخدم
-                </label>
-                <Input id="dialog-rtl-username" defaultValue="@peduarte" />
-              </div>
-            </div>
-            <DialogFooter>
-              <DialogClose render={<Button variant="outline" />}>إلغاء</DialogClose>
-              <Button>حفظ التغييرات</Button>
-            </DialogFooter>
-          </DialogContent>
-        </Dialog>
-      </DirectionProvider>
-      <p className="text-xs text-muted-foreground">
-        제목·버튼·닫기 아이콘 위치가 오른쪽에서 왼쪽으로 뒤집힙니다.
-      </p>
-    </div>
   )
 }

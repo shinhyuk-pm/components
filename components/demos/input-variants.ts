@@ -8,7 +8,6 @@ import {
   Inline,
   Invalid,
   Required,
-  Rtl,
   WithBadge,
   WithButtonGroup,
   WithField,
@@ -17,11 +16,17 @@ import {
 } from "@/components/demos/input-demo"
 
 export const variants: DemoVariant[] = [
-  { id: "basic", name: "Basic", description: "가장 단순한 한 줄 입력칸입니다.", Demo: Basic },
+  {
+    id: "basic",
+    name: "Basic",
+    description: "가장 단순한 한 줄 입력칸입니다.",
+    Demo: Basic,
+  },
   {
     id: "field",
     name: "Field",
-    description: "라벨과 설명을 붙인 형태입니다. 대부분의 폼에서 이 조합을 씁니다.",
+    description:
+      "라벨과 설명을 붙인 형태입니다. 대부분의 폼에서 이 조합을 씁니다.",
     Demo: WithField,
   },
   {
@@ -42,7 +47,12 @@ export const variants: DemoVariant[] = [
     description: "입력값에 오류가 있을 때 테두리가 빨갛게 바뀝니다.",
     Demo: Invalid,
   },
-  { id: "file", name: "File", description: "파일을 고르는 입력칸입니다.", Demo: File },
+  {
+    id: "file",
+    name: "File",
+    description: "파일을 고르는 입력칸입니다.",
+    Demo: File,
+  },
   {
     id: "inline",
     name: "Inline",
@@ -52,7 +62,8 @@ export const variants: DemoVariant[] = [
   {
     id: "grid",
     name: "Grid",
-    description: "입력칸 두 개를 좌우로 나란히 배치합니다. 성·이름처럼 짝이 되는 항목에 씁니다.",
+    description:
+      "입력칸 두 개를 좌우로 나란히 배치합니다. 성·이름처럼 짝이 되는 항목에 씁니다.",
     Demo: Grid,
   },
   {
@@ -84,11 +95,5 @@ export const variants: DemoVariant[] = [
     name: "Form",
     description: "이름·이메일·전화·국가·주소를 모두 갖춘 실제 폼 예시입니다.",
     Demo: Form,
-  },
-  {
-    id: "rtl",
-    name: "RTL",
-    description: "아랍어처럼 오른쪽에서 왼쪽으로 읽는 언어용 배치입니다. 글자가 오른쪽에서 시작합니다.",
-    Demo: Rtl,
   },
 ]
