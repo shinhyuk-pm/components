@@ -50,6 +50,7 @@ import { variants as resizableVariants } from "@/components/demos/resizable-vari
 import { variants as scrollAreaVariants } from "@/components/demos/scroll-area-variants"
 import { variants as selectVariants } from "@/components/demos/select-variants"
 import { variants as separatorVariants } from "@/components/demos/separator-variants"
+import { variants as sliderVariants } from "@/components/demos/slider-variants"
 import { variants as switchVariants } from "@/components/demos/switch-variants"
 import { variants as tableVariants } from "@/components/demos/table-variants"
 import { variants as textareaVariants } from "@/components/demos/textarea-variants"
@@ -407,6 +408,13 @@ export const components: ComponentEntry[] = [
     summary:
       "내용을 시각적으로 나누는 얇은 구분선입니다. 가로·세로 방향을 모두 지원하며, 화면 낭독기에는 구분선으로 읽힙니다.",
     variants: separatorVariants,
+  },
+  {
+    slug: "slider",
+    name: "Slider",
+    summary:
+      "손잡이를 끌어 정해진 범위 안에서 값을 고르는 막대입니다. 가격대·음량처럼 대략적인 값을 정할 때 씁니다.",
+    variants: sliderVariants,
   },
   {
     slug: "switch",
