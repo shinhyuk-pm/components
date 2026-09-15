@@ -36,6 +36,7 @@ import { variants as inputOtpVariants } from "@/components/demos/input-otp-varia
 import { variants as itemVariants } from "@/components/demos/item-variants"
 import { variants as kbdVariants } from "@/components/demos/kbd-variants"
 import { variants as labelVariants } from "@/components/demos/label-variants"
+import { variants as markerVariants } from "@/components/demos/marker-variants"
 import { variants as menubarVariants } from "@/components/demos/menubar-variants"
 import { variants as messageVariants } from "@/components/demos/message-variants"
 import { variants as messageScrollerVariants } from "@/components/demos/message-scroller-variants"
@@ -312,6 +313,13 @@ export const components: ComponentEntry[] = [
     summary:
       "입력 요소 옆에 붙는 이름표입니다. 글자를 눌러도 해당 입력칸이 반응하도록 연결됩니다.",
     variants: labelVariants,
+  },
+  {
+    slug: "marker",
+    name: "Marker",
+    summary:
+      "대화 목록 사이에 끼워 넣는 안내 줄입니다. 날짜 구분, 참여 알림, 진행 상태처럼 말풍선이 아닌 내용을 표시합니다.",
+    variants: markerVariants,
   },
   {
     slug: "menubar",
