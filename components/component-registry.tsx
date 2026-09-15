@@ -51,6 +51,7 @@ import { variants as scrollAreaVariants } from "@/components/demos/scroll-area-v
 import { variants as selectVariants } from "@/components/demos/select-variants"
 import { variants as separatorVariants } from "@/components/demos/separator-variants"
 import { variants as tableVariants } from "@/components/demos/table-variants"
+import { variants as textareaVariants } from "@/components/demos/textarea-variants"
 
 export type ComponentEntry = {
   /** 문서 페이지 안에서 쓰는 앵커 id */
@@ -412,5 +413,12 @@ export const components: ComponentEntry[] = [
     summary:
       "데이터를 행과 열로 정리해 보여 주는 표입니다. 정렬·검색 같은 기능이 붙은 것은 Data Table을 쓰고, 이쪽은 단순히 값을 나열할 때 씁니다.",
     variants: tableVariants,
+  },
+  {
+    slug: "textarea",
+    name: "Textarea",
+    summary:
+      "여러 줄을 입력받는 칸입니다. 한 줄짜리 Input과 달리 문의 내용·메모처럼 긴 글을 받을 때 씁니다.",
+    variants: textareaVariants,
   },
 ]
