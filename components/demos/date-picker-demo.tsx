@@ -15,6 +15,20 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover"
 
+/**
+ * 정적으로 미리 만들어 둔 HTML 에는 빌드한 날짜가 박히고, 화면에서는 오늘
+ * 날짜가 계산돼 둘이 어긋난다(React hydration mismatch). 그래서 화면에 붙은
+ * 뒤에 값을 채운다.
+ */
+function useTodayAfterMount<T>(make: () => T) {
+  const [value, setValue] = React.useState<T | undefined>(undefined)
+  React.useEffect(() => {
+    setValue(make())
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+  return [value, setValue] as const
+}
+
 export function Basic() {
   const [date, setDate] = React.useState<Date | undefined>()
 
@@ -47,10 +61,10 @@ export function Basic() {
 }
 
 export function Range() {
-  const [range, setRange] = React.useState<DateRange | undefined>({
+  const [range, setRange] = useTodayAfterMount<DateRange>(() => ({
     from: new Date(),
     to: addDays(new Date(), 6),
-  })
+  }))
 
   return (
     <Popover>
@@ -140,7 +154,7 @@ const PRESETS = [
 ]
 
 export function WithPresets() {
-  const [date, setDate] = React.useState<Date | undefined>(new Date())
+  const [date, setDate] = useTodayAfterMount<Date>(() => new Date())
 
   return (
     <Popover>
@@ -222,8 +236,8 @@ export function Disabled() {
 }
 
 export function TwoInputs() {
-  const [from, setFrom] = React.useState<Date | undefined>(new Date())
-  const [to, setTo] = React.useState<Date | undefined>(addDays(new Date(), 14))
+  const [from, setFrom] = useTodayAfterMount<Date>(() => new Date())
+  const [to, setTo] = useTodayAfterMount<Date>(() => addDays(new Date(), 14))
 
   const Cell = ({
     value,
